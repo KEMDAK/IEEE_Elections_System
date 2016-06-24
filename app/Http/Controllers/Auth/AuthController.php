@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -49,9 +50,8 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'ieee_membership_id' => 'required',
         ]);
     }
 
@@ -64,9 +64,89 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'ieee_membership_id' => $data['ieee_membership_id'],
+            'role' => $data['role'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'active' => 'false',
+            'status' => 'false'
         ]);
+    }
+
+    /**
+     * activate a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return User
+     */
+    protected function activate(Request $request)
+    {
+
+        $this->validate($request, [
+            'email' => 'required|email|max:255|exists:users,email,ieee_membership_id,' . $data['ieee_membership_id'],
+            'ieee_membership_id' => 'required',
+        ]);
+
+        $data = $request->all();
+
+        $user = User::where('email', $data['email'])->get();
+
+        /** generating a password and activating the account */
+        $user->active = 'true';
+        $password = generateStrongPassword(10, false, 'luds');
+        $user->password = bcrypt($password);
+
+        /** sending an email with the password */
+        Mail::send('emails.welcome', ['password' => $password], function($message)
+        {
+            $message->to($user->email, 'IEEE GUC SB member')->subject('Welcome to IEEE GUC SB 2016 Elections!');
+        });
+
+        /** saving the user in the database */
+        $user->save();
+
+        return redirect('/');
+    }
+
+    /**
+     * This function generates a strong user friendly password.
+     *
+     * @param  Integer $length        The length of the password.
+     * @param  Boolean $add_dashes    True if the password contains dashes.
+     * @param  String $available_sets The password character set.
+     * @return String                 The generated password.
+     */
+    protected function generateStrongPassword($length, $add_dashes, $available_sets)
+    {
+        $sets = array();
+        if(strpos($available_sets, 'l') !== false)
+        $sets[] = 'abcdefghjkmnpqrstuvwxyz';
+        if(strpos($available_sets, 'u') !== false)
+        $sets[] = 'ABCDEFGHJKMNPQRSTUVWXYZ';
+        if(strpos($available_sets, 'd') !== false)
+        $sets[] = '23456789';
+        if(strpos($available_sets, 's') !== false)
+        $sets[] = '!@#$%&*?';
+        $all = '';
+        $password = '';
+        foreach($sets as $set)
+        {
+            $password .= $set[array_rand(str_split($set))];
+            $all .= $set;
+        }
+        $all = str_split($all);
+        for($i = 0; $i < $length - count($sets); $i++)
+        $password .= $all[array_rand($all)];
+        $password = str_shuffle($password);
+        if(!$add_dashes)
+        return $password;
+        $dash_len = floor(sqrt($length));
+        $dash_str = '';
+        while(strlen($password) > $dash_len)
+        {
+            $dash_str .= substr($password, 0, $dash_len) . '-';
+            $password = substr($password, $dash_len);
+        }
+        $dash_str .= $password;
+        return $dash_str;
     }
 }
