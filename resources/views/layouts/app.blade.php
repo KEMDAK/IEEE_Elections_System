@@ -18,7 +18,7 @@
     <style>
         body {
             font-family: 'Lato';
-              background-color: rgb(214, 214, 245);
+              background-color: rgb(198, 217, 236);
         }
 
         .fa-btn {
