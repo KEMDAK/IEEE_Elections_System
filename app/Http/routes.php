@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::auth();
+Route::post('activate', 'Auth\AuthController@activate');
