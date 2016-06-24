@@ -16,3 +16,11 @@ Route::get('/', function () {
 });
 
 Route::auth();
+
+Route::get('/thanks', function () {
+    return view('vote.thanks');
+});
+
+Route::get('/vote', function () {
+    return view('vote.vote');
+});

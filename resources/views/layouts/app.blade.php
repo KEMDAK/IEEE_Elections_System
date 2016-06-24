@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>IEEEGUC</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -18,11 +18,84 @@
     <style>
         body {
             font-family: 'Lato';
+              background-color: rgb(214, 214, 245);
         }
 
         .fa-btn {
             margin-right: 6px;
         }
+
+        /*navbar*/
+        .navbar-default {
+          background-color: #467ec9;
+          border-color: #174590;
+        }
+        .navbar-default .navbar-brand {
+          color: #ecf0f1;
+        }
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+          color: #b2c9e8;
+        }
+        .navbar-default .navbar-text {
+          color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav > li > a {
+          color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+          color: #b2c9e8;
+        }
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+          color: #b2c9e8;
+          background-color: #174590;
+        }
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+          color: #b2c9e8;
+          background-color: #174590;
+        }
+        .navbar-default .navbar-toggle {
+          border-color: #174590;
+        }
+        .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+          background-color: #174590;
+        }
+        .navbar-default .navbar-toggle .icon-bar {
+          background-color: #ecf0f1;
+        }
+        .navbar-default .navbar-collapse,
+        .navbar-default .navbar-form {
+          border-color: #ecf0f1;
+        }
+        .navbar-default .navbar-link {
+          color: #ecf0f1;
+        }
+        .navbar-default .navbar-link:hover {
+          color: #b2c9e8;
+        }
+
+        @media (max-width: 767px) {
+          .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+            color: #ecf0f1;
+          }
+          .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+          .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+            color: #b2c9e8;
+          }
+          .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+          .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+          .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+            color: #b2c9e8;
+            background-color: #174590;
+          }
+        }
+
     </style>
 </head>
 <body id="app-layout">
@@ -40,15 +113,11 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    IEEEGUC
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
