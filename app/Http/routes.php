@@ -18,27 +18,41 @@ Route::get('/', function () {
 Route::auth();
 Route::get('activate', 'Auth\AuthController@showActivationForm');
 Route::post('activate', 'Auth\AuthController@activate');
+Route::get('voter', 'Auth\AuthController@index');
+Route::delete('voter/{id}', 'Auth\AuthController@destroy');
 
+// //testing frontend
+// Route::get('thanks', function () {
+//     return view('vote.thanks');
+// });
+//
+// Route::get('vote', function () {
+//   $presidents = ['wolf.png', 'wolf.png'];
+//   $vice_presidents = $presidents;
+//   $secretaries = $presidents;
+//   $treasurers = $presidents;
+//   return view('vote.vote', compact('presidents','vice_presidents','treasurers', 'secretaries'));
+// });
+//
+// Route::post('voted',function () {
+//     return view('vote.thanks');
+// });
+
+/**
+ * voting routes
+ */
 Route::get('vote', 'VoteController@show');
 Route::post('vote', 'VoteController@store');
 
 
-Route::get('user/index','UserController@index');
-Route::get('user/create','UserController@create');
-Route::post('user/store','UserController@store');
-Route::delete('user/destroy','UserController@destroy');
-Route::get('user/update','UserController@updateView');
-Route::post('user/update','UserController@update');
+/*
+|--------------------------------------------------------------------------
+| Routes for Candidates
+|--------------------------------------------------------------------------
+|
+| Here are all the routes for the different functionalities
+| of the candidates.
+|
+*/
 
-
-Route::get('candidate/create','CandidateController@create');
-Route::post('candidate/store','CandidateController@store');
-Route::delete('candidate/destroy','CandidateController@destroy');
-Route::get('candidate/update','CandidateController@updateView');
-Route::post('candidate/update','CandidateController@update');
-
-
-
-
-
-
+Route::resource('candidate', 'CandidateController');

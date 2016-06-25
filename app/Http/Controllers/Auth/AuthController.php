@@ -39,7 +39,26 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware($this->guestMiddleware(), ['except' => ['logout', 'register', 'showRegistrationForm', 'index', 'destroy']]);
+
+        $this->middleware('auth', ['only' => ['register', 'showRegistrationForm', 'index', 'destroy']]);
+
+        $this->middleware('role:Admin', ['only' => ['register', 'showRegistrationForm', 'index', 'destroy']]);
+    }
+
+    /**
+    * This function returns a view of all the
+    *
+    * users sorted by their name.
+    *
+    **/
+    public function index()
+    {
+        $users = User::where('role', 'Voter')->get();
+
+        $users = $users->sortBy('email');
+
+        return view('auth.index', compact('users'));
     }
 
     /**
@@ -95,7 +114,7 @@ class AuthController extends Controller
         $data = $request->all();
 
         $this->validate($request, [
-            'email' => 'required|email|max:255|exists:users,email,ieee_membership_id,' . $data['ieee_membership_id'],
+            'email' => 'required|email|max:255|exists:users,email,ieee_membership_id,' . $data['ieee_membership_id'] . ',active,0',
             'ieee_membership_id' => 'required',
         ]);
 
@@ -103,7 +122,7 @@ class AuthController extends Controller
         $user = User::where('email', $data['email'])->first();
 
         /** generating a password and activating the account */
-        $user->active = 'true';
+        $user->active = '1';
         $password = $this->generateStrongPassword(10, false, 'luds');
         $user->password = bcrypt($password);
         $email = $user->email;
@@ -161,5 +180,22 @@ class AuthController extends Controller
         }
         $dash_str .= $password;
         return $dash_str;
+    }
+
+    /**
+    * This function deletes a specified user
+    *
+    * from the database.
+    *
+    **/
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+
+        if($user->isVoter()){
+            User::destroy($id);
+        }
+
+        return redirect('voters');
     }
 }

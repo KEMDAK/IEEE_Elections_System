@@ -8,116 +8,117 @@ use App\Http\Requests;
 
 use App\Candidate;
 
+use App\Http\Requests\CandidateRequest;
+
 class CandidateController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Create a new controller instance.
+    *
+    * @return void
+    */
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+        $this->middleware('role:Admin', ['except' => ['index', 'show']]);
+    }
+
+    /**
+    * This function returns a view of all the
+    *
+    * candidates sorted by their name.
+    *
+    **/
     public function index()
     {
-        
+        $candidates = Candidate::all();
+
+        $candidates = $candidates->sortBy('first_name');
+
+        return view('candidate.index', compact('candidates'));
     }
 
     /**
-     * Show the form for creating a new candidate.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('candidates.create') ;
-    }
-
-    /**
-     * Store a newly created candidate in database.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        
-         $this->validate($request, [
-            'email' => 'required|email|max:255',
-            'ieee_membership_id' => 'required',
-            'position'  =>  'required',
-            'first_name'  =>  'required',
-            'last_name'  =>  'required',
-            'major'  =>  'required',
-            'graduation_year'  =>  'required',
-            'description'  =>  'required',
-            'image_url'  =>  'required',
-        ]);
-
-        $data = $request->all();
-
-         Candidate::firstOrCreate($data);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * This function returns a view of a specific
+    *
+    * candidate.
+    *
+    **/
     public function show($id)
     {
-        //
+        $candidate = Candidate::findOrFail($id);
+
+        return view('candidate.show', compact('candidate'));
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * This function returns a view to create a
+    *
+    * new candidate.
+    *
+    **/
+    public function create()
+    {
+        return view('candidate.create');
+    }
+
+    /**
+    * This function creates a new candidate
+    *
+    * and stores it in the database.
+    *
+    **/
+    public function store(CandidateRequest $request)
+    {
+        $candidate = $request->all();
+        $candidate->votes = 0;
+
+        $candidate = Candidate::create($candidate);
+
+        return redirect('candidate');
+    }
+
+    /**
+    * This function returns a view to edit
+    *
+    * a specific candidate.
+    *
+    **/
     public function edit($id)
     {
-        //
+        $candidate = Candidate::findOrFail($id);
+
+        return view('candidate.edit', compact('candidate'));
     }
 
-     public function updateView() {
-
-        return view('candidate.edit');
-      }
-
     /**
-     * Update the specified candidate in Database.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    * This function updates an already exists
+    *
+    * candidate.
+    *
+    **/
+    public function update($id, CandidateRequest $request)
     {
-        $this->validate($request, [
-            'email' => 'required|email|max:255',
-            'ieee_membership_id' => 'required',
-            'position'  =>  'required',
-            'first_name'  =>  'required',
-            'last_name'  =>  'required',
-            'major'  =>  'required',
-            'graduation_year'  =>  'required',
-            'description'  =>  'required',
-            'image_url'  =>  'required',
-        ]); 
+        $data = $request->all();
 
-       // $candidate = ::where('ieee_membership_id', $id)->first();
-       // $candidate->fill($request::all());
-        Candidate::where('ieee_membership_id', $id)
-          ->update($request);
+        $candidate = Candidate::findOrFail($id);
+
+        $candidate->update($data);
+
+        return redirect('candidate');
     }
 
     /**
-     * Remove the specified candidate from database.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * This function deletes a specified candidate
+    *
+    * from the database.
+    *
+    **/
     public function destroy($id)
     {
-        Candidate::where('ieee_membership_id', $id)->delete();
+        Candidate::destroy($id);
+
+        return redirect('candidate');
     }
 }
