@@ -26,18 +26,41 @@
         }
 
         /*welcome page*/
-        .welcome {
-           text-align: center;
-           vertical-align: middle;
+
+        #welcome {
+          position: relative;
         }
+
+        ul.nav-pills {
+              top: 100px;
+              position: fixed;
+          }
+          div.col-sm-9 div {
+              height: 600px;
+              font-size: 18px;
+          }
+
+          #section1 {
+            color: rgb(25, 51, 77);
+          }
+          #section2 {
+            color: rgb(25, 51, 77);
+          }
+
+          @media screen and (max-width: 810px) {
+            #section1, #section2 {
+                margin-left: 150px;
+            }
+          }
 
         /*login, activate, register panel*/
         .panel-default > .panel-heading {
-          background-color: rgb(216, 229, 243);
+          color: rgb(236, 242, 248);
+          background-color: rgb(125, 166, 207);
         }
 
         .panel-default > .panel-body {
-          background-color: rgb(230, 240, 255);
+          background-color: rgb(217, 229, 242);
         }
 
         /*position labels*/
