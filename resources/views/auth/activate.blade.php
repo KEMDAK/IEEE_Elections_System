@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/activate') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -24,7 +24,6 @@
                             </div>
                         </div>
 
-                        <!-- membership number -->
                         <div class="form-group{{ $errors->has('ieee_membership_id') ? ' has-error' : '' }}">
                             <label for="ieee_membership_id" class="col-md-4 control-label">IEEE membership id</label>
 
@@ -42,7 +41,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i> Register
+                                    <i class="fa fa-btn fa-user"></i> Activate
                                 </button>
                             </div>
                         </div>

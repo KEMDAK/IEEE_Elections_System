@@ -33,3 +33,7 @@ Route::get('vote', function () {
 Route::post('voted',function () {
     return view('vote.thanks');
 });
+
+
+Route::get('activate', 'Auth\AuthController@showActivationForm');
+Route::post('activate', 'Auth\AuthController@activate');
