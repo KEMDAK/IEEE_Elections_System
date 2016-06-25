@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Mail;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -65,11 +66,21 @@ class AuthController extends Controller
     {
         return User::create([
             'ieee_membership_id' => $data['ieee_membership_id'],
-            'role' => $data['role'],
+            'role' => 'Voter',
             'email' => $data['email'],
             'active' => 'false',
             'status' => 'false'
         ]);
+    }
+
+    /**
+     * Show the activation form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showActivationForm()
+    {
+        return view('auth.activate');
     }
 
     /**
@@ -81,24 +92,26 @@ class AuthController extends Controller
     protected function activate(Request $request)
     {
 
+        $data = $request->all();
+
         $this->validate($request, [
             'email' => 'required|email|max:255|exists:users,email,ieee_membership_id,' . $data['ieee_membership_id'],
             'ieee_membership_id' => 'required',
         ]);
 
-        $data = $request->all();
 
-        $user = User::where('email', $data['email'])->get();
+        $user = User::where('email', $data['email'])->first();
 
         /** generating a password and activating the account */
         $user->active = 'true';
-        $password = generateStrongPassword(10, false, 'luds');
+        $password = $this->generateStrongPassword(10, false, 'luds');
         $user->password = bcrypt($password);
+        $email = $user->email;
 
         /** sending an email with the password */
-        Mail::send('emails.welcome', ['password' => $password], function($message)
+        Mail::send('auth.emails.welcome', ['password' => $password], function($message) use ($email)
         {
-            $message->to($user->email, 'IEEE GUC SB member')->subject('Welcome to IEEE GUC SB 2016 Elections!');
+            $message->to($email, 'IEEE GUC SB member')->subject('Welcome to IEEE GUC SB 2016 Elections!');
         });
 
         /** saving the user in the database */
