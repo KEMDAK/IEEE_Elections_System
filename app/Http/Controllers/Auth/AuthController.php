@@ -39,11 +39,26 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => ['logout', 'register', 'showRegistrationForm']]);
+        $this->middleware($this->guestMiddleware(), ['except' => ['logout', 'register', 'showRegistrationForm', 'index', 'destroy']]);
 
-        $this->middleware('auth', ['only' => ['register', 'showRegistrationForm']]);
+        $this->middleware('auth', ['only' => ['register', 'showRegistrationForm', 'index', 'destroy']]);
 
-        $this->middleware('role:Admin', ['only' => ['register', 'showRegistrationForm']]);
+        $this->middleware('role:Admin', ['only' => ['register', 'showRegistrationForm', 'index', 'destroy']]);
+    }
+
+    /**
+    * This function returns a view of all the
+    *
+    * users sorted by their name.
+    *
+    **/
+    public function index()
+    {
+        $users = User::all();
+
+        $users = $users->sortBy('name');
+
+        return view('auth.index', compact('users'));
     }
 
     /**
@@ -165,5 +180,18 @@ class AuthController extends Controller
         }
         $dash_str .= $password;
         return $dash_str;
+    }
+
+    /**
+    * This function deletes a specified user
+    *
+    * from the database.
+    *
+    **/
+    public function destroy($id)
+    {
+        User::destroy($id);
+
+        return redirect('voters');
     }
 }

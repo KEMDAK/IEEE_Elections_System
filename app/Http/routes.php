@@ -18,3 +18,17 @@ Route::get('/', function () {
 Route::auth();
 Route::get('activate', 'Auth\AuthController@showActivationForm');
 Route::post('activate', 'Auth\AuthController@activate');
+Route::get('voters', 'Auth\AuthController@index');
+Route::delete('user/{id}', 'Auth\AuthController@destroy');
+
+/*
+|--------------------------------------------------------------------------
+| Routes for Candidates
+|--------------------------------------------------------------------------
+|
+| Here are all the routes for the different functionalities
+| of the candidates.
+|
+*/
+
+Route::resource('candidate', 'CandidateController');
