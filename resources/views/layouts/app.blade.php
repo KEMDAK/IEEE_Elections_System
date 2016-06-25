@@ -25,7 +25,16 @@
             margin-right: 6px;
         }
 
-        /*labels*/
+        /*login, register panel*/
+        .panel-default > .panel-heading {
+          background-color: rgb(216, 229, 243);
+        }
+
+        .panel-default > .panel-body {
+          background-color: rgb(230, 240, 255);
+        }
+
+        /*position labels*/
         .position {
             font-size:30px;
             padding-top: 20px;
