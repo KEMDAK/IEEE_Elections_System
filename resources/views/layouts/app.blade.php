@@ -25,6 +25,24 @@
             margin-right: 6px;
         }
 
+        /*labels*/
+        .position {
+            font-size:30px;
+            padding-top: 20px;
+            padding-right: 30px;
+            padding-bottom: 20px;
+            padding-left: 80px;
+        }
+
+        /*candidate information*/
+        .candidate-info {
+          font-size: 20px;
+          padding-top: 20px;
+          padding-right: 30px;
+          padding-bottom: 20px;
+          padding-left: 80px;
+        }
+
         /*navbar*/
         .navbar-default {
           background-color: #467ec9;

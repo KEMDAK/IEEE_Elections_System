@@ -26,15 +26,15 @@
 
                         <!-- membership number -->
 
-                        <div class="form-group{{ $errors->has('membership_number') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('ieee_membership_id') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Membership Number</label>
 
                             <div class="col-md-6">
-                                <input id="membership_number" type="text" class="form-control" name="membership_number" value="{{ old('membership_number') }}">
+                                <input id="ieee_membership_id" type="text" class="form-control" name="ieee_membership_id" value="{{ old('ieee_membership_id') }}">
 
-                                @if ($errors->has('membership_number'))
+                                @if ($errors->has('ieee_membership_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('membership_number') }}</strong>
+                                        <strong>{{ $errors->first('ieee_membership_id') }}</strong>
                                     </span>
                                 @endif
                             </div>

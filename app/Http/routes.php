@@ -17,10 +17,19 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/thanks', function () {
+//testing frontend
+Route::get('thanks', function () {
     return view('vote.thanks');
 });
 
-Route::get('/vote', function () {
-    return view('vote.vote');
+Route::get('vote', function () {
+  $presidents = ['wolf.png', 'wolf.png'];
+  $vice_presidents = $presidents;
+  $secretaries = $presidents;
+  $treasurers = $presidents;
+  return view('vote.vote', compact('presidents','vice_presidents','treasurers', 'secretaries'));
+});
+
+Route::post('voted',function () {
+    return view('vote.thanks');
 });
