@@ -45,9 +45,9 @@ class VoteController extends Controller
     {
 
              $candidates = $request->all();
-             for($x = 0; $x < count(candidates); $x++) {
+             for($x = 0; $x < count($candidates); $x++) {
 
-                 $id = candidates[$x]->ieee_membership_id ;
+                 $id = $candidates[$x]->ieee_membership_id ;
                  DB::table('candidates')->increment('votes', 1, ['ieee_membership_id' => $id]);
                         
                 }

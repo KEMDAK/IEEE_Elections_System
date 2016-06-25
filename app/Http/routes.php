@@ -31,11 +31,11 @@ Route::get('user/update','UserController@updateView');
 Route::post('user/update','UserController@update');
 
 
-Route::get('candidate/create','candidateController@create');
-Route::post('candidate/store','candidateController@store');
-Route::delete('candidate/destroy','candidateController@destroy');
-Route::get('candidate/update','candidateController@updateView');
-Route::post('candidate/update','candidateController@update');
+Route::get('candidate/create','CandidateController@create');
+Route::post('candidate/store','CandidateController@store');
+Route::delete('candidate/destroy','CandidateController@destroy');
+Route::get('candidate/update','CandidateController@updateView');
+Route::post('candidate/update','CandidateController@update');
 
 
 
