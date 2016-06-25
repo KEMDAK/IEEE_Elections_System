@@ -114,7 +114,7 @@ class AuthController extends Controller
         $data = $request->all();
 
         $this->validate($request, [
-            'email' => 'required|email|max:255|exists:users,email,ieee_membership_id,' . $data['ieee_membership_id'],
+            'email' => 'required|email|max:255|exists:users,email,ieee_membership_id,' . $data['ieee_membership_id'] . ',active,0',
             'ieee_membership_id' => 'required',
         ]);
 
@@ -122,7 +122,7 @@ class AuthController extends Controller
         $user = User::where('email', $data['email'])->first();
 
         /** generating a password and activating the account */
-        $user->active = 'true';
+        $user->active = '1';
         $password = $this->generateStrongPassword(10, false, 'luds');
         $user->password = bcrypt($password);
         $email = $user->email;

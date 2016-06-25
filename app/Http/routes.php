@@ -18,8 +18,8 @@ Route::get('/', function () {
 Route::auth();
 Route::get('activate', 'Auth\AuthController@showActivationForm');
 Route::post('activate', 'Auth\AuthController@activate');
-Route::get('voters', 'Auth\AuthController@index');
-Route::delete('user/{id}', 'Auth\AuthController@destroy');
+Route::get('voter', 'Auth\AuthController@index');
+Route::delete('voter/{id}', 'Auth\AuthController@destroy');
 
 /*
 |--------------------------------------------------------------------------
