@@ -30,9 +30,9 @@ class RoleMiddleware
                 // authenticate failed
                 return redirect('/');
             }
-            else if(! strcmp($user->status, 'false') == 0){
+            else if(! strcmp($user->status, '0') == 0){
                 // voted before
-                return redirect('vote.thanks');
+                return redirect('/vote/thanks');
             }
         }
 

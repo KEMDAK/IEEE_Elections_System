@@ -26,6 +26,7 @@ Route::delete('voter/{id}', 'Auth\AuthController@destroy');
  */
 Route::get('vote', 'VoteController@index');
 Route::post('vote', 'VoteController@store');
+Route::get('vote/thanks', 'VoteController@thanks');
 
 
 /*

@@ -13,19 +13,31 @@ use App\Candidate;
 class VoteController extends Controller
 {
     /**
+     * Create a new authentication controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+        $this->middleware('role:Voter');
+    }
+
+    /**
     * Display a listing of all candidates to vote for .
     * @return \Illuminate\Http\Response
     */
     public function index()
     {
-        $presidentCandidates = Candidate::where('position', 'President')->get();
-        $ViceCandidates = Candidate::where('position', 'Vice President')->get();
-        $treassurerCandidates = Candidate::where('position', 'Treassurer')->get();
-        $secratoryCandidates = Candidate::where('position', 'Secratory')->get();
+        $presidents = Candidate::where('position', 'President')->get();
+        $vice_presidents = Candidate::where('position', 'Vice President')->get();
+        $treasurers = Candidate::where('position', 'Treassurer')->get();
+        $secratories = Candidate::where('position', 'Secratory')->get();
 
 
 
-        return view('vote.index', compact('presidentCandidates','ViceCandidates','treassurerCandidates','secratoryCandidates'));
+        return view('vote.index', compact('presidents','vice_presidents','treasurers','secratories'));
     }
 
     /**
@@ -36,6 +48,7 @@ class VoteController extends Controller
     */
     public function store(Request $request)
     {
+        var_dump($request);
         $candidates = $request->all();
         for($x = 0; $x < count($candidates); $x++) {
 
@@ -43,5 +56,14 @@ class VoteController extends Controller
             DB::table('candidates')->increment('votes', 1, ['ieee_membership_id' => $id]);
 
         }
+    }
+
+    /**
+    * Display the thanks page.
+    * @return \Illuminate\Http\Response
+    */
+    public function thanks()
+    {
+        return view('vote.thanks');
     }
 }
