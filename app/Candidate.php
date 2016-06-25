@@ -13,7 +13,7 @@ class Candidate extends Model
      * @var array
      */
     protected $fillable = [
-         'position', 'first_name', 'last_name', 'major', 'graduation_year', 'description', 'image_url',
+         'position', 'first_name', 'last_name', 'major', 'graduation_year', 'description', 'image_url'
             ];
 
     /**
@@ -22,7 +22,7 @@ class Candidate extends Model
      * @var array
      */
     protected $hidden = [
-        'votes',
+        'votes'
     ];
 
     /**
