@@ -23,11 +23,12 @@ Route::get('thanks', function () {
 });
 
 Route::get('vote', function () {
-  $presidents = ['wolf.png', 'wolf.png'];
+  $presidents = App\Candidate::all();
   $vice_presidents = $presidents;
   $secretaries = $presidents;
   $treasurers = $presidents;
   return view('vote.vote', compact('presidents','vice_presidents','treasurers', 'secretaries'));
+  // return view('vote.vote');
 });
 
 Route::post('voted',function () {

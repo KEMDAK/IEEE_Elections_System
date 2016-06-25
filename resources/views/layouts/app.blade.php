@@ -18,11 +18,22 @@
     <style>
         body {
             font-family: 'Lato';
-              background-color: rgb(198, 217, 236);
+            background-color: rgb(198, 217, 236);
+            /*background-image: url("leaves.jpg");
+            background-size: 100%;
+            background-repeat: no-repeat;*/
+
         }
 
         .fa-btn {
             margin-right: 6px;
+        }
+
+        #thanks {
+          text-align: center;
+          vertical-align: middle;
+          margin-bottom: 40px;
+          margin-top: 150px;
         }
 
         /*welcome page*/
@@ -36,7 +47,7 @@
               position: fixed;
           }
           div.col-sm-9 div {
-              height: 600px;
+              height: 700px;
               font-size: 18px;
           }
 
@@ -76,12 +87,12 @@
         .candidate-info {
           font-size: 20px;
           padding-top: 20px;
-          padding-right: 30px;
+          padding-right: 80px;
           padding-bottom: 20px;
           padding-left: 80px;
         }
 
-        /*navbar*/
+        /*nav bar*/
         .navbar-default {
           background-color: #467ec9;
           border-color: #174590;
