@@ -16,6 +16,25 @@ Route::get('/', function () {
 });
 
 Route::auth();
+
+//testing frontend
+Route::get('thanks', function () {
+    return view('vote.thanks');
+});
+
+Route::get('vote', function () {
+  $presidents = ['wolf.png', 'wolf.png'];
+  $vice_presidents = $presidents;
+  $secretaries = $presidents;
+  $treasurers = $presidents;
+  return view('vote.vote', compact('presidents','vice_presidents','treasurers', 'secretaries'));
+});
+
+Route::post('voted',function () {
+    return view('vote.thanks');
+});
+
+
 Route::get('activate', 'Auth\AuthController@showActivationForm');
 Route::post('activate', 'Auth\AuthController@activate');
 Route::get('voter', 'Auth\AuthController@index');

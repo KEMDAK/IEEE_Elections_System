@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>IEEEGUC</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -18,11 +18,140 @@
     <style>
         body {
             font-family: 'Lato';
+              background-color: rgb(198, 217, 236);
         }
 
         .fa-btn {
             margin-right: 6px;
         }
+
+        /*welcome page*/
+
+        #welcome {
+          position: relative;
+        }
+
+        ul.nav-pills {
+              top: 100px;
+              position: fixed;
+          }
+          div.col-sm-9 div {
+              height: 600px;
+              font-size: 18px;
+          }
+
+          #section1 {
+            color: rgb(25, 51, 77);
+          }
+          #section2 {
+            color: rgb(25, 51, 77);
+          }
+
+          @media screen and (max-width: 810px) {
+            #section1, #section2 {
+                margin-left: 150px;
+            }
+          }
+
+        /*login, activate, register panel*/
+        .panel-default > .panel-heading {
+          color: rgb(236, 242, 248);
+          background-color: rgb(125, 166, 207);
+        }
+
+        .panel-default > .panel-body {
+          background-color: rgb(217, 229, 242);
+        }
+
+        /*position labels*/
+        .position {
+            font-size:30px;
+            padding-top: 20px;
+            padding-right: 30px;
+            padding-bottom: 20px;
+            padding-left: 80px;
+        }
+
+        /*candidate information*/
+        .candidate-info {
+          font-size: 20px;
+          padding-top: 20px;
+          padding-right: 30px;
+          padding-bottom: 20px;
+          padding-left: 80px;
+        }
+
+        /*navbar*/
+        .navbar-default {
+          background-color: #467ec9;
+          border-color: #174590;
+        }
+        .navbar-default .navbar-brand {
+          color: #ecf0f1;
+        }
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+          color: #b2c9e8;
+        }
+        .navbar-default .navbar-text {
+          color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav > li > a {
+          color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+          color: #b2c9e8;
+        }
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+          color: #b2c9e8;
+          background-color: #174590;
+        }
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+          color: #b2c9e8;
+          background-color: #174590;
+        }
+        .navbar-default .navbar-toggle {
+          border-color: #174590;
+        }
+        .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+          background-color: #174590;
+        }
+        .navbar-default .navbar-toggle .icon-bar {
+          background-color: #ecf0f1;
+        }
+        .navbar-default .navbar-collapse,
+        .navbar-default .navbar-form {
+          border-color: #ecf0f1;
+        }
+        .navbar-default .navbar-link {
+          color: #ecf0f1;
+        }
+        .navbar-default .navbar-link:hover {
+          color: #b2c9e8;
+        }
+
+        @media (max-width: 767px) {
+          .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+            color: #ecf0f1;
+          }
+          .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+          .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+            color: #b2c9e8;
+          }
+          .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+          .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+          .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+            color: #b2c9e8;
+            background-color: #174590;
+          }
+        }
+
     </style>
 </head>
 <body id="app-layout">
@@ -40,7 +169,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    IEEEGUC
                 </a>
             </div>
 
