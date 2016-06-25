@@ -17,7 +17,7 @@ class AdminSeeder extends Seeder
             'ieee_membership_id' => '',
             'role' => 'Admin',
             'email' => 'admin@admin.com',
-            'password' => bcrypt('admin');
+            'password' => bcrypt('admin'),
             'active' => 'true',
             'status' => 'true'
         ]);
