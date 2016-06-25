@@ -54,9 +54,9 @@ class AuthController extends Controller
     **/
     public function index()
     {
-        $users = User::all();
+        $users = User::where('role', 'Voter')->get();
 
-        $users = $users->sortBy('name');
+        $users = $users->sortBy('email');
 
         return view('auth.index', compact('users'));
     }
@@ -190,7 +190,11 @@ class AuthController extends Controller
     **/
     public function destroy($id)
     {
-        User::destroy($id);
+        $user = User::findOrFail($id);
+
+        if($user->isVoter()){
+            User::destroy($id);
+        }
 
         return redirect('voters');
     }
