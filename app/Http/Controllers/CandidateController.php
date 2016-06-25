@@ -34,7 +34,7 @@ class CandidateController extends Controller
     {
         $candidates = Candidate::all();
 
-        $candidates = $candidates->sortBy('name');
+        $candidates = $candidates->sortBy('first_name');
 
         return view('candidate.index', compact('candidates'));
     }
