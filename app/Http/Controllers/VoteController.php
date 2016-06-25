@@ -9,13 +9,19 @@ use App\Http\Requests;
 class VoteController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Display a listing of all candidates to vote for .
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+          $presidentCandidates = candidate::where('position', 'President')->get();
+          $ViceCandidates = candidate::where('position', 'Vice President')->get();
+          $treassurerCandidates = candidate::where('position', 'Treassurer')->get();
+          $secratoryCandidates = candidate::where('position', 'Secratory')->get();
+
+          
+
+        return view('vote.index', compact('presidentCandidates','ViceCandidates','treassurerCandidates','secratoryCandidates'));
     }
 
     /**
@@ -47,7 +53,7 @@ class VoteController extends Controller
      */
     public function show($id)
     {
-        //
+       //
     }
 
     /**
