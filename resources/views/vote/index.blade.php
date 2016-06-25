@@ -5,12 +5,20 @@
   <form action="voted" method="POST">
     <!-- candidates for president's position picture and info-->
     @foreach($presidents as $candidate)
-      <div class="row candidate-info">
-        <div class="col-md-3">
-          <img src={{$candidate}} class="img-rounded" alt={{$candidate}} width="250" height="160">
+      <div class="row">
+        <div class="col-md-3 candidate-info">
+          <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
         </div>
-        <div class="col-md-6">
-          {{$candidate}}
+        <div class="col-md-9 candidate-info">
+          Name: {{$candidate->first_name}}{{$candidate->last_name}}
+          <br>
+          Major: {{$candidate->major}}
+          <br>
+          Graduation Year: {{$candidate->graduation_year}}
+          <br>
+          Applied for: {{$candidate->position}}
+          <br>
+          Description: {{$candidate->description}}
         </div>
       </div>
     @endforeach
@@ -22,7 +30,7 @@
     <div class = "col-md-3">
      <select  class="form-control" name="president">
        @foreach($presidents as $candidate)
-          <option value={{$candidate}}>{{$candidate}}</option>
+        <option value={{$candidate->last_name}}>{{$candidate->first_name}} {{$candidate->last_name}}</option>
        @endforeach
        <option value='no_vote'>I won't vote for this position</option>
      </select>
@@ -31,12 +39,20 @@
 
   <!-- candidates for vice president's position picture and info-->
   @foreach($presidents as $candidate)
-    <div class="row candidate-info">
-      <div class="col-md-3">
-        <img src={{$candidate}} class="img-rounded" alt={{$candidate}} width="250" height="160">
+    <div class="row">
+      <div class="col-md-3 candidate-info">
+        <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
       </div>
-      <div class="col-md-6">
-        {{$candidate}}
+      <div class="col-md-9 candidate-info">
+        Name: {{$candidate->first_name}}{{$candidate->last_name}}
+        <br>
+        Major: {{$candidate->major}}
+        <br>
+        Graduation Year: {{$candidate->graduation_year}}
+        <br>
+        Applied for: {{$candidate->position}}
+        <br>
+        Description: {{$candidate->description}}
       </div>
     </div>
   @endforeach
@@ -49,7 +65,7 @@
     <div class = "col-md-3">
      <select  class="form-control" name="vice_president">
        @foreach($vice_presidents as $candidate)
-          <option value={{$candidate}}>{{$candidate}}</option>
+        <option value={{$candidate->last_name}}>{{$candidate->first_name}} {{$candidate->last_name}}</option>
        @endforeach
        <option value='no_vote'>I won't vote for this position</option>
      </select>
@@ -58,12 +74,20 @@
 
   <!-- candidates for secretary position picture and info-->
   @foreach($presidents as $candidate)
-    <div class="row candidate-info">
-      <div class="col-md-3">
-        <img src={{$candidate}} class="img-rounded" alt={{$candidate}} width="250" height="160">
+    <div class="row">
+      <div class="col-md-3 candidate-info">
+        <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
       </div>
-      <div class="col-md-6">
-        {{$candidate}}
+      <div class="col-md-9 candidate-info">
+        Name: {{$candidate->first_name}}{{$candidate->last_name}}
+        <br>
+        Major: {{$candidate->major}}
+        <br>
+        Graduation Year: {{$candidate->graduation_year}}
+        <br>
+        Applied for: {{$candidate->position}}
+        <br>
+        Description: {{$candidate->description}}
       </div>
     </div>
   @endforeach
@@ -77,7 +101,7 @@
    <div class = "col-md-3">
      <select  class="form-control" name="secretary">
         @foreach($secretaries as $candidate)
-           <option value={{$candidate}}>{{$candidate}}</option>
+           <option value={{$candidate->last_name}}>{{$candidate->first_name}} {{$candidate->last_name}}</option>
         @endforeach
         <option value='no_vote'>I won't vote for this position</option>
       </select>
@@ -86,12 +110,20 @@
 
   <!-- candidates for treasurer position picture and info-->
   @foreach($presidents as $candidate)
-    <div class="row candidate-info">
-      <div class="col-md-3">
-        <img src={{$candidate}} class="img-rounded" alt={{$candidate}} width="250" height="160">
+    <div class="row">
+      <div class="col-md-3 candidate-info">
+        <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
       </div>
-      <div class="col-md-6">
-        {{$candidate}}
+      <div class="col-md-9 candidate-info">
+        Name: {{$candidate->first_name}}{{$candidate->last_name}}
+        <br>
+        Major: {{$candidate->major}}
+        <br>
+        Graduation Year: {{$candidate->graduation_year}}
+        <br>
+        Applied for: {{$candidate->position}}
+        <br>
+        Description: {{$candidate->description}}
       </div>
     </div>
   @endforeach
@@ -104,7 +136,7 @@
    <div class = "col-md-3">
      <select  class="form-control" name="treasurer">
         @foreach($treasurers as $candidate)
-           <option value={{$candidate}}>{{$candidate}}</option>
+           <option value={{$candidate->last_name}}>{{$candidate->first_name}} {{$candidate->last_name}}</option>
         @endforeach
         <option value='no_vote'>I won't vote for this position</option>
       </select>
