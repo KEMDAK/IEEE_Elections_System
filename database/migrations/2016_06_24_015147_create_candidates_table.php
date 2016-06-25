@@ -22,8 +22,6 @@ class CreateCandidatesTable extends Migration
             $table->longText('description');  
             $table->string('image_url');
             $table->integer('votes');     
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
             $table->timestamps();
         });
     }
