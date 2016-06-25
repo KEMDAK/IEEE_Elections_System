@@ -10,7 +10,7 @@
           <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
         </div>
         <div class="col-md-9 candidate-info">
-          Name: {{$candidate->first_name}}{{$candidate->last_name}}
+          Name: {{$candidate->first_name}} {{$candidate->last_name}}
           <br>
           Major: {{$candidate->major}}
           <br>
@@ -44,7 +44,7 @@
         <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
       </div>
       <div class="col-md-9 candidate-info">
-        Name: {{$candidate->first_name}}{{$candidate->last_name}}
+        Name: {{$candidate->first_name}} {{$candidate->last_name}}
         <br>
         Major: {{$candidate->major}}
         <br>
