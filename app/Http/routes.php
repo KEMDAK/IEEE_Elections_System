@@ -21,27 +21,10 @@ Route::post('activate', 'Auth\AuthController@activate');
 Route::get('voter', 'Auth\AuthController@index');
 Route::delete('voter/{id}', 'Auth\AuthController@destroy');
 
-// //testing frontend
-// Route::get('thanks', function () {
-//     return view('vote.thanks');
-// });
-//
-// Route::get('vote', function () {
-//   $presidents = ['wolf.png', 'wolf.png'];
-//   $vice_presidents = $presidents;
-//   $secretaries = $presidents;
-//   $treasurers = $presidents;
-//   return view('vote.vote', compact('presidents','vice_presidents','treasurers', 'secretaries'));
-// });
-//
-// Route::post('voted',function () {
-//     return view('vote.thanks');
-// });
-
 /**
  * voting routes
  */
-Route::get('vote', 'VoteController@show');
+Route::get('vote', 'VoteController@index');
 Route::post('vote', 'VoteController@store');
 
 
