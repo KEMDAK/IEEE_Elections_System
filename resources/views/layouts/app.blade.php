@@ -25,7 +25,13 @@
             margin-right: 6px;
         }
 
-        /*login, register panel*/
+        /*welcome page*/
+        .welcome {
+           text-align: center;
+           vertical-align: middle;
+        }
+
+        /*login, activate, register panel*/
         .panel-default > .panel-heading {
           background-color: rgb(216, 229, 243);
         }

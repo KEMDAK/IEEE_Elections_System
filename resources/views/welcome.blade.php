@@ -1,13 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Elections... Elections everywhere!</div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row welcome col-md-12">
+        <h1>
+          IEEE GUC
+        </h1>
     </div>
-</div>
+
+    <div class = "row welcome col-md-12">
+        <h5>
+          Upgrading Humanity!
+        </h5>
+    </div>
+
+    <div class = "row welcome col-md-12">
+        <button type="button" class="btn btn-info"><a href="{{ url('/vote') }}">Vote</a></button>
+    </div>
+
+  </div>
 @endsection
