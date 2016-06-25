@@ -19,11 +19,9 @@ class CreateCandidatesTable extends Migration
             $table->string('last_name');
             $table->string('major');
             $table->integer('graduation_year');
-            $table->longText('description');  
+            $table->longText('description');
             $table->string('image_url');
-            $table->integer('votes');     
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
+            $table->integer('votes');
             $table->timestamps();
         });
     }

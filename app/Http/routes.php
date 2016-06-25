@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 Route::auth();
+Route::get('activate', 'Auth\AuthController@showActivationForm');
 Route::post('activate', 'Auth\AuthController@activate');
