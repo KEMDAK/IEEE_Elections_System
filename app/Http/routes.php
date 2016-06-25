@@ -16,25 +16,27 @@ Route::get('/', function () {
 });
 
 Route::auth();
-
-//testing frontend
-Route::get('thanks', function () {
-    return view('vote.thanks');
-});
-
-Route::get('vote', function () {
-  $presidents = App\Candidate::all();
-  $vice_presidents = $presidents;
-  $secretaries = $presidents;
-  $treasurers = $presidents;
-  return view('vote.vote', compact('presidents','vice_presidents','treasurers', 'secretaries'));
-  // return view('vote.vote');
-});
-
-Route::post('voted',function () {
-    return view('vote.thanks');
-});
-
-
 Route::get('activate', 'Auth\AuthController@showActivationForm');
 Route::post('activate', 'Auth\AuthController@activate');
+Route::get('voter', 'Auth\AuthController@index');
+Route::delete('voter/{id}', 'Auth\AuthController@destroy');
+
+/**
+ * voting routes
+ */
+Route::get('vote', 'VoteController@index');
+Route::post('vote', 'VoteController@store');
+Route::get('vote/thanks', 'VoteController@thanks');
+
+
+/*
+|--------------------------------------------------------------------------
+| Routes for Candidates
+|--------------------------------------------------------------------------
+|
+| Here are all the routes for the different functionalities
+| of the candidates.
+|
+*/
+
+Route::resource('candidate', 'CandidateController');
