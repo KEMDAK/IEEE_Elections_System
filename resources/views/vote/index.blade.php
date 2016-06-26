@@ -3,25 +3,18 @@
 @section('content')
 <div class = "container">
     <form action="{{ url('/vote') }}" method="POST">
-        <!-- candidates for president's position picture and info-->
-        @foreach($presidents as $candidate)
-        <div class="row">
-            <div class="col-md-3 candidate-info">
-                <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
+
+      <!-- candidates for president's position pictures and names-->
+      <div class="row">
+        @foreach ($presidents as $candidate)
+          @if(strcmp($candidate->name,'Empty Position'))
+            <div class="candidate-pic">
+                <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
+                <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
             </div>
-            <div class="col-md-9 candidate-info">
-                Name: {{$candidate->first_name}} {{$candidate->last_name}}
-                <br>
-                Major: {{$candidate->major}}
-                <br>
-                Graduation Year: {{$candidate->graduation_year}}
-                <br>
-                Applied for: {{$candidate->position}}
-                <br>
-                Description: {{$candidate->description}}
-            </div>
-        </div>
+          @endif
         @endforeach
+      </div>
 
         <!-- president's label and dropdown-->
         <div class="row position">
@@ -36,26 +29,17 @@
             </div>
         </div>
 
-        <!-- candidates for vice president's position picture and info-->
-        @foreach($presidents as $candidate)
+        <!-- candidates for vice president's position pictures and names-->
         <div class="row">
-            <div class="col-md-3 candidate-info">
-                <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
-            </div>
-            <div class="col-md-9 candidate-info">
-                Name: {{$candidate->first_name}} {{$candidate->last_name}}
-                <br>
-                Major: {{$candidate->major}}
-                <br>
-                Graduation Year: {{$candidate->graduation_year}}
-                <br>
-                Applied for: {{$candidate->position}}
-                <br>
-                Description: {{$candidate->description}}
-            </div>
+          @foreach ($presidents as $candidate)
+            @if(strcmp($candidate->name,'Empty Position'))
+              <div class="candidate-pic">
+                  <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
+                  <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
+              </div>
+            @endif
+          @endforeach
         </div>
-        @endforeach
-
 
         <!-- vice president's label and dropdown -->
         <div class="row position">
@@ -70,27 +54,17 @@
             </div>
         </div>
 
-        <!-- candidates for secretary position picture and info-->
-        @foreach($presidents as $candidate)
+        <!-- candidates for secretary position pictures and names-->
         <div class="row">
-            <div class="col-md-3 candidate-info">
-                <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
-            </div>
-            <div class="col-md-9 candidate-info">
-                Name: {{$candidate->first_name}} {{$candidate->last_name}}
-                <br>
-                Major: {{$candidate->major}}
-                <br>
-                Graduation Year: {{$candidate->graduation_year}}
-                <br>
-                Applied for: {{$candidate->position}}
-                <br>
-                Description: {{$candidate->description}}
-            </div>
+          @foreach ($presidents as $candidate)
+            @if(strcmp($candidate->name,'Empty Position'))
+              <div class="candidate-pic">
+                  <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
+                  <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
+              </div>
+            @endif
+          @endforeach
         </div>
-        @endforeach
-
-
 
         <!-- secretary label and dropdown -->
         <div class="row position">
@@ -105,26 +79,17 @@
             </div>
         </div>
 
-        <!-- candidates for treasurer position picture and info-->
-        @foreach($presidents as $candidate)
+        <!-- candidates for treasurer position pictures and names-->
         <div class="row">
-            <div class="col-md-3 candidate-info">
-                <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
-            </div>
-            <div class="col-md-9 candidate-info">
-                Name: {{$candidate->first_name}} {{$candidate->last_name}}
-                <br>
-                Major: {{$candidate->major}}
-                <br>
-                Graduation Year: {{$candidate->graduation_year}}
-                <br>
-                Applied for: {{$candidate->position}}
-                <br>
-                Description: {{$candidate->description}}
-            </div>
+          @foreach ($presidents as $candidate)
+            @if(strcmp($candidate->name,'Empty Position'))
+              <div class="candidate-pic">
+                  <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
+                  <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
+              </div>
+            @endif
+          @endforeach
         </div>
-        @endforeach
-
 
         <!-- treasurer label and dropdown -->
         <div class="row position">

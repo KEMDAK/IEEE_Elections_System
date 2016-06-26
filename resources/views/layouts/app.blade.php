@@ -28,6 +28,28 @@
             margin-right: 6px;
         }
 
+        /*candidates index*/
+        .candidate-pic {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 180px;
+        }
+
+        .candidate-pic:hover {
+            border: 1px solid #777;
+        }
+
+        .candidate-pic img {
+            width: 100%;
+            height: auto;
+        }
+
+        .candidate-pic {
+            padding: 15px;
+            text-align: center;
+        }
+
         #thanks {
           text-align: center;
           vertical-align: middle;

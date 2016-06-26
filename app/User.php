@@ -13,7 +13,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'ieee_membership_id', 'role', 'email',
-        'password', 'active', 'status',
+        'password', 'active', 'status'
     ];
 
     /**
@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token'
     ];
 
     /**
