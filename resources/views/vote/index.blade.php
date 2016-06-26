@@ -9,8 +9,11 @@
         @foreach ($presidents as $candidate)
           @unless(strcmp($candidate->position,'Empty Position') == 0)
             <div class="candidate-pic">
+              <!-- use candidate id instead -->
+              <a href="#top">
                 <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
                 <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
+              </a>
             </div>
           @endunless
         @endforeach
@@ -34,8 +37,11 @@
           @foreach ($presidents as $candidate)
             @unless(strcmp($candidate->position,'Empty Position') == 0)
               <div class="candidate-pic">
+                <!-- use candidate id instead -->
+                <a href="#top">
                   <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
                   <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
+                </a>
               </div>
             @endunless
           @endforeach
@@ -59,8 +65,11 @@
           @foreach ($presidents as $candidate)
             @unless(strcmp($candidate->position,'Empty Position') == 0)
               <div class="candidate-pic">
+                <!-- use candidate id instead -->
+                <a href="#top">
                   <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
                   <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
+                </a>
               </div>
             @endunless
           @endforeach
@@ -84,8 +93,11 @@
           @foreach ($presidents as $candidate)
             @unless(strcmp($candidate->position,'Empty Position') == 0)
               <div class="candidate-pic">
+                <!-- use candidate id instead -->
+                <a href="#top">
                   <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
                   <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
+                </a>
               </div>
             @endunless
           @endforeach
