@@ -58,32 +58,10 @@
         }
 
         /*welcome page*/
-
         #welcome {
-          position: relative;
+          text-align: center;
+          vertical-align: middle;
         }
-
-        ul.nav-pills {
-              top: 100px;
-              position: fixed;
-          }
-          div.col-sm-9 div {
-              height: 700px;
-              font-size: 18px;
-          }
-
-          #section1 {
-            color: rgb(25, 51, 77);
-          }
-          #section2 {
-            color: rgb(25, 51, 77);
-          }
-
-          @media screen and (max-width: 810px) {
-            #section1, #section2 {
-                margin-left: 150px;
-            }
-          }
 
         /*login, activate, register panel*/
         .panel-default > .panel-heading {

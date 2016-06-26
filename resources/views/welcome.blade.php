@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" id = "welcome">
     <h1 class = "row">
       <span class "col-md-12">
         IEEE GUC

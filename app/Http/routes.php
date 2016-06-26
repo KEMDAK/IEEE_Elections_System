@@ -40,3 +40,8 @@ Route::get('vote/thanks', 'VoteController@thanks');
 */
 
 Route::resource('candidate', 'CandidateController');
+
+//testing frontend
+Route::get('candy/create', function() {
+  return view('candidate.create');
+});
