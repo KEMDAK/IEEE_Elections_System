@@ -2,124 +2,113 @@
 
 @section('content')
 <div class = "container">
-    <form action="{{ url('/vote') }}" method="POST">
+    <form action="{{ url('/vote') }}" role="form" method="POST">
 
       <!-- candidates for president's position pictures and names-->
-      <div class="row">
-        @foreach ($presidents as $candidate)
-          @unless(strcmp($candidate->position,'Empty Position') == 0)
-            <div class="candidate-pic">
-              <!-- use candidate id instead -->
-              <a href="#top">
-                <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
-                <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
-              </a>
-            </div>
-          @endunless
-        @endforeach
-      </div>
 
-        <!-- president's label and dropdown-->
-        <div class="row position">
-            <span class=" col-md-3 label label-primary">President</span>
 
+      <!-- candidates for president's position pictures and names-->
+      <div class="panel panel-default">
+        <div class="panel-heading">Applying for President's position</div>
+        <div class="panel-body">
+          <div class="row">
+            <?php $input = $presidents ?>
+            @include('candidate.candidates_pics',compact('input'))
+          </div>
+          <!-- president's label and dropdown-->
+          <div class="form-group">
+          <div class="row position">
+            <span class=" col-md-2 label label-primary">I will choose</span>
             <div class = "col-md-3">
-                <select  class="form-control" name="president">
-                    @foreach($presidents as $candidate)
-                    <option value={{$candidate->id}}>{{$candidate->first_name}} {{$candidate->last_name}}</option>
-                    @endforeach
-                </select>
+              <select  class="form-control" name="president">
+                <?php $input = $presidents ?>
+                @include('candidate.candidates_dropdown', compact('presidents','input'))
+              </select>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
+
 
         <!-- candidates for vice president's position pictures and names-->
+        <div class="panel panel-default">
+          <div class="panel-heading">Applying for Vice President's position</div>
+          <div class="panel-body">
         <div class="row">
-          @foreach ($presidents as $candidate)
-            @unless(strcmp($candidate->position,'Empty Position') == 0)
-              <div class="candidate-pic">
-                <!-- use candidate id instead -->
-                <a href="#top">
-                  <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
-                  <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
-                </a>
-              </div>
-            @endunless
-          @endforeach
+          <?php $input = $vice_presidents ?>
+          @include('candidate.candidates_pics',compact('vice_presidents',$input))
         </div>
-
         <!-- vice president's label and dropdown -->
-        <div class="row position">
-            <span class=" col-md-3 label label-primary">Vice President</span>
+        <div class="form-group">
+          <div class="row position">
+            <span class=" col-md-2 label label-primary">I will choose</span>
 
             <div class = "col-md-3">
-                <select  class="form-control" name="vice_president">
-                    @foreach($vice_presidents as $candidate)
-                    <option value={{$candidate->id}}>{{$candidate->first_name}} {{$candidate->last_name}}</option>
-                    @endforeach
-                </select>
+              <select  class="form-control" name="vice_president">
+                <?php $input = $vice_presidents ?>
+                @include('candidate.candidates_dropdown', compact('vice_presidents','input'))
+              </select>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
+
 
         <!-- candidates for secretary position pictures and names-->
+        <div class="panel panel-default">
+          <div class="panel-heading">Applying for Secratory's position</div>
+          <div class="panel-body">
         <div class="row">
-          @foreach ($presidents as $candidate)
-            @unless(strcmp($candidate->position,'Empty Position') == 0)
-              <div class="candidate-pic">
-                <!-- use candidate id instead -->
-                <a href="#top">
-                  <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
-                  <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
-                </a>
-              </div>
-            @endunless
-          @endforeach
+            <?php $input = $secratories ?>
+            @include('candidate.candidates_pics', compact('secratories','input'))
         </div>
-
         <!-- secretary label and dropdown -->
+        <div class="form-group">
         <div class="row position">
-            <span class=" col-md-3 label label-primary">Secratory</span>
-
+            <span class=" col-md-2 label label-primary">I will choose</span>
             <div class = "col-md-3">
                 <select  class="form-control" name="secretary">
-                    @foreach($secratories as $candidate)
-                    <option value={{$candidate->id}}>{{$candidate->first_name}} {{$candidate->last_name}}</option>
-                    @endforeach
-                </select>
+                    <?php $input = $secratories ?>
+                    @include('candidate.candidates_dropdown', compact('secratories','input'))
+                  </select>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
 
         <!-- candidates for treasurer position pictures and names-->
+        <div class="panel panel-default">
+          <div class="panel-heading">Applying for Treassurer's position</div>
+          <div class="panel-body">
         <div class="row">
-          @foreach ($presidents as $candidate)
-            @unless(strcmp($candidate->position,'Empty Position') == 0)
-              <div class="candidate-pic">
-                <!-- use candidate id instead -->
-                <a href="#top">
-                  <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
-                  <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
-                </a>
-              </div>
-            @endunless
-          @endforeach
+            <?php $input = $treasurers ?>
+            @include('candidate.candidates_pics', compact('treasurers', 'input'))
         </div>
-
         <!-- treasurer label and dropdown -->
+        <div class="form-group">
         <div class="row position">
-            <span class=" col-md-3 label label-primary">Treasurer</span>
-
+            <span class=" col-md-2 label label-primary">I will choose</span>
             <div class = "col-md-3">
                 <select  class="form-control" name="treasurer">
-                    @foreach($treasurers as $candidate)
-                    <option value={{$candidate->id}}>{{$candidate->first_name}} {{$candidate->last_name}}</option>
-                    @endforeach
-                </select>
+                  <?php $input = $treasurers ?>
+                      @include('candidate.candidates_dropdown', compact('treasurers','input'))
+                  </select>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
 
         <!-- vote button -->
-        <div class = "row position">
-            <input type="submit" value="Submit" class="btn btn-success">
+        <div class="form-group">
+          <div class = "row position">
+              <input type="submit" value="Submit" class="btn btn-success">
+          </div>
         </div>
     </form>
 </div>
+
 @stop

@@ -92,9 +92,11 @@
           background-color: rgb(217, 229, 242);
         }
 
+        /*vote page*/
+
         /*position labels*/
         .position {
-            font-size:30px;
+            font-size:20px;
             padding-top: 20px;
             padding-right: 30px;
             padding-bottom: 20px;

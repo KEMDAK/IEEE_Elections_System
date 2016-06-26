@@ -54,3 +54,11 @@ Route::get('candy/{id}', function($id) {
   $candidate = App\Candidate::first();
   return view('candidate.show',compact('candidate'));
 });
+
+Route::get('vote', function() {
+  $presidents = App\Candidate::where('position', 'President')->get();
+  $vice_presidents = App\Candidate::where('position', 'Vice President')->get();
+  $treasurers = App\Candidate::where('position', 'Treassurer')->get();
+  $secratories = App\Candidate::where('position', 'Secratory')->get();
+  return view('vote.index', compact('presidents','vice_presidents','treasurers','secratories'));
+});
