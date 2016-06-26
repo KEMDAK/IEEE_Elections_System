@@ -50,6 +50,7 @@
             text-align: center;
         }
 
+        /*thanks page*/
         #thanks {
           text-align: center;
           vertical-align: middle;
@@ -63,7 +64,25 @@
           vertical-align: middle;
         }
 
-        /*login, activate, register panel*/
+        /*candidate show page*/
+
+        #profile-pic {
+          padding-top: 20px;
+          padding-right: 30px;
+          padding-bottom: 20px;
+          padding-left: 30px;
+        }
+
+        /*candidate information*/
+        .table-candidate-information > tbody > tr {
+          font-size: 14px;
+          border-top: 1px solid rgb(221, 221, 221);
+          color: rgb(217, 230, 242);
+          /*background-color: rgb(46, 91, 133);*/
+          background-color: rgb(102, 153, 204);
+        }
+
+        /*panels*/
         .panel-default > .panel-heading {
           color: rgb(236, 242, 248);
           background-color: rgb(125, 166, 207);
@@ -82,7 +101,7 @@
             padding-left: 80px;
         }
 
-        /*candidate information*/
+
         .candidate-info {
           font-size: 20px;
           padding-top: 20px;
