@@ -17,5 +17,5 @@
     </div>
   </form>
 </div>
-
+@include('errors.list')
 @endsection
