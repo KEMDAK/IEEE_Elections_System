@@ -1,17 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
+<div class="container" id = "welcome">
+    <h1 class = "row">
+      <span class "col-md-12">
+        IEEE GUC
+      </span>
+    </h1>
 
-                <div class="panel-body">
-                    Your Application's Landing Page.
-                </div>
-            </div>
-        </div>
+    <h5 class = "row">
+      <span class "col-md-12">
+        Upgrading Humanity!
+      </span>
+    </h5>
+
+    <div class="row">
+        <span class "col-md-12">
+          <a href="{{ url('/vote') }}"><button type="button" class="btn btn-info">Vote</button></a>
+        <span class "col-md-12">
     </div>
 </div>
 @endsection
