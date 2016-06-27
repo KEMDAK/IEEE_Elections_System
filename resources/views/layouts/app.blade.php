@@ -213,6 +213,14 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/activate') }}">Register</a></li>
                     @else
+                    <!-- dropdown-menu -->
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Go To <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="candidate/index">Candidates Page</a></li>
+                        <li><a href="vote">Vote Page</a></li>
+                      </ul>
+                    </li>
                         <li class="dropdown">
                             @if (Auth::user()->isAdmin())
                                 <li><a href="{{ url('/Admin') }}"><i class="fa fa-btn fa fa-lock"></i>Admin Panel</a></li>
