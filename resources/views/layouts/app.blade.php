@@ -21,19 +21,21 @@
             /*background-image: url("leaves.jpg");
             background-size: 100%;
             background-repeat: no-repeat;*/
-
         }
 
         .fa-btn {
             margin-right: 6px;
         }
 
-        /*candidates index*/
+        /*candidate.index, vote.index*/
+        /*candidate picture*/
         .candidate-pic {
             margin: 5px;
             border: 1px solid #ccc;
             float: left;
             width: 180px;
+            padding: 30px;
+            text-align: center;
         }
 
         .candidate-pic:hover {
@@ -45,12 +47,12 @@
             height: auto;
         }
 
-        .candidate-pic {
-            padding: 15px;
-            text-align: center;
+        /*all candidates pics in a certain panel*/
+        .all-pics {
+          padding-left: 80px;
         }
 
-        /*thanks page*/
+        /*vote.thanks*/
         #thanks {
           text-align: center;
           vertical-align: middle;
@@ -58,14 +60,13 @@
           margin-top: 150px;
         }
 
-        /*welcome page*/
+        /*welcome*/
         #welcome {
           text-align: center;
           vertical-align: middle;
         }
 
-        /*candidate show page*/
-
+        /*candidate.show*/
         #profile-pic {
           padding-top: 20px;
           padding-right: 30px;
@@ -73,16 +74,15 @@
           padding-left: 30px;
         }
 
-        /*candidate information*/
+        /*candidate information in the table*/
         .table-candidate-information > tbody > tr {
           font-size: 14px;
           border-top: 1px solid rgb(221, 221, 221);
           color: rgb(217, 230, 242);
-          /*background-color: rgb(46, 91, 133);*/
           background-color: rgb(102, 153, 204);
         }
 
-        /*panels*/
+        /*all panels*/
         .panel-default > .panel-heading {
           color: rgb(236, 242, 248);
           background-color: rgb(125, 166, 207);
@@ -92,24 +92,14 @@
           background-color: rgb(217, 229, 242);
         }
 
-        /*vote page*/
-
-        /*position labels*/
+        /*vote.index*/
+        /*dropdowns, labels for each position*/
         .position {
             font-size:20px;
             padding-top: 20px;
             padding-right: 30px;
             padding-bottom: 20px;
             padding-left: 80px;
-        }
-
-
-        .candidate-info {
-          font-size: 20px;
-          padding-top: 20px;
-          padding-right: 80px;
-          padding-bottom: 20px;
-          padding-left: 80px;
         }
 
         /*nav bar*/

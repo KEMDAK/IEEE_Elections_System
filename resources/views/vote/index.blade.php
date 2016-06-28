@@ -5,9 +5,6 @@
     <form action="{{ url('/vote') }}" role="form" method="POST">
 
       <!-- candidates for president's position pictures and names-->
-
-
-      <!-- candidates for president's position pictures and names-->
       <div class="panel panel-default">
         <div class="panel-heading">Applying for President's position</div>
         <div class="panel-body">
@@ -18,11 +15,11 @@
           <!-- president's label and dropdown-->
           <div class="form-group">
           <div class="row position">
-            <span class=" col-md-2 label label-primary">I will choose</span>
+            <span class="col-md-2 label label-primary">I will choose</span>
             <div class = "col-md-3">
               <select  class="form-control" name="president">
                 <?php $input = $presidents ?>
-                @include('candidate.candidates_dropdown', compact('presidents','input'))
+                @include('candidate.candidates_dropdown', compact('input'))
               </select>
             </div>
           </div>
@@ -37,17 +34,17 @@
           <div class="panel-body">
         <div class="row">
           <?php $input = $vice_presidents ?>
-          @include('candidate.candidates_pics',compact('vice_presidents',$input))
+          @include('candidate.candidates_pics',compact('input'))
         </div>
         <!-- vice president's label and dropdown -->
         <div class="form-group">
           <div class="row position">
-            <span class=" col-md-2 label label-primary">I will choose</span>
+            <span class="col-md-2 label label-primary">I will choose</span>
 
             <div class = "col-md-3">
               <select  class="form-control" name="vice_president">
                 <?php $input = $vice_presidents ?>
-                @include('candidate.candidates_dropdown', compact('vice_presidents','input'))
+                @include('candidate.candidates_dropdown', compact('input'))
               </select>
             </div>
           </div>
@@ -56,22 +53,22 @@
     </div>
 
 
-        <!-- candidates for secretary position pictures and names-->
+        <!-- candidates for secretary's position pictures and names-->
         <div class="panel panel-default">
-          <div class="panel-heading">Applying for Secratory's position</div>
+          <div class="panel-heading">Applying for Secretary's position</div>
           <div class="panel-body">
         <div class="row">
-            <?php $input = $secratories ?>
-            @include('candidate.candidates_pics', compact('secratories','input'))
+            <?php $input = $secretaries ?>
+            @include('candidate.candidates_pics', compact('input'))
         </div>
         <!-- secretary label and dropdown -->
         <div class="form-group">
         <div class="row position">
-            <span class=" col-md-2 label label-primary">I will choose</span>
+            <span class="col-md-2 label label-primary">I will choose</span>
             <div class = "col-md-3">
                 <select  class="form-control" name="secretary">
-                    <?php $input = $secratories ?>
-                    @include('candidate.candidates_dropdown', compact('secratories','input'))
+                    <?php $input = $secretaries ?>
+                    @include('candidate.candidates_dropdown', compact('input'))
                   </select>
                 </div>
               </div>
@@ -79,22 +76,22 @@
           </div>
         </div>
 
-        <!-- candidates for treasurer position pictures and names-->
+        <!-- candidates for treasurer's position pictures and names-->
         <div class="panel panel-default">
           <div class="panel-heading">Applying for Treassurer's position</div>
           <div class="panel-body">
         <div class="row">
             <?php $input = $treasurers ?>
-            @include('candidate.candidates_pics', compact('treasurers', 'input'))
+            @include('candidate.candidates_pics', compact('input'))
         </div>
         <!-- treasurer label and dropdown -->
         <div class="form-group">
         <div class="row position">
-            <span class=" col-md-2 label label-primary">I will choose</span>
+            <span class="col-md-2 label label-primary">I will choose</span>
             <div class = "col-md-3">
                 <select  class="form-control" name="treasurer">
                   <?php $input = $treasurers ?>
-                      @include('candidate.candidates_dropdown', compact('treasurers','input'))
+                      @include('candidate.candidates_dropdown', compact('input'))
                   </select>
                 </div>
               </div>
