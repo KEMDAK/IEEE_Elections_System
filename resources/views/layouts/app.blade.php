@@ -190,7 +190,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    IEEEGUC
+                    IEEE GUC
                 </a>
             </div>
 
@@ -207,8 +207,8 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Go To <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="candidate/index">Candidates Page</a></li>
-                        <li><a href="vote">Vote Page</a></li>
+                        <li><a href="candidate">View Candidates</a></li>
+                        <li><a href="vote">Vote</a></li>
                       </ul>
                     </li>
                         <li class="dropdown">

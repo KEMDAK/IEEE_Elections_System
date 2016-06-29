@@ -33,7 +33,7 @@ class VoteController extends Controller
         $presidents = Candidate::where('position', 'President')->get();
         $vice_presidents = Candidate::where('position', 'Vice President')->get();
         $treasurers = Candidate::where('position', 'Treassurer')->get();
-        $secretaries = Candidate::where('position', 'Secratory')->get();
+        $secretaries = Candidate::where('position', 'Secretary')->get();
 
 
 
