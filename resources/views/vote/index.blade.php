@@ -2,147 +2,110 @@
 
 @section('content')
 <div class = "container">
-    <form action="{{ url('/vote') }}" method="POST">
-        <!-- candidates for president's position picture and info-->
-        @foreach($presidents as $candidate)
-        <div class="row">
-            <div class="col-md-3 candidate-info">
-                <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
-            </div>
-            <div class="col-md-9 candidate-info">
-                Name: {{$candidate->first_name}}{{$candidate->last_name}}
-                <br>
-                Major: {{$candidate->major}}
-                <br>
-                Graduation Year: {{$candidate->graduation_year}}
-                <br>
-                Applied for: {{$candidate->position}}
-                <br>
-                Description: {{$candidate->description}}
-            </div>
-        </div>
-        @endforeach
+    <form action="{{ url('/vote') }}" role="form" method="POST">
 
-        <!-- president's label and dropdown-->
-        <div class="row position">
-            <span class=" col-md-3 label label-primary">President</span>
-
+      <!-- candidates for president's position pictures and names-->
+      <div class="panel panel-default">
+        <div class="panel-heading">Applying for President's position</div>
+        <div class="panel-body">
+          <div class="row">
+            <?php $input = $presidents ?>
+            @include('candidate.candidates_pics',compact('input'))
+          </div>
+          <!-- president's label and dropdown-->
+          <div class="form-group">
+          <div class="row position">
+            <span class="col-md-2 label label-primary">I will choose</span>
             <div class = "col-md-3">
-                <select  class="form-control" name="president">
-                    @foreach($presidents as $candidate)
-                    <option value={{$candidate->id}}>{{$candidate->first_name}} {{$candidate->last_name}}</option>
-                    @endforeach
-                </select>
+              <select  class="form-control" name="president">
+                <?php $input = $presidents ?>
+                @include('candidate.candidates_dropdown', compact('input'))
+              </select>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <!-- candidates for vice president's position picture and info-->
-        @foreach($presidents as $candidate)
+
+        <!-- candidates for vice president's position pictures and names-->
+        <div class="panel panel-default">
+          <div class="panel-heading">Applying for Vice President's position</div>
+          <div class="panel-body">
         <div class="row">
-            <div class="col-md-3 candidate-info">
-                <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
-            </div>
-            <div class="col-md-9 candidate-info">
-                Name: {{$candidate->first_name}}{{$candidate->last_name}}
-                <br>
-                Major: {{$candidate->major}}
-                <br>
-                Graduation Year: {{$candidate->graduation_year}}
-                <br>
-                Applied for: {{$candidate->position}}
-                <br>
-                Description: {{$candidate->description}}
-            </div>
+          <?php $input = $vice_presidents ?>
+          @include('candidate.candidates_pics',compact('input'))
         </div>
-        @endforeach
-
-
         <!-- vice president's label and dropdown -->
-        <div class="row position">
-            <span class=" col-md-3 label label-primary">Vice President</span>
+        <div class="form-group">
+          <div class="row position">
+            <span class="col-md-2 label label-primary">I will choose</span>
 
             <div class = "col-md-3">
-                <select  class="form-control" name="vice_president">
-                    @foreach($vice_presidents as $candidate)
-                    <option value={{$candidate->id}}>{{$candidate->first_name}} {{$candidate->last_name}}</option>
-                    @endforeach
-                </select>
+              <select  class="form-control" name="vice_president">
+                <?php $input = $vice_presidents ?>
+                @include('candidate.candidates_dropdown', compact('input'))
+              </select>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <!-- candidates for secretary position picture and info-->
-        @foreach($presidents as $candidate)
+
+        <!-- candidates for secretary's position pictures and names-->
+        <div class="panel panel-default">
+          <div class="panel-heading">Applying for Secretary's position</div>
+          <div class="panel-body">
         <div class="row">
-            <div class="col-md-3 candidate-info">
-                <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
-            </div>
-            <div class="col-md-9 candidate-info">
-                Name: {{$candidate->first_name}}{{$candidate->last_name}}
-                <br>
-                Major: {{$candidate->major}}
-                <br>
-                Graduation Year: {{$candidate->graduation_year}}
-                <br>
-                Applied for: {{$candidate->position}}
-                <br>
-                Description: {{$candidate->description}}
-            </div>
+            <?php $input = $secretaries ?>
+            @include('candidate.candidates_pics', compact('input'))
         </div>
-        @endforeach
-
-
-
         <!-- secretary label and dropdown -->
+        <div class="form-group">
         <div class="row position">
-            <span class=" col-md-3 label label-primary">Secratory</span>
-
+            <span class="col-md-2 label label-primary">I will choose</span>
             <div class = "col-md-3">
                 <select  class="form-control" name="secretary">
-                    @foreach($secratories as $candidate)
-                    <option value={{$candidate->id}}>{{$candidate->first_name}} {{$candidate->last_name}}</option>
-                    @endforeach
-                </select>
+                    <?php $input = $secretaries ?>
+                    @include('candidate.candidates_dropdown', compact('input'))
+                  </select>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
 
-        <!-- candidates for treasurer position picture and info-->
-        @foreach($presidents as $candidate)
+        <!-- candidates for treasurer's position pictures and names-->
+        <div class="panel panel-default">
+          <div class="panel-heading">Applying for Treassurer's position</div>
+          <div class="panel-body">
         <div class="row">
-            <div class="col-md-3 candidate-info">
-                <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
-            </div>
-            <div class="col-md-9 candidate-info">
-                Name: {{$candidate->first_name}}{{$candidate->last_name}}
-                <br>
-                Major: {{$candidate->major}}
-                <br>
-                Graduation Year: {{$candidate->graduation_year}}
-                <br>
-                Applied for: {{$candidate->position}}
-                <br>
-                Description: {{$candidate->description}}
-            </div>
+            <?php $input = $treasurers ?>
+            @include('candidate.candidates_pics', compact('input'))
         </div>
-        @endforeach
-
-
         <!-- treasurer label and dropdown -->
+        <div class="form-group">
         <div class="row position">
-            <span class=" col-md-3 label label-primary">Treasurer</span>
-
+            <span class="col-md-2 label label-primary">I will choose</span>
             <div class = "col-md-3">
                 <select  class="form-control" name="treasurer">
-                    @foreach($treasurers as $candidate)
-                    <option value={{$candidate->id}}>{{$candidate->first_name}} {{$candidate->last_name}}</option>
-                    @endforeach
-                </select>
+                  <?php $input = $treasurers ?>
+                      @include('candidate.candidates_dropdown', compact('input'))
+                  </select>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
 
         <!-- vote button -->
-        <div class = "row position">
-            <input type="submit" value="Submit" class="btn btn-success">
+        <div class="form-group">
+          <div class = "row position">
+              <input type="submit" value="Submit" class="btn btn-success">
+          </div>
         </div>
     </form>
 </div>
+
 @stop

@@ -21,13 +21,38 @@
             /*background-image: url("leaves.jpg");
             background-size: 100%;
             background-repeat: no-repeat;*/
-
         }
 
         .fa-btn {
             margin-right: 6px;
         }
 
+        /*candidate.index, vote.index*/
+        /*candidate picture*/
+        .candidate-pic {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 180px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .candidate-pic:hover {
+            border: 1px solid #777;
+        }
+
+        .candidate-pic img {
+            width: 100%;
+            height: auto;
+        }
+
+        /*all candidates pics in a certain panel*/
+        .all-pics {
+          padding-left: 80px;
+        }
+
+        /*vote.thanks*/
         #thanks {
           text-align: center;
           vertical-align: middle;
@@ -35,35 +60,29 @@
           margin-top: 150px;
         }
 
-        /*welcome page*/
-
+        /*welcome*/
         #welcome {
-          position: relative;
+          text-align: center;
+          vertical-align: middle;
         }
 
-        ul.nav-pills {
-              top: 100px;
-              position: fixed;
-          }
-          div.col-sm-9 div {
-              height: 700px;
-              font-size: 18px;
-          }
+        /*candidate.show*/
+        #profile-pic {
+          padding-top: 20px;
+          padding-right: 30px;
+          padding-bottom: 20px;
+          padding-left: 30px;
+        }
 
-          #section1 {
-            color: rgb(25, 51, 77);
-          }
-          #section2 {
-            color: rgb(25, 51, 77);
-          }
+        /*candidate information in the table*/
+        .table-candidate-information > tbody > tr {
+          font-size: 14px;
+          border-top: 1px solid rgb(221, 221, 221);
+          color: rgb(217, 230, 242);
+          background-color: rgb(102, 153, 204);
+        }
 
-          @media screen and (max-width: 810px) {
-            #section1, #section2 {
-                margin-left: 150px;
-            }
-          }
-
-        /*login, activate, register panel*/
+        /*all panels*/
         .panel-default > .panel-heading {
           color: rgb(236, 242, 248);
           background-color: rgb(125, 166, 207);
@@ -73,22 +92,14 @@
           background-color: rgb(217, 229, 242);
         }
 
-        /*position labels*/
+        /*vote.index*/
+        /*dropdowns, labels for each position*/
         .position {
-            font-size:30px;
+            font-size:20px;
             padding-top: 20px;
             padding-right: 30px;
             padding-bottom: 20px;
             padding-left: 80px;
-        }
-
-        /*candidate information*/
-        .candidate-info {
-          font-size: 20px;
-          padding-top: 20px;
-          padding-right: 80px;
-          padding-bottom: 20px;
-          padding-left: 80px;
         }
 
         /*nav bar*/
@@ -192,6 +203,14 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/activate') }}">Register</a></li>
                     @else
+                    <!-- dropdown-menu -->
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Go To <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="candidate/index">Candidates Page</a></li>
+                        <li><a href="vote">Vote Page</a></li>
+                      </ul>
+                    </li>
                         <li class="dropdown">
                             @if (Auth::user()->isAdmin())
                                 <li><a href="{{ url('/Admin') }}"><i class="fa fa-btn fa fa-lock"></i>Admin Panel</a></li>
