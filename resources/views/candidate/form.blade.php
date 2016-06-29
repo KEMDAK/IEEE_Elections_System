@@ -31,11 +31,19 @@
   </div>
 </div>
 
+<!-- image url -->
+<div class="form-group">
+  <label class="control-label col-sm-2" for="image_url">Image URL</label>
+  <div class="col-sm-10">
+    {!! Form::text('image_url', null, ['class' => 'form-control', 'placeholder'=>'Enter image URL']) !!}
+  </div>
+</div>
+
 <!-- graduation year -->
 <div class="form-group">
   <label class="control-label col-sm-2" for="major">Graduation Year</label>
   <div class="col-sm-10">
-    {!! Form::selectRange('number', 1995, 2025, null, ['class' => 'form-control']) !!}
+    {!! Form::selectRange('graduation_year', 2016, 2020, null, ['class' => 'form-control']) !!}
   </div>
 </div>
 
