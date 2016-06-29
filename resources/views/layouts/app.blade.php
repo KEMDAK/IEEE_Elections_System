@@ -205,18 +205,20 @@
                     @else
                     <!-- dropdown-menu -->
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Go To <span class="caret"></span></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Go To<span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         <li><a href="candidate">View Candidates</a></li>
+                        @if (Auth::user()->isVoter())
                         <li><a href="vote">Vote</a></li>
+                        @endif
                       </ul>
                     </li>
-                        <li class="dropdown">
-                            @if (Auth::user()->isAdmin())
-                                <li><a href="{{ url('/Admin') }}"><i class="fa fa-btn fa fa-lock"></i>Admin Panel</a></li>
-                            @endif
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                        </li>
+                    <li class="dropdown">
+                        @if (Auth::user()->isAdmin())
+                        <li><a href="{{ url('/Admin') }}"><i class="fa fa-btn fa fa-lock"></i>Admin Panel</a></li>
+                        @endif
+                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                    </li>
                     @endif
                 </ul>
             </div>
