@@ -52,7 +52,7 @@ class AuthController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postRegister(Request $request)
+    public function register(Request $request)
     {
         $validator = $this->validator($request->all());
 
@@ -64,7 +64,7 @@ class AuthController extends Controller
 
         $this->create($request->all());
 
-        return redirect($this->redirectPath());
+        return redirect('/admin/voters');
     }
 
     /**
@@ -231,6 +231,6 @@ class AuthController extends Controller
             User::destroy($id);
         }
 
-        return redirect('voters');
+        return redirect('/admin/voters');
     }
 }

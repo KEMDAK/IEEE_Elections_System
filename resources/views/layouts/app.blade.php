@@ -215,7 +215,7 @@
                     </li>
                     <li class="dropdown">
                         @if (Auth::user()->isAdmin())
-                        <li><a href="{{ url('/Admin') }}"><i class="fa fa-btn fa fa-lock"></i>Admin Panel</a></li>
+                        <li><a href="{{ url('/admin') }}"><i class="fa fa-btn fa fa-lock"></i>Admin Panel</a></li>
                         @endif
                         <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                     </li>
