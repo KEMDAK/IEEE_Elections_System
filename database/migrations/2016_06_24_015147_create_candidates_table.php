@@ -14,6 +14,7 @@ class CreateCandidatesTable extends Migration
     {
         Schema::create('candidates', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('ieee_membership_id')->unique();
             $table->string('position');
             $table->string('first_name');
             $table->string('last_name');
