@@ -10,7 +10,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>IEEE Membership</th>
+                <th>IEEE Membership ID</th>
                 <th>Email</th>
                 <th>Status</th>
                 <th>Options</th>
