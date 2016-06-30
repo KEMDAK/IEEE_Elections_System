@@ -43,7 +43,7 @@
     <div class="row">
         <center>
             <span class "col-md-12">
-                <a href="{{ url('/register') }}"><button type="button" class="btn btn-info">Add voter</button></a>
+                <a href="{{ url('/register') }}"><button type="button" class="btn btn-primary">Add voter</button></a>
             <span class "col-md-12">
         </center>
     </div>

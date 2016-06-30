@@ -74,12 +74,15 @@ class CandidateController extends Controller
     **/
     public function store(CandidateRequest $request)
     {
-        $candidate = $request->all();
-        $candidate->votes = 0;
+        $input = $request->all();
 
-        $candidate = Candidate::create($candidate);
+        $candidate = Candidate::create($input);
 
-        return redirect('candidate');
+        //because attempt to assign property of non-object - solved
+        $candidate->update(['votes'=>'0']);
+        //need a unique ieee_membership_id - not solved
+
+        return redirect('candidates');
     }
 
     /**
