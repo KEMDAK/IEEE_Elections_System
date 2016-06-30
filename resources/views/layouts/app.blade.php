@@ -49,7 +49,7 @@
 
         /*all candidates pics in a certain panel*/
         .all-pics {
-          padding-left: 80px;
+          padding-left: 40px;
         }
 
         /*vote.thanks*/
@@ -99,7 +99,9 @@
             padding-top: 20px;
             padding-right: 30px;
             padding-bottom: 20px;
-            padding-left: 80px;
+            padding-left: 45px;
+            margin-right: 20px:
+            margin-down: 20px;
         }
 
         /*nav bar*/
