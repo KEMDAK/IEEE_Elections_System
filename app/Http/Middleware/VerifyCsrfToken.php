@@ -13,6 +13,7 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         'candidate',
-        'vote'
+        'vote',
+        'voter/*'
     ];
 }

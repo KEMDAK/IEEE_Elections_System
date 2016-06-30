@@ -32,11 +32,14 @@ class CandidateController extends Controller
     **/
     public function index()
     {
-        $candidates = Candidate::all();
+        $presidents = Candidate::where('position', 'President')->get();
+        $vice_presidents = Candidate::where('position', 'Vice President')->get();
+        $treasurers = Candidate::where('position', 'Treassurer')->get();
+        $secretaries = Candidate::where('position', 'Secretary')->get();
 
-        $candidates = $candidates->sortBy('first_name');
 
-        return view('candidate.index', compact('candidates'));
+
+        return view('candidate.index', compact('presidents','vice_presidents','treasurers','secretaries'));
     }
 
     /**

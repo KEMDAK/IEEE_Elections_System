@@ -41,7 +41,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">404, sir!<br>Page not found!</div>
+                <div class="title">404<br>Page not found!</div>
             </div>
         </div>
     </body>

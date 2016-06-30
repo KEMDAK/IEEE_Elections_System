@@ -24,7 +24,7 @@ class CandidateRequest extends Request
     public function rules()
     {
         return [
-            'position'   => 'required|in:President,Vice President,Treassurer,Secratory',
+            'position'   => 'required|in:President,Vice President,Treassurer,Secretary',
             'first_name' => 'required',
             'last_name'  => 'required',
             'major'  => 'required',

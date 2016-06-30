@@ -53,11 +53,11 @@ class Candidate extends Model
     }
 
     /**
-     * Returns true if this candidate applying for the secratory position.
+     * Returns true if this candidate applying for the Secretary position.
      * @return bool
      */
-    public function isSecratory()
+    public function isSecretary()
     {
-        return strcmp($this->position,"Secratory") == 0;
+        return strcmp($this->position,"Secretary") == 0;
     }
 }
