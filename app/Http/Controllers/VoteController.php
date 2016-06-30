@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use DB;
-
 use App\Candidate;
+
+use Illuminate\Support\Facades\Auth;
 
 class VoteController extends Controller
 {
@@ -21,7 +21,7 @@ class VoteController extends Controller
     {
         $this->middleware('auth');
 
-        $this->middleware('role:Voter');
+        $this->middleware('role:Voter', ['except' => ['thanks']]);
     }
 
     /**
@@ -48,14 +48,23 @@ class VoteController extends Controller
     */
     public function store(Request $request)
     {
-        var_dump($request);
+        $positions = ['president','vice_president','treasurer','secretary'];
         $candidates = $request->all();
-        for($x = 0; $x < count($candidates); $x++) {
+        for($x = 0; $x < 4; $x++) {
 
-            $id = $candidates[$x]->ieee_membership_id ;
-            DB::table('candidates')->increment('votes', 1, ['ieee_membership_id' => $id]);
-
+            $id = $candidates[$positions[$x]] ;
+            if($id){
+                $candidate = Candidate::findOrFail($id);
+                $candidate->votes = $candidate->votes + 1;
+                $candidate->save();
+            }
         }
+
+        $user = Auth::user();
+        $user->status = '1';
+        $user->save();
+
+        return redirect('/vote/thanks');
     }
 
     /**
