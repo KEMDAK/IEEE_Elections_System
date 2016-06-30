@@ -43,7 +43,7 @@
 <div class="form-group">
   <label class="control-label col-sm-2" for="major">Graduation Year</label>
   <div class="col-sm-10">
-    {!! Form::selectRange('graduation_year', 2016, 2020, null, ['class' => 'form-control']) !!}
+    {!! Form::selectRange('graduation_year', 2017, 2020, null, ['class' => 'form-control']) !!}
   </div>
 </div>
 

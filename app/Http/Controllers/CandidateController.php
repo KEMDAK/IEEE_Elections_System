@@ -82,7 +82,10 @@ class CandidateController extends Controller
         $candidate->update(['votes'=>'0']);
         //need a unique ieee_membership_id - not solved
 
-        return redirect('candidates');
+        //flash message
+        flash()->success('Candidate has been created successfully!');
+
+        return redirect('candidate');
     }
 
     /**
@@ -111,6 +114,9 @@ class CandidateController extends Controller
         $candidate = Candidate::findOrFail($id);
 
         $candidate->update($data);
+
+        //flash message
+        flash()->success('Candidate has been edited successfully!');
 
         return redirect('candidate');
     }
