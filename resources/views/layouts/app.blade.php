@@ -20,9 +20,42 @@
         background-color: rgb(198, 217, 236);
     }
 
-    .fa-btn {
-        margin-right: 6px;
-    }
+
+        .marg {
+           margin: 12px 3cm ;
+           font-size: 20px;
+           font-weight:bold;
+           color:#008B8B;
+
+         }
+        .note {
+           font-size:18px;
+           color:#538b01;
+           font-weight:bold; 
+           font-style:italic;
+        }
+
+        .title{
+           font-weight:bold; 
+           font-style:italic;
+           color :#00008B;
+
+        }
+
+
+
+
+        .fa-btn {
+            margin-right: 6px;
+        }
+        
+ 
+        ul.nav-pills {
+             top: 150px;
+             position: fixed;
+         }
+         
+ 
 
     .btn {
         margin: 6px 6px 6px 6px;
@@ -270,6 +303,6 @@
     <script>
     $('div.alert').not('.alert-important').delay(3000).slideUp(300);
     </script>
-
+    
 </body>
 </html>
