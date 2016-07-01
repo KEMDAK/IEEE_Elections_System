@@ -54,3 +54,22 @@ Route::get('candidate/accept/{id}', 'CandidateController@accept');
 Route::get('admin', 'AdminController@panel');
 Route::get('admin/voters', 'AdminController@usersList');
 Route::get('admin/candidates', 'AdminController@candidatesList');
+
+/*
+|--------------------------------------------------------------------------
+| Routes for Extra info
+|--------------------------------------------------------------------------
+|
+| Here are all the routes for the Extra pages.
+|
+*/
+
+Route::get('job_description', function() {
+    return view('job_description');
+});
+Route::get('eligibility_conditions', function() {
+  return view('eligibility_conditions');
+ });
+Route::get('election_phases', function() {
+  return view('election_phases');
+ });

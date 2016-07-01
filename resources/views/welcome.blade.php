@@ -24,15 +24,15 @@
 
     <div class="row">
         <span class "col-md-4">
-          <a href="{{ url('/vote') }}"><button type="button" class="btn btn-info">Job Description</button></a>
+          <a href="{{ url('/job_description') }}"><button type="button" class="btn btn-info">Job Description</button></a>
         </span>
 
         <span class "col-md-4">
-          <a href="{{ url('/vote') }}"><button type="button" class="btn btn-info">Eligibility Conditions</button></a>
+          <a href="{{ url('/eligibility_conditions') }}"><button type="button" class="btn btn-info">Eligibility Conditions</button></a>
         </span>
 
         <span class "col-md-4">
-          <a href="{{ url('/vote') }}"><button type="button" class="btn btn-info">How to apply</button></a>
+          <a href="{{ url('/election_phases') }}"><button type="button" class="btn btn-info">How to apply</button></a>
         </span>
     </div>
 </div>
