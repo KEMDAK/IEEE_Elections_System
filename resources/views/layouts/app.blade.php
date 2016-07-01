@@ -18,9 +18,6 @@
         body {
             font-family: 'Lato';
             background-color: rgb(198, 217, 236);
-            /*background-image: url("leaves.jpg");
-            background-size: 100%;
-            background-repeat: no-repeat;*/
         }
 
         .fa-btn {
@@ -29,6 +26,30 @@
 
         .btn {
           margin: 6px 6px 6px 6px;
+        }
+
+        /*job description*/
+        #job-desc {
+              position: relative;
+        }
+
+        .job-el {
+          margin: 6px 6px 6px 6px;
+        }
+
+        ul.nav-pills {
+            top: 100px;
+            position: fixed;
+        }
+        div.col-sm-9 div {
+            height: 800px;
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 810px) {
+          #chairman, #vice_chairman, #secretary, #treasurer {
+              margin-left: 150px;
+          }
         }
 
         /*candidate.index, vote.index*/
@@ -244,6 +265,6 @@
     <script>
       $('div.alert').not('.alert-important').delay(3000).slideUp(300);
     </script>
-    
+
 </body>
 </html>
