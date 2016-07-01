@@ -55,7 +55,21 @@ Route::get('admin', 'AdminController@panel');
 Route::get('admin/voters', 'AdminController@usersList');
 Route::get('admin/candidates', 'AdminController@candidatesList');
 
-// testing front
-Route::get('over',function() {
-  return view('information.elections_over');
+/*
+|--------------------------------------------------------------------------
+| Routes for Extra info
+|--------------------------------------------------------------------------
+|
+| Here are all the routes for the Extra pages.
+|
+*/
+
+Route::get('job_description', function() {
+    return view('information.job_description');
 });
+Route::get('eligibility_conditions', function() {
+  return view('information.eligibility_conditions');
+ });
+Route::get('election_phases', function() {
+  return view('information.election_phases');
+ });

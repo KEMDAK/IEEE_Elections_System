@@ -7,7 +7,7 @@
           <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
       </div>
 
-      @if(Auth::user()->id === $candidate->id)
+      @if(Auth::user()->id === $candidate->user_id)
       <div class="col-md-2" id = "profile-pic">
         <a href="{{ url('/')}}">
           <button type="button" name="edit" class = "btn btn-primary">Edit</button>

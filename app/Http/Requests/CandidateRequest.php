@@ -33,9 +33,9 @@ class CandidateRequest extends Request
             'last_name'  => 'required',
             'mobile_number'  => 'required',
             'major'  => 'required',
-            'image_url'  => 'required|url',
-            'plan_url'  => 'required|url',
-            'video_url'  => 'required|url'
+            'image_url'  => 'url',
+            'plan_url'  => 'url',
+            'video_url'  => 'url'
         ];
     }
 }
