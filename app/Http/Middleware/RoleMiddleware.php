@@ -17,6 +17,11 @@ class RoleMiddleware
      */
     public function handle($request, Closure $next, $role)
     {
+        if(strcmp('No', $role) == 0){
+            // this url is disabled
+            return redirect('/');
+        }
+
         $user = Auth::user();
 
         if(strcmp('Admin', $role) == 0){

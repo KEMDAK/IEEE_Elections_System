@@ -39,6 +39,7 @@ Route::get('vote/thanks', 'VoteController@thanks');
 */
 
 Route::resource('candidate', 'CandidateController');
+Route::get('candidate/accept/{id}', 'CandidateController@accept');
 
 /*
 |--------------------------------------------------------------------------
@@ -53,8 +54,3 @@ Route::resource('candidate', 'CandidateController');
 Route::get('admin', 'AdminController@panel');
 Route::get('admin/voters', 'AdminController@usersList');
 Route::get('admin/candidates', 'AdminController@candidatesList');
-
-// testing front
-Route::get('job', function() {
-  return view('job_description');
-});

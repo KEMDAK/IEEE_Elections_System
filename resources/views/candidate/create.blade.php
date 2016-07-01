@@ -12,7 +12,7 @@
     <!-- create -->
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-success">Create</button>
+        <button type="submit" class="btn btn-success">Apply</button>
       </div>
     </div>
   </form>

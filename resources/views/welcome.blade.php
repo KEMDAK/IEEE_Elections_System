@@ -18,8 +18,22 @@
     <div class="row">
         <span class "col-md-12">
           <a href="{{ url('/vote') }}"><button type="button" class="btn btn-info">Vote</button></a>
-        <span class "col-md-12">
+        </span>
     </div>
     @endif
+
+    <div class="row">
+        <span class "col-md-4">
+          <a href="{{ url('/vote') }}"><button type="button" class="btn btn-info">Job Description</button></a>
+        </span>
+
+        <span class "col-md-4">
+          <a href="{{ url('/vote') }}"><button type="button" class="btn btn-info">Eligibility Conditions</button></a>
+        </span>
+
+        <span class "col-md-4">
+          <a href="{{ url('/vote') }}"><button type="button" class="btn btn-info">How to apply</button></a>
+        </span>
+    </div>
 </div>
 @endsection

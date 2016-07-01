@@ -2,12 +2,12 @@
 
 @section('content')
 <div class = "container">
-    @if (count($candidates) === 0)
+    @if (count($candidates) === 4)
       <center>
           <h1>No Candidates in the database currently</h1>
       </center>
     @else
-      <h5>Accepted</h5>
+      <h2>Accepted</h2>
       <table class="table table-hover">
           <thead>
               <tr>
@@ -19,21 +19,24 @@
           </thead>
           <tbody>
               @foreach($candidates as $candidate)
-                @if($candidate->status === 0)
+                @if($candidate->status === '1' && !(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0))
                   <tr>
                       <td>{{$candidate->ieee_membership_id}}</td>
                       <td>{{$candidate->first_name}} {{$candidate->last_name}}</td>
                       <td>{{$candidate->position}}</td>
                       <td>
-                        <a href = {{ url('candidate', $candidate->id)}}>
-                          <button class="btn btn-primary">
-                            View
-                          </button>
-                        </a>]
+                          <form class="form-inline" action="{{ url('candidate/'.$candidate->id) }}" method="POST">
+                              <a href = {{ url('candidate', $candidate->id)}}>
+                                  <button type="button" class="btn btn-primary">
+                                      View
+                                  </button>
+                              </a>
 
-                        <button class="btn btn-danger">
-                            <i class="fa fa-btn fa-trash"></i>Delete
-                        </button>
+                              {{ method_field('DELETE') }}
+                              <button type="submit" id="delete-task-{{ $candidate->id }}" class="btn btn-danger">
+                                  <i class="fa fa-btn fa-trash"></i>Delete
+                              </button>
+                          </form>
                       </td>
                   </tr>
                 @endif
@@ -41,7 +44,7 @@
           </tbody>
       </table>
 
-      <h5>Pending</h5>
+      <h2>Pending</h2>
       <table class="table table-hover">
           <thead>
               <tr>
@@ -53,25 +56,30 @@
           </thead>
           <tbody>
               @foreach($candidates as $candidate)
-                @if($candidate->status === 0)
+                @if($candidate->status === '0' && !(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0))
                   <tr>
                       <td>{{$candidate->ieee_membership_id}}</td>
                       <td>{{$candidate->first_name}} {{$candidate->last_name}}</td>
                       <td>{{$candidate->position}}</td>
                       <td>
-                          <a href = {{ url('candidate', $candidate->id)}}>
-                            <button class="btn btn-primary">
-                              View
-                            </button>
-                          </a>
+                          <form action="{{ url('candidate/'.$candidate->id) }}" method="POST">
+                              <a href = {{ url('candidate', $candidate->id)}}>
+                                  <button type="button" class="btn btn-primary">
+                                      View
+                                  </button>
+                              </a>
 
-                          <button class="btn btn-success">
-                              Accept
-                          </button>
+                              <a href = {{ url('candidate/accept', $candidate->id) }}>
+                                  <button type="button" id="accept-task-{{ $candidate->id }}" class="btn btn-success">
+                                      Accept
+                                  </button>
+                              </a>
 
-                          <button class="btn btn-danger">
-                              <i class="fa fa-btn fa-trash"></i>Delete
-                          </button>
+                              {{ method_field('DELETE') }}
+                              <button type="submit" id="delete-task-{{ $candidate->id }}" class="btn btn-danger">
+                                  <i class="fa fa-btn fa-trash"></i>Delete
+                              </button>
+                          </form>
                       </td>
                   </tr>
                 @endif

@@ -15,190 +15,194 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <style>
-        body {
-            font-family: 'Lato';
-            background-color: rgb(198, 217, 236);
-        }
+    body {
+        font-family: 'Lato';
+        background-color: rgb(198, 217, 236);
+    }
 
-        .fa-btn {
-            margin-right: 6px;
-        }
+    .fa-btn {
+        margin-right: 6px;
+    }
 
-        .btn {
-          margin: 6px 6px 6px 6px;
-        }
+    .btn {
+        margin: 6px 6px 6px 6px;
+    }
 
-        /*job description*/
-        #job-desc {
-              position: relative;
-        }
+    /*job description*/
+    #job-desc {
+        position: relative;
+    }
 
-        .job-el {
-          margin: 6px 6px 6px 6px;
-        }
+    .job-el {
+        margin: 6px 6px 6px 6px;
+    }
 
-        ul.nav-pills {
-            top: 100px;
-            position: fixed;
-        }
-        div.col-sm-9 div {
-            height: 800px;
-            font-size: 16px;
-        }
+    a:hover {
+        text-decoration: none;
+    }
 
-        @media screen and (max-width: 810px) {
-          #chairman, #vice_chairman, #secretary, #treasurer {
-              margin-left: 150px;
-          }
-        }
+    ul.nav-pills {
+        top: 100px;
+        position: fixed;
+    }
+    div.col-sm-9 div {
+        height: 800px;
+        font-size: 16px;
+    }
 
-        /*candidate.index, vote.index*/
-        /*candidate picture*/
-        .candidate-pic {
-            margin: 5px;
-            border: 1px solid #ccc;
-            float: left;
-            width: 180px;
-            padding: 30px;
-            text-align: center;
+    @media screen and (max-width: 810px) {
+        #chairman, #vice_chairman, #secretary, #treasurer {
+            margin-left: 150px;
         }
+    }
 
-        .candidate-pic:hover {
-            border: 1px solid #777;
-        }
+    /*candidate.index, vote.index*/
+    /*candidate picture*/
+    .candidate-pic {
+        margin: 5px;
+        /*border: 1px solid #ccc;*/
+        float: left;
+        width: 300px;
+        padding: 30px;
+        text-align: center;
+    }
 
-        .candidate-pic img {
-            width: 100%;
-            height: auto;
-        }
+    .candidate-pic:hover {
+        /*border: 1px solid #777;*/
+    }
 
-        /*all candidates pics in a certain panel*/
-        .all-pics {
-          padding-left: 40px;
-        }
+    .candidate-pic img {
+        width: 100%;
+        height: auto;
+    }
 
-        /*vote.thanks*/
-        #thanks {
-          text-align: center;
-          vertical-align: middle;
-          margin-bottom: 40px;
-          margin-top: 150px;
-        }
+    /*all candidates pics in a certain panel*/
+    .all-pics {
+        padding-left: 40px;
+    }
 
-        /*welcome*/
-        #welcome {
-          text-align: center;
-          vertical-align: middle;
-        }
+    /*vote.thanks*/
+    #thanks {
+        text-align: center;
+        vertical-align: middle;
+        margin-bottom: 40px;
+        margin-top: 150px;
+    }
 
-        /*candidate.show*/
-        #profile-pic {
-          padding-top: 20px;
-          padding-right: 30px;
-          padding-bottom: 20px;
-          padding-left: 30px;
-        }
+    /*welcome*/
+    #welcome {
+        text-align: center;
+        vertical-align: middle;
+    }
 
-        /*candidate information in the table*/
-        .table-candidate-information > tbody > tr {
-          font-size: 14px;
-          border-top: 1px solid rgb(221, 221, 221);
-          color: rgb(217, 230, 242);
-          background-color: rgb(102, 153, 204);
-        }
+    /*candidate.show*/
+    #profile-pic {
+        padding-top: 20px;
+        padding-right: 30px;
+        padding-bottom: 20px;
+        padding-left: 30px;
+    }
 
-        /*all panels*/
-        .panel-default > .panel-heading {
-          color: rgb(236, 242, 248);
-          background-color: rgb(125, 166, 207);
-        }
+    /*candidate information in the table*/
+    .table-candidate-information > tbody > tr {
+        font-size: 14px;
+        border-top: 1px solid rgb(221, 221, 221);
+        color: rgb(217, 230, 242);
+        background-color: rgb(102, 153, 204);
+    }
 
-        .panel-default > .panel-body {
-          background-color: rgb(217, 229, 242);
-        }
+    /*all panels*/
+    .panel-default > .panel-heading {
+        color: rgb(236, 242, 248);
+        background-color: rgb(125, 166, 207);
+    }
 
-        /*vote.index*/
-        /*dropdowns, labels for each position*/
-        .position {
-            font-size:20px;
-            padding-top: 20px;
-            padding-right: 30px;
-            padding-bottom: 20px;
-            padding-left: 45px;
-            margin-right: 20px:
-            margin-down: 20px;
-        }
+    .panel-default > .panel-body {
+        background-color: rgb(217, 229, 242);
+    }
 
-        /*nav bar*/
-        .navbar-default {
-          background-color: #467ec9;
-          border-color: #174590;
-        }
-        .navbar-default .navbar-brand {
-          color: #ecf0f1;
-        }
-        .navbar-default .navbar-brand:hover,
-        .navbar-default .navbar-brand:focus {
-          color: #b2c9e8;
-        }
-        .navbar-default .navbar-text {
-          color: #ecf0f1;
-        }
-        .navbar-default .navbar-nav > li > a {
-          color: #ecf0f1;
-        }
-        .navbar-default .navbar-nav > li > a:hover,
-        .navbar-default .navbar-nav > li > a:focus {
-          color: #b2c9e8;
-        }
-        .navbar-default .navbar-nav > .active > a,
-        .navbar-default .navbar-nav > .active > a:hover,
-        .navbar-default .navbar-nav > .active > a:focus {
-          color: #b2c9e8;
-          background-color: #174590;
-        }
-        .navbar-default .navbar-nav > .open > a,
-        .navbar-default .navbar-nav > .open > a:hover,
-        .navbar-default .navbar-nav > .open > a:focus {
-          color: #b2c9e8;
-          background-color: #174590;
-        }
-        .navbar-default .navbar-toggle {
-          border-color: #174590;
-        }
-        .navbar-default .navbar-toggle:hover,
-        .navbar-default .navbar-toggle:focus {
-          background-color: #174590;
-        }
-        .navbar-default .navbar-toggle .icon-bar {
-          background-color: #ecf0f1;
-        }
-        .navbar-default .navbar-collapse,
-        .navbar-default .navbar-form {
-          border-color: #ecf0f1;
-        }
-        .navbar-default .navbar-link {
-          color: #ecf0f1;
-        }
-        .navbar-default .navbar-link:hover {
-          color: #b2c9e8;
-        }
+    /*vote.index*/
+    /*dropdowns, labels for each position*/
+    .position {
+        font-size:20px;
+        padding-top: 20px;
+        padding-right: 30px;
+        padding-bottom: 20px;
+        padding-left: 45px;
+        margin-right: 20px:
+        margin-down: 20px;
+    }
 
-        @media (max-width: 767px) {
-          .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    /*nav bar*/
+    .navbar-default {
+        background-color: #467ec9;
+        border-color: #174590;
+    }
+    .navbar-default .navbar-brand {
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        color: #b2c9e8;
+    }
+    .navbar-default .navbar-text {
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-nav > li > a {
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > a:focus {
+        color: #b2c9e8;
+    }
+    .navbar-default .navbar-nav > .active > a,
+    .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: #b2c9e8;
+        background-color: #174590;
+    }
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        color: #b2c9e8;
+        background-color: #174590;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: #174590;
+    }
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+        background-color: #174590;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #ecf0f1;
+    }
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        border-color: #ecf0f1;
+    }
+    .navbar-default .navbar-link {
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-link:hover {
+        color: #b2c9e8;
+    }
+
+    @media (max-width: 767px) {
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
             color: #ecf0f1;
-          }
-          .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-          .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
             color: #b2c9e8;
-          }
-          .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-          .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-          .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
             color: #b2c9e8;
             background-color: #174590;
-          }
         }
+    }
 
     </style>
 </head>
@@ -227,18 +231,19 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/activate') }}">Register</a></li>
+                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    <li><a href="{{ url('/activate') }}">Activate my account</a></li>
+                    <li><a href="{{ url('/candidate/create') }}">Apply as a candidate</a></li>
                     @else
                     <!-- dropdown-menu -->
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Go To <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="{{ url('/candidate') }}">View Candidates</a></li>
-                        @if (Auth::user()->isVoter())
-                        <li><a href="vote">Vote</a></li>
-                        @endif
-                      </ul>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Go To <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url('/candidate') }}">View Candidates</a></li>
+                            @if (Auth::user()->isVoter())
+                            <li><a href="{{ url('/vote') }}">Vote</a></li>
+                            @endif
+                        </ul>
                     </li>
                     <li class="dropdown">
                         @if (Auth::user()->isAdmin())
@@ -253,7 +258,7 @@
     </nav>
 
     <div class = "container">
-      @include('flash::message')
+        @include('flash::message')
     </div>
     @yield('content')
 
@@ -263,7 +268,7 @@
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
     <script>
-      $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+    $('div.alert').not('.alert-important').delay(3000).slideUp(300);
     </script>
 
 </body>
