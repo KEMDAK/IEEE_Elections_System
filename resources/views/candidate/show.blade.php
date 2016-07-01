@@ -3,9 +3,18 @@
 @section('content')
 <div class = "container">
   <div class="row">
-      <div class="col-md-12" id = "profile-pic">
+      <div class="col-md-3" id = "profile-pic">
           <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
       </div>
+
+      @if(Auth::user()->id === $candidate->id)
+      <div class="col-md-2" id = "profile-pic">
+        <a href="{{ url('/')}}">
+          <button type="button" name="edit" class = "btn btn-primary">Edit</button>
+        </a>
+      </div>
+      @endif
+
   </div>
 
     <div class="row col-md-12">

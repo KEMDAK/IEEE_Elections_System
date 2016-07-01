@@ -54,3 +54,8 @@ Route::get('candidate/accept/{id}', 'CandidateController@accept');
 Route::get('admin', 'AdminController@panel');
 Route::get('admin/voters', 'AdminController@usersList');
 Route::get('admin/candidates', 'AdminController@candidatesList');
+
+// testing front
+Route::get('over',function() {
+  return view('information.elections_over');
+});
