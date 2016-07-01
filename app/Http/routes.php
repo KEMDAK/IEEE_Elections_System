@@ -16,3 +16,45 @@ Route::get('/', function () {
 });
 
 Route::auth();
+Route::get('activate', 'Auth\AuthController@showActivationForm');
+Route::post('activate', 'Auth\AuthController@activate');
+Route::get('voter', 'Auth\AuthController@index');
+Route::delete('voter/{id}', 'Auth\AuthController@destroy');
+
+/**
+ * voting routes
+ */
+Route::get('vote', 'VoteController@index');
+Route::post('vote', 'VoteController@store');
+Route::get('vote/thanks', 'VoteController@thanks');
+
+/*
+|--------------------------------------------------------------------------
+| Routes for Candidates
+|--------------------------------------------------------------------------
+|
+| Here are all the routes for the different functionalities
+| of the candidates.
+|
+*/
+
+Route::resource('candidate', 'CandidateController');
+
+/*
+|--------------------------------------------------------------------------
+| Routes for Admin
+|--------------------------------------------------------------------------
+|
+| Here are all the routes for the different functionalities
+| of the Admin.
+|
+*/
+
+Route::get('admin', 'AdminController@panel');
+Route::get('admin/voters', 'AdminController@usersList');
+Route::get('admin/candidates', 'AdminController@candidatesList');
+
+// testing front
+Route::get('job', function() {
+  return view('job_description');
+});
