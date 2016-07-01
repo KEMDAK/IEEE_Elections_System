@@ -23,9 +23,43 @@
             background-repeat: no-repeat;*/
         }
 
+
+        .marg {
+           margin: 12px 3cm ;
+           font-size: 20px;
+           font-weight:bold;
+           color:#008B8B;
+
+         }
+        .note {
+           font-size:18px;
+           color:#538b01;
+           font-weight:bold; 
+           font-style:italic;
+        }
+
+        .title{
+           font-weight:bold; 
+           font-style:italic;
+           color :#00008B;
+
+        }
+
+
+
+
         .fa-btn {
             margin-right: 6px;
         }
+        
+ 
+        ul.nav-pills {
+             top: 150px;
+             position: fixed;
+         }
+         
+ 
+
 
         /*candidate.index, vote.index*/
         /*candidate picture*/
@@ -231,5 +265,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+          
 </body>
 </html>
