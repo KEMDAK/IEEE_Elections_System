@@ -1,12 +1,18 @@
 <div class="all-pics">
-  @foreach ($input as $candidate)
-    @unless(strcmp($candidate->position,'Empty Position') == 0)
-      <div class="candidate-pic">
+    @if(count($input) === 1)
+    <center>
+        <h1>No candidates for this position yet</h1>
+    </center>
+    @else
+    @foreach ($input as $candidate)
+    @unless(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0)
+    <div class="candidate-pic">
         <a href = {{ url('candidate', $candidate->id)}}>
-          <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="300">
-          <div class="candidate-name">{{$candidate->first_name}} {{$candidate->last_name}}</div>
+        <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="280">
+        <div class="candidate-name"><b>{{$candidate->first_name}} {{$candidate->last_name}}</b></div>
         </a>
-      </div>
+    </div>
     @endunless
-  @endforeach
+    @endforeach
+    @endif
 </div>

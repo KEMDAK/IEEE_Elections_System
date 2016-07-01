@@ -19,9 +19,30 @@ class CandidateController extends Controller
     */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest', ['only' => ['create', 'store']]);
 
-        $this->middleware('role:Admin', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['create', 'store']]);
+
+        $this->middleware('role:Admin', ['except' => ['index', 'show', 'create', 'store']]);
+
+        $this->middleware('role:No', ['only' => ['edit', 'update']]);
+    }
+
+    /**
+    * This function accepts the candidate request
+    *
+    **/
+    public function accept($id)
+    {
+        $candidate = Candidate::findOrFail($id);
+
+        $candidate->status = 1;
+        $candidate->save();
+
+        //flash message
+        flash()->success('Request Accepted!!');
+
+        return redirect('/admin/candidates');
     }
 
     /**
@@ -32,10 +53,10 @@ class CandidateController extends Controller
     **/
     public function index()
     {
-        $presidents = Candidate::where('position', 'President')->get();
-        $vice_presidents = Candidate::where('position', 'Vice President')->get();
-        $treasurers = Candidate::where('position', 'Treassurer')->get();
-        $secretaries = Candidate::where('position', 'Secretary')->get();
+        $presidents = Candidate::where('position', 'President')->where('status', '1')->get();
+        $vice_presidents = Candidate::where('position', 'Vice President')->where('status', '1')->get();
+        $treasurers = Candidate::where('position', 'Treassurer')->where('status', '1')->get();
+        $secretaries = Candidate::where('position', 'Secretary')->where('status', '1')->get();
 
 
 
@@ -74,12 +95,18 @@ class CandidateController extends Controller
     **/
     public function store(CandidateRequest $request)
     {
-        $candidate = $request->all();
+        $input = $request->all();
+
+        $candidate = Candidate::create($input);
+
         $candidate->votes = 0;
+        $candidate->status = 0;
+        $candidate->save();
 
-        $candidate = Candidate::create($candidate);
+        //flash message
+        flash()->success('Application has been received successfully!');
 
-        return redirect('candidate');
+        return redirect('/');
     }
 
     /**
@@ -109,6 +136,9 @@ class CandidateController extends Controller
 
         $candidate->update($data);
 
+        //flash message
+        flash()->success('Candidate has been edited successfully!');
+
         return redirect('candidate');
     }
 
@@ -122,6 +152,6 @@ class CandidateController extends Controller
     {
         Candidate::destroy($id);
 
-        return redirect('candidate');
+        return redirect('/admin/candidates');
     }
 }

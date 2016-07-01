@@ -39,6 +39,7 @@ Route::get('vote/thanks', 'VoteController@thanks');
 */
 
 Route::resource('candidate', 'CandidateController');
+Route::get('candidate/accept/{id}', 'CandidateController@accept');
 
 /*
 |--------------------------------------------------------------------------

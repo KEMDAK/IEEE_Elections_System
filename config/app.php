@@ -157,7 +157,10 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // HTML and Forms
-        Collective\Html\HtmlServiceProvider::class
+        Collective\Html\HtmlServiceProvider::class,
+
+        // Flash messages
+        Laracasts\Flash\FlashServiceProvider::class
 
     ],
 
@@ -207,7 +210,10 @@ return [
 
         // HTML and Forms
         'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class
+        'Html' => Collective\Html\HtmlFacade::class,
+
+        // Flash messages
+        'Flash' => Laracasts\Flash\Flash::class
 
     ],
 

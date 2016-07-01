@@ -30,10 +30,10 @@ class VoteController extends Controller
     */
     public function index()
     {
-        $presidents = Candidate::where('position', 'President')->get();
-        $vice_presidents = Candidate::where('position', 'Vice President')->get();
-        $treasurers = Candidate::where('position', 'Treassurer')->get();
-        $secretaries = Candidate::where('position', 'Secretary')->get();
+        $presidents = Candidate::where('position', 'President')->where('status', '1')->get();
+        $vice_presidents = Candidate::where('position', 'Vice President')->where('status', '1')->get();
+        $treasurers = Candidate::where('position', 'Treassurer')->where('status', '1')->get();
+        $secretaries = Candidate::where('position', 'Secretary')->where('status', '1')->get();
 
 
 

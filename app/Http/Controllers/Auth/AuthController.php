@@ -64,6 +64,8 @@ class AuthController extends Controller
 
         $this->create($request->all());
 
+        flash()->success('User has been created successfully!');
+
         return redirect('/admin/voters');
     }
 
@@ -106,7 +108,7 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'email' => 'required|email|max:255|unique:users',
-            'ieee_membership_id' => 'required',
+            'ieee_membership_id' => 'required|unique:users',
         ]);
     }
 
@@ -170,6 +172,8 @@ class AuthController extends Controller
 
         /** saving the user in the database */
         $user->save();
+
+        flash()->success('Activated successfully!! Your password has been sent to your E-mail.');
 
         return redirect('/');
     }
