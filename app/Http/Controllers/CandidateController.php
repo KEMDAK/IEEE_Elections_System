@@ -74,10 +74,16 @@ class CandidateController extends Controller
     **/
     public function store(CandidateRequest $request)
     {
-        $candidate = $request->all();
-        $candidate->votes = 0;
+        $input = $request->all();
 
-        $candidate = Candidate::create($candidate);
+        $candidate = Candidate::create($input);
+
+        //because attempt to assign property of non-object - solved
+        $candidate->update(['votes'=>'0']);
+        //need a unique ieee_membership_id - not solved
+
+        //flash message
+        flash()->success('Candidate has been created successfully!');
 
         return redirect('candidate');
     }
@@ -108,6 +114,9 @@ class CandidateController extends Controller
         $candidate = Candidate::findOrFail($id);
 
         $candidate->update($data);
+
+        //flash message
+        flash()->success('Candidate has been edited successfully!');
 
         return redirect('candidate');
     }

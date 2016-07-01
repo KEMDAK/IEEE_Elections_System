@@ -18,13 +18,38 @@
         body {
             font-family: 'Lato';
             background-color: rgb(198, 217, 236);
-            /*background-image: url("leaves.jpg");
-            background-size: 100%;
-            background-repeat: no-repeat;*/
         }
 
         .fa-btn {
             margin-right: 6px;
+        }
+
+        .btn {
+          margin: 6px 6px 6px 6px;
+        }
+
+        /*job description*/
+        #job-desc {
+              position: relative;
+        }
+
+        .job-el {
+          margin: 6px 6px 6px 6px;
+        }
+
+        ul.nav-pills {
+            top: 100px;
+            position: fixed;
+        }
+        div.col-sm-9 div {
+            height: 800px;
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 810px) {
+          #chairman, #vice_chairman, #secretary, #treasurer {
+              margin-left: 150px;
+          }
         }
 
         /*candidate.index, vote.index*/
@@ -49,7 +74,7 @@
 
         /*all candidates pics in a certain panel*/
         .all-pics {
-          padding-left: 80px;
+          padding-left: 40px;
         }
 
         /*vote.thanks*/
@@ -99,7 +124,9 @@
             padding-top: 20px;
             padding-right: 30px;
             padding-bottom: 20px;
-            padding-left: 80px;
+            padding-left: 45px;
+            margin-right: 20px:
+            margin-down: 20px;
         }
 
         /*nav bar*/
@@ -205,7 +232,7 @@
                     @else
                     <!-- dropdown-menu -->
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Go To<span class="caret"></span></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Go To <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         <li><a href="{{ url('/candidate') }}">View Candidates</a></li>
                         @if (Auth::user()->isVoter())
@@ -225,11 +252,19 @@
         </div>
     </nav>
 
+    <div class = "container">
+      @include('flash::message')
+    </div>
     @yield('content')
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+    <script>
+      $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+    </script>
+
 </body>
 </html>

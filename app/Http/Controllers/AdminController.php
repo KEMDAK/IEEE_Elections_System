@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\User;
 
+use App\Candidate;
+
 class AdminController extends Controller
 {
     /**
@@ -54,6 +56,7 @@ class AdminController extends Controller
     **/
     public function candidatesList()
     {
-        return view('admin.candidatesList');
+        $candidates = Candidate::all();
+        return view('admin.candidatesList',compact('candidates'));
     }
 }

@@ -34,11 +34,7 @@
   <div class="row col-md-12">
     <div class="panel panel-default">
       <div class="panel-heading">More to know</div>
-      <div class="panel-body">{{$candidate->description}}once upon a time I was there and
-         I didn't like it there but I didn't know what to do the get
-         out of there so after some amout of time I became no longer
-          there and IDK how did that happen... end of story... let's
-           go now or you with choclate flavor</div>
+      <div class="panel-body">{{$candidate->description}}</div>
     </div>
   </div>
 </div>
