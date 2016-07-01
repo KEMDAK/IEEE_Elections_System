@@ -31,11 +31,11 @@
     <div class="panel panel-default">
       <div class="panel-heading">More to know</div>
       <div class="panel-body">
-          <h3>Plan:</h3>
+          <h5>Plan:</h5>
           <div>
             {{ $candidate->plan_url }}
           </div>
-          <h3>Video:</h3>
+          <h5>Video:</h5>
           <div>
             {{ $candidate->video_url }}
           </div>
