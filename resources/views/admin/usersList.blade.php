@@ -10,7 +10,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>IEEE Membership</th>
+                <th>IEEE Membership ID</th>
                 <th>Email</th>
                 <th>Status</th>
                 <th>Options</th>
@@ -43,7 +43,7 @@
     <div class="row">
         <center>
             <span class "col-md-12">
-                <a href="{{ url('/register') }}"><button type="button" class="btn btn-info">Add voter</button></a>
+                <a href="{{ url('/register') }}"><button type="button" class="btn btn-primary">Add voter</button></a>
             <span class "col-md-12">
         </center>
     </div>

@@ -15,8 +15,8 @@
           <!-- president's label and dropdown-->
           <div class="form-group">
           <div class="row position">
-            <span class="col-md-2 label label-primary">I will choose</span>
-            <div class = "col-md-3">
+            <span class="col-xs-4 col-md-2 label label-primary">I will choose</span>
+            <div class = "col-xs-8 col-md-3">
               <select  class="form-control" name="president">
                 <?php $input = $presidents ?>
                 @include('candidate.candidates_dropdown', compact('input'))
@@ -39,9 +39,8 @@
         <!-- vice president's label and dropdown -->
         <div class="form-group">
           <div class="row position">
-            <span class="col-md-2 label label-primary">I will choose</span>
-
-            <div class = "col-md-3">
+              <span class="col-xs-4 col-md-2 label label-primary">I will choose</span>
+              <div class = "col-xs-8 col-md-3">
               <select  class="form-control" name="vice_president">
                 <?php $input = $vice_presidents ?>
                 @include('candidate.candidates_dropdown', compact('input'))
@@ -64,8 +63,8 @@
         <!-- secretary label and dropdown -->
         <div class="form-group">
         <div class="row position">
-            <span class="col-md-2 label label-primary">I will choose</span>
-            <div class = "col-md-3">
+            <span class="col-xs-4 col-md-2 label label-primary">I will choose</span>
+            <div class = "col-xs-8 col-md-3">
                 <select  class="form-control" name="secretary">
                     <?php $input = $secretaries ?>
                     @include('candidate.candidates_dropdown', compact('input'))
@@ -87,8 +86,8 @@
         <!-- treasurer label and dropdown -->
         <div class="form-group">
         <div class="row position">
-            <span class="col-md-2 label label-primary">I will choose</span>
-            <div class = "col-md-3">
+            <span class="col-xs-4 col-md-2 label label-primary">I will choose</span>
+            <div class = "col-xs-8 col-md-3">
                 <select  class="form-control" name="treasurer">
                   <?php $input = $treasurers ?>
                       @include('candidate.candidates_dropdown', compact('input'))

@@ -12,9 +12,12 @@ class Candidate extends Model
      *
      * @var array
      */
-    protected $fillable = [
-         'position', 'first_name', 'last_name', 'major', 'graduation_year', 'description', 'image_url'
-            ];
+     protected $fillable = [
+         'position', 'guc_id', 'ieee_membership_id',
+         'personal_email', 'guc_email',
+         'first_name', 'last_name', 'mobile_number',
+         'major', 'image_url', 'plan_url', 'video_url'
+     ];
 
     /**
      * The attributes that should be hidden for arrays.
