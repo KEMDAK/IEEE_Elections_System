@@ -54,3 +54,13 @@ Route::get('candidate/accept/{id}', 'CandidateController@accept');
 Route::get('admin', 'AdminController@panel');
 Route::get('admin/voters', 'AdminController@usersList');
 Route::get('admin/candidates', 'AdminController@candidatesList');
+
+
+//for testing 
+
+Route::get('eligibility_conditions', function() {
+  return view('eligibility_conditions');
+ });
+Route::get('election_phases', function() {
+  return view('election_phases');
+ });
