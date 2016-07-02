@@ -130,6 +130,9 @@ class CandidateController extends Controller
     {
         $candidate = Candidate::findOrFail($id);
 
+        // if editing is not available
+        Flash::overlay('You cannot edit your information at the moment!', 'Unavailable Service');
+        
         return view('candidate.edit', compact('candidate'));
     }
 

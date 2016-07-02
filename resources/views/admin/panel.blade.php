@@ -19,5 +19,12 @@
           <a href="{{ url('/admin/candidates') }}"><button type="button" class="btn btn-info">Candidates List</button></a>
         </span>
     </div>
+
+    <div class="row">
+        <span class "col-md-12">
+          <a href="{{ url('/admin/config') }}"><button type="button" class="btn btn-info">Elections config</button></a>
+        </span>
+    </div>
+
 </div>
 @endsection

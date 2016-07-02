@@ -65,11 +65,11 @@ Route::get('admin/candidates', 'AdminController@candidatesList');
 */
 
 Route::get('job_description', function() {
-    return view('job_description');
+    return view('information.job_description');
 });
 Route::get('eligibility_conditions', function() {
-  return view('eligibility_conditions');
+  return view('information.eligibility_conditions');
  });
 Route::get('election_phases', function() {
-  return view('election_phases');
+  return view('information.election_phases');
  });
