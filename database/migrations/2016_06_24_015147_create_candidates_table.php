@@ -21,6 +21,7 @@ class CreateCandidatesTable extends Migration
             $table->string('guc_email')->unique();
             $table->string('first_name');
             $table->string('last_name');
+            $table->enum('gender', array('Male', 'Female'));
             $table->string('mobile_number');
             $table->string('major');
             $table->string('image_url');

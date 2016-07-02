@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Candidate extends Model
 {
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -15,7 +16,7 @@ class Candidate extends Model
      protected $fillable = [
          'position', 'guc_id', 'ieee_membership_id',
          'personal_email', 'guc_email',
-         'first_name', 'last_name', 'mobile_number',
+         'first_name', 'last_name', 'gender', 'mobile_number',
          'major', 'image_url', 'plan_url', 'video_url'
      ];
 
@@ -27,6 +28,8 @@ class Candidate extends Model
     protected $hidden = [
         'votes'
     ];
+
+      
 
     /**
      * Returns true if this candidate applying for the president position.
@@ -71,5 +74,23 @@ class Candidate extends Model
     public function candidate()
     {
         return $this->belongsTo('App\User');
+    }
+
+    /**
+     * Returns true if this candidate is male.
+     * @return bool
+     */
+    public function isMale ()
+    {
+        return $this->gender == 'Male';
+    }
+
+    /**
+     * Returns true if this candidate is female.
+     * @return bool
+     */
+    public function isFemale ()
+    {
+        return $this->gender == 'Female';
     }
 }
