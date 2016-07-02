@@ -33,7 +33,7 @@
                               </a>
 
                               {{ method_field('DELETE') }}
-                              <button type="submit" id="delete-task-{{ $candidate->id }}" class="btn btn-danger">
+                              <button type="submit" id="delete-task-{{ $candidate->user_id }}" class="btn btn-danger">
                                   <i class="fa fa-btn fa-trash"></i>Delete
                               </button>
                           </form>
@@ -76,7 +76,7 @@
                               </a>
 
                               {{ method_field('DELETE') }}
-                              <button type="submit" id="delete-task-{{ $candidate->id }}" class="btn btn-danger">
+                              <button type="submit" id="delete-task-{{ $candidate->user_id }}" class="btn btn-danger">
                                   <i class="fa fa-btn fa-trash"></i>Delete
                               </button>
                           </form>

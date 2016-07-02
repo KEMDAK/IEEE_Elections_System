@@ -1,3 +1,11 @@
+<!-- personal email -->
+<div class="form-group">
+    <label class="control-label col-sm-2" for="personal_email">Email*</label>
+    <div class="col-sm-10">
+        {!! Form::text('personal_email', null, ['class' => 'form-control', 'placeholder'=>'This will be used for login (gmail is prefered)']) !!}
+    </div>
+</div>
+
 <!-- IEEE membership ID -->
 <div class="form-group">
     <label class="control-label col-sm-2" for="ieee_membership_id">IEEE membership ID*</label>
@@ -39,14 +47,6 @@
     </div>
 </div>
 
-<!-- personal email -->
-<div class="form-group">
-  <label class="control-label col-sm-2" for="personal_email">Personal Email*</label>
-  <div class="col-sm-10">
-    {!! Form::text('personal_email', null, ['class' => 'form-control', 'placeholder'=>'(gmail is prefered)']) !!}
-  </div>
-</div>
-
 <!-- guc email -->
 <div class="form-group">
   <label class="control-label col-sm-2" for="guc_email">GUC Email*</label>
@@ -80,7 +80,7 @@
 <div class="form-group">
   <label class="control-label col-sm-2" for="image_url">Image URL</label>
   <div class="col-sm-10">
-    {!! Form::text('image_url', null, ['class' => 'form-control', 'placeholder'=>'Enter image URL (optional)']) !!}
+    {!! Form::text('image_url', null, ['class' => 'form-control', 'placeholder'=>'Enter image URL (optional you can add it later)']) !!}
   </div>
 </div>
 
@@ -88,7 +88,7 @@
 <div class="form-group">
   <label class="control-label col-sm-2" for="plan_url">Plan URL</label>
   <div class="col-sm-10">
-    {!! Form::text('plan_url', null, ['class' => 'form-control', 'placeholder'=>'Enter plan URL (optional)']) !!}
+    {!! Form::text('plan_url', null, ['class' => 'form-control', 'placeholder'=>'Enter plan URL (optional you can add it later)']) !!}
   </div>
 </div>
 
@@ -96,6 +96,6 @@
 <div class="form-group">
   <label class="control-label col-sm-2" for="video_url">Video URL</label>
   <div class="col-sm-10">
-    {!! Form::text('video_url', null, ['class' => 'form-control', 'placeholder'=>'Enter video URL (optional)']) !!}
+    {!! Form::text('video_url', null, ['class' => 'form-control', 'placeholder'=>'Enter video URL (optional you can add it later)']) !!}
   </div>
 </div>

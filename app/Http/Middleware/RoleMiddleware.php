@@ -24,18 +24,13 @@ class RoleMiddleware
 
         $user = Auth::user();
 
-        if(strcmp('Admin', $role) == 0){
-            if (! strcmp($user->role, $role) == 0) {
-                // authenticate failed
-                return redirect('/');
-            }
+        if (! strcmp($user->role, $role) == 0) {
+            // authenticate failed
+            return redirect('/');
         }
-        else{
-            if (! strcmp($user->role, $role) == 0) {
-                // authenticate failed
-                return redirect('/');
-            }
-            else if(! strcmp($user->status, '0') == 0){
+
+        if(strcmp('Voter', $role) == 0){
+            if(! strcmp($user->status, '0') == 0){
                 // voted before
                 return redirect('/vote/thanks');
             }

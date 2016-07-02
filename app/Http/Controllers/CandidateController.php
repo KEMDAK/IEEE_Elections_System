@@ -8,7 +8,11 @@ use App\Http\Requests;
 
 use App\Candidate;
 
+use App\User;
+
 use App\Http\Requests\CandidateRequest;
+
+use Illuminate\Support\Facades\Auth;
 
 class CandidateController extends Controller
 {
@@ -25,7 +29,7 @@ class CandidateController extends Controller
 
         $this->middleware('role:Admin', ['except' => ['index', 'show', 'create', 'store']]);
 
-        $this->middleware('role:No', ['only' => ['edit', 'update']]);
+        $this->middleware('role:Candidate', ['only' => ['edit', 'update']]);
     }
 
     /**
@@ -95,16 +99,23 @@ class CandidateController extends Controller
     **/
     public function store(CandidateRequest $request)
     {
-        $input = $request->all();
+        $data = $request->all();
 
-        $candidate = Candidate::create($input);
+        $user = User::create([
+            'ieee_membership_id' => $data['ieee_membership_id'],
+            'role' => 'Candidate',
+            'email' => $data['personal_email'],
+            'active' => '1',
+            'status' => '1'
+        ]);
 
-        $candidate->votes = 0;
-        $candidate->status = 0;
-        $candidate->save();
+        $data->user_id = $user->id;
+        $data->votes = 0;
+        $data->status = 0;
+        $candidate = Candidate::create($data);
 
         //flash message
-        flash()->success('Application has been received successfully!');
+        flash()->success('Application has been received successfully!! You have to activate your account before you can use it.');
 
         return redirect('/');
     }
@@ -130,16 +141,24 @@ class CandidateController extends Controller
     **/
     public function update($id, CandidateRequest $request)
     {
-        $data = $request->all();
+        if($id === Auth::user()->id){
+            $data = $request->all();
 
-        $candidate = Candidate::findOrFail($id);
+            unset($data['votes']);
+            unset($data['status']);
 
-        $candidate->update($data);
+            $candidate = Candidate::findOrFail($id);
 
-        //flash message
-        flash()->success('Candidate has been edited successfully!');
+            $candidate->update($data);
 
-        return redirect('candidate');
+            //flash message
+            flash()->success('Your profile has been edited successfully!');
+
+            return redirect('candidate');
+        }
+        else{
+            return redirect('/');
+        }
     }
 
     /**
@@ -150,7 +169,7 @@ class CandidateController extends Controller
     **/
     public function destroy($id)
     {
-        Candidate::destroy($id);
+        User::destroy($id);
 
         return redirect('/admin/candidates');
     }

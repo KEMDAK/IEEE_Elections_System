@@ -124,8 +124,8 @@ class AuthController extends Controller
             'ieee_membership_id' => $data['ieee_membership_id'],
             'role' => 'Voter',
             'email' => $data['email'],
-            'active' => 'false',
-            'status' => 'false'
+            'active' => '0',
+            'status' => '0'
         ]);
     }
 
