@@ -14,7 +14,7 @@ class AdminSeeder extends Seeder
     public function run()
     {
         User::create([
-            'ieee_membership_id' => '',
+            'ieee_membership_id' => '1',
             'role' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => bcrypt('admin'),

@@ -25,7 +25,7 @@
                       <td>{{$candidate->first_name}} {{$candidate->last_name}}</td>
                       <td>{{$candidate->position}}</td>
                       <td>
-                          <form class="form-inline" action="{{ url('candidate/'.$candidate->id) }}" method="POST">
+                          <form class="form-inline" action="{{ url('candidate/'.$candidate->user_id) }}" method="POST">
                               <a href = {{ url('candidate', $candidate->id)}}>
                                   <button type="button" class="btn btn-primary">
                                       View
@@ -33,7 +33,7 @@
                               </a>
 
                               {{ method_field('DELETE') }}
-                              <button type="submit" id="delete-task-{{ $candidate->id }}" class="btn btn-danger">
+                              <button type="submit" id="delete-task-{{ $candidate->user_id }}" class="btn btn-danger">
                                   <i class="fa fa-btn fa-trash"></i>Delete
                               </button>
                           </form>
@@ -62,7 +62,7 @@
                       <td>{{$candidate->first_name}} {{$candidate->last_name}}</td>
                       <td>{{$candidate->position}}</td>
                       <td>
-                          <form action="{{ url('candidate/'.$candidate->id) }}" method="POST">
+                          <form action="{{ url('candidate/'.$candidate->user_id) }}" method="POST">
                               <a href = {{ url('candidate', $candidate->id)}}>
                                   <button type="button" class="btn btn-primary">
                                       View
@@ -76,7 +76,7 @@
                               </a>
 
                               {{ method_field('DELETE') }}
-                              <button type="submit" id="delete-task-{{ $candidate->id }}" class="btn btn-danger">
+                              <button type="submit" id="delete-task-{{ $candidate->user_id }}" class="btn btn-danger">
                                   <i class="fa fa-btn fa-trash"></i>Delete
                               </button>
                           </form>

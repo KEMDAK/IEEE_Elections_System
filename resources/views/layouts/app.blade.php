@@ -20,7 +20,6 @@
         background-color: rgb(198, 217, 236);
     }
 
-
         .marg {
            margin: 12px 3cm ;
            font-size: 20px;
@@ -31,31 +30,26 @@
         .note {
            font-size:18px;
            color:#538b01;
-           font-weight:bold; 
+           font-weight:bold;
            font-style:italic;
         }
 
         .title{
-           font-weight:bold; 
+           font-weight:bold;
            font-style:italic;
            color :#00008B;
 
         }
 
-
-
-
         .fa-btn {
             margin-right: 6px;
         }
-        
- 
+
+
         ul.nav-pills {
              top: 150px;
              position: fixed;
          }
-         
- 
 
     .btn {
         margin: 6px 6px 6px 6px;
@@ -67,7 +61,10 @@
     }
 
     .job-el {
-        margin: 6px 6px 6px 6px;
+        margin-top: 6px;
+        margin-left: 6px;
+        margin-right: 6px;
+        margin-bottom: 30px;
     }
 
     a:hover {
@@ -88,6 +85,7 @@
             margin-left: 150px;
         }
     }
+
 
     /*candidate.index, vote.index*/
     /*candidate picture*/
@@ -114,12 +112,17 @@
         padding-left: 40px;
     }
 
-    /*vote.thanks*/
-    #thanks {
+    /*vote.thanks, elections_started, elections_over*/
+    .one-liner {
         text-align: center;
         vertical-align: middle;
         margin-bottom: 40px;
         margin-top: 150px;
+        width: 100%;
+        color: #000d1a;
+        display: table;
+        font-weight: 100;
+        font-family: 'Lato';
     }
 
     /*welcome*/
@@ -301,8 +304,10 @@
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
     <script>
-    $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+      $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+
+      $('#flash-overlay-modal').modal();
     </script>
-    
+
 </body>
 </html>

@@ -63,4 +63,13 @@ class Candidate extends Model
     {
         return strcmp($this->position,"Secretary") == 0;
     }
+
+    /**
+    * This function returns the user of this Candidate
+    *
+    **/
+    public function candidate()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

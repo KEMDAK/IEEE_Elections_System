@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 
 use App\Candidate;
 
+use App\User;
+
 class EmptySeeder extends Seeder
 {
     /**
@@ -13,6 +15,15 @@ class EmptySeeder extends Seeder
      */
     public function run()
     {
+        User::create([
+            'ieee_membership_id' => '0',
+            'role' => 'Candidate',
+            'email' => 'empty@candidate.com',
+            'password' => bcrypt('#Q<KtJ6ch;pY,S!C'),
+            'active' => '1',
+            'status' => '1'
+        ]);
+
         Candidate::create([
             'ieee_membership_id' => '0',
             'guc_id' =>'0',
@@ -22,7 +33,8 @@ class EmptySeeder extends Seeder
             'first_name' => 'Empty',
             'last_name' => 'Position',
             'votes' => 0,
-            'status' => '1'
+            'status' => '1',
+            'user_id' => '1'
         ]);
 
         Candidate::create([
@@ -34,7 +46,8 @@ class EmptySeeder extends Seeder
             'first_name' => 'Empty',
             'last_name' => 'Position',
             'votes' => 0,
-            'status' => '1'
+            'status' => '1',
+            'user_id' => '1'
         ]);
 
         Candidate::create([
@@ -46,7 +59,8 @@ class EmptySeeder extends Seeder
             'first_name' => 'Empty',
             'last_name' => 'Position',
             'votes' => 0,
-            'status' => '1'
+            'status' => '1',
+            'user_id' => '1'
         ]);
 
         Candidate::create([
@@ -58,7 +72,8 @@ class EmptySeeder extends Seeder
             'first_name' => 'Empty',
             'last_name' => 'Position',
             'votes' => 0,
-            'status' => '1'
+            'status' => '1',
+            'user_id' => '1'
         ]);
     }
 }

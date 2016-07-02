@@ -44,20 +44,19 @@ class User extends Authenticatable
     }
 
     /**
-     * Returns true if this user is active and can sign in.
+     * Returns true if this user is a candidate.
      * @return bool
      */
-    public function isActive()
+    public function isCandidate()
     {
-        return strcmp($this->active,"true") == 0;
+        return strcmp($this->role,"Candidate") == 0;
     }
 
     /**
-     * Returns true if this user has voted before.
-     * @return bool
+     * Returns the candidates that is linked with this user.
      */
-    public function hasVoted()
+    public function candidates()
     {
-        return strcmp($this->status,"true") == 0;
+        return $this->hasMany('App\Candidate');
     }
 }
