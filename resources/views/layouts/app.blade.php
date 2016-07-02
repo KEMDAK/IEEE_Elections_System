@@ -67,7 +67,10 @@
     }
 
     .job-el {
-        margin: 6px 6px 6px 6px;
+        margin-top: 6px;
+        margin-left: 6px;
+        margin-right: 6px;
+        margin-bottom: 30px;
     }
 
     a:hover {
@@ -301,7 +304,9 @@
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
     <script>
-    $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+      $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+
+      $('#flash-overlay-modal').modal();
     </script>
     
 </body>
