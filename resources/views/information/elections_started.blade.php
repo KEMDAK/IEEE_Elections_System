@@ -2,6 +2,6 @@
 
 @section('content')
   <div class="container">
-    <h3>Elections have started</h3>
+    <h2 class = "one-liner">Electinos have started.</h2>
   </div>
 @endsection
