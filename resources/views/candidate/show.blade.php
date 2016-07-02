@@ -11,7 +11,7 @@
       <div class="col-md-8" id = "profile-pic">
         <a href="{{ url('/candidate/'.$candidate->id.'/edit')}}">
           <button type="button" name="edit" class = "btn btn-warning">
-              <i class="fa fa-pencil-square-o"></i> Edit profile</button>
+              <i class="fa fa-btn fa-pencil-square-o"></i>Edit profile</button>
         </a>
         <div class="row">
            <div class="col-sm-6" >

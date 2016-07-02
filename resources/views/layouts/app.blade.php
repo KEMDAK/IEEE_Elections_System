@@ -267,26 +267,21 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/activate') }}">Activate my account</a></li>
-                    <li><a href="{{ url('/candidate/create') }}">Apply as a candidate</a></li>
+                    <li><a href="{{ url('/login') }}"><i class="fa fa-btn fa-sign-in"></i>Login</a></li>
+                    <li><a href="{{ url('/activate') }}"><i class="fa fa-btn fa-envelope"></i>Activate my account</a></li>
+                    <li><a href="{{ url('/candidate/create') }}"><i class="fa fa-btn fa-user-plus"></i>Apply as a candidate</a></li>
                     @else
-                    <!-- dropdown-menu -->
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Go To <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ url('/candidate') }}">View Candidates</a></li>
-                            @if (Auth::user()->isVoter())
-                            <li><a href="{{ url('/vote') }}">Vote</a></li>
-                            @endif
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        @if (Auth::user()->isAdmin())
-                        <li><a href="{{ url('/admin') }}"><i class="fa fa-btn fa fa-lock"></i>Admin Panel</a></li>
-                        @endif
-                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                    </li>
+                    @if (Auth::user()->isVoter())
+                    <li><a href="{{ url('/vote') }}"><i class="fa fa-btn fa-rss"></i>Vote</a></li>
+                    @endif
+                    <li><a href="{{ url('/candidate') }}"><i class="fa fa-btn fa-users"></i>View Candidates</a></li>
+                    @if (Auth::user()->isCandidate())
+                    <li><a href="{{ url('/candidate/'.Auth::user()->candidates[0]->id) }}"><i class="fa fa-btn fa-user"></i>My profile</a></li>
+                    @endif
+                    @if (Auth::user()->isAdmin())
+                    <li><a href="{{ url('/admin') }}"><i class="fa fa-btn fa fa-lock"></i>Admin Panel</a></li>
+                    @endif
+                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                     @endif
                 </ul>
             </div>
