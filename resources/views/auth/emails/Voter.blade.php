@@ -12,7 +12,7 @@
 <br>
 <br> Kindly check the following login information for the voting process:
 <br>
-<br><strong>Username:</strong> {{ $email }}
+<br><strong>Email:</strong> {{ $email }}
 <br><strong>Password:</strong> {{ $password }}
 <br>
 <br>You are kindly requested to login to<strong> <a href="http://www.ieeeguc.org ">www.ieeeguc.org </a></strong>using the above information.

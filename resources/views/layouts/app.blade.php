@@ -271,7 +271,7 @@
                     <li><a href="{{ url('/activate') }}"><i class="fa fa-btn fa-envelope"></i>Activate my account</a></li>
                     <li><a href="{{ url('/candidate/create') }}"><i class="fa fa-btn fa-user-plus"></i>Apply as a candidate</a></li>
                     @else
-                    @if (Auth::user()->isVoter())
+                    @if (Auth::user()->isVoter() || Auth::user()->isCandidate())
                     <li><a href="{{ url('/vote') }}"><i class="fa fa-btn fa-rss"></i>Vote</a></li>
                     @endif
                     <li><a href="{{ url('/candidate') }}"><i class="fa fa-btn fa-users"></i>View Candidates</a></li>

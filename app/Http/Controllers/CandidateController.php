@@ -118,7 +118,7 @@ class CandidateController extends Controller
             'role' => 'Candidate',
             'email' => $data['personal_email'],
             'active' => '0',
-            'status' => '1'
+            'status' => '0'
         ]);
 
         $candidate = Candidate::create($data);
