@@ -54,6 +54,8 @@ Route::get('candidate/accept/{id}', 'CandidateController@accept');
 Route::get('admin', 'AdminController@panel');
 Route::get('admin/voters', 'AdminController@usersList');
 Route::get('admin/candidates', 'AdminController@candidatesList');
+Route::get('admin/config', 'AdminController@showConfigurationsForm');
+Route::post('admin/config', 'AdminController@saveConfigurations');
 
 /*
 |--------------------------------------------------------------------------
