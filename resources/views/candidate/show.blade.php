@@ -30,17 +30,39 @@
     <table class="table table-candidate-information">
         <tbody>
           <tr>
-            <td>Name</td>
+            <td><b>Name</b></td>
             <td>{{$candidate->first_name}} {{$candidate->last_name}}</td>
           </tr>
           <tr>
-            <td>Major</td>
+            <td><b>Major</b></td>
             <td>{{$candidate->major}}</td>
           </tr>
           <tr>
-            <td>Applying to</td>
+            <td><b>Applying to</b></td>
             <td>{{$candidate->position}}'s position</td>
           </tr>
+          @if(Auth::user()->id == $candidate->user_id || Auth::user()->isAdmin())
+          <tr>
+            <td><b>GUC ID</b></td>
+            <td>{{$candidate->guc_id}}</td>
+          </tr>
+          <tr>
+            <td><b>IEEE membership ID</b></td>
+            <td>{{$candidate->ieee_membership_id}}</td>
+          </tr>
+          <tr>
+            <td><b>Personal E-mail</b></td>
+            <td>{{$candidate->personal_email}}</td>
+          </tr>
+          <tr>
+            <td><b>GUC E-mail</b></td>
+            <td>{{$candidate->guc_email}}</td>
+          </tr>
+          <tr>
+            <td><b>Mobile Number</b></td>
+            <td>{{$candidate->mobile_number}}</td>
+          </tr>
+          @endif
         </tbody>
     </table>
   </div>
