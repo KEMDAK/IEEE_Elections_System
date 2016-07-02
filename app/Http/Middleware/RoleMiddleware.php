@@ -24,7 +24,7 @@ class RoleMiddleware
 
         $user = Auth::user();
 
-        if(strcmp('Voter', $role) == 0 && strcmp('Candidate', $user->role) == 0){
+        if(strcmp('Voter', $role) == 0 && strcmp('Candidate', $user->role) == 0 && ($user->candidates[0]->status == '1')){
             if(! strcmp($user->status, '0') == 0){
                 // voted before
                 return redirect('/vote/thanks');
