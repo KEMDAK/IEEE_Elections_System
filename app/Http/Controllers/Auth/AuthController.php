@@ -165,9 +165,9 @@ class AuthController extends Controller
         $email = $user->email;
 
         /** sending an email with the password */
-        Mail::send('auth.emails.welcome', ['password' => $password], function($message) use ($email)
+        Mail::send('auth.emails.'.$user->role, ['email' => $email, 'password' => $password], function($message) use ($email)
         {
-            $message->to($email, 'IEEE GUC SB member')->subject('Welcome to IEEE GUC SB 2016 Elections!');
+            $message->to($email, 'IEEE GUC SB | Member')->subject('IEEE GUC SB | Elections \'17 Registration');
         });
 
         /** saving the user in the database */

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 
 use Flash;
 
+use Mail;
+
 class CandidateController extends Controller
 {
     /**
@@ -41,6 +43,14 @@ class CandidateController extends Controller
     public function accept($id)
     {
         $candidate = Candidate::findOrFail($id);
+        $user = User::findOrFail($candidate->user_id);
+        $email = $user->email;
+
+        /** sending an acceptance mail */
+        Mail::send('candidate.emails.acceptance', ['name' => ($candidate->first_name . ' ' . $candidate->last_name), 'position' => $candidate->position], function($message) use ($email)
+        {
+            $message->to($email, 'IEEE GUC SB | Member')->subject('IEEE GUC SB | Elections \'17 Eligibility Checking Results');
+        });
 
         $candidate->status = 1;
         $candidate->save();
