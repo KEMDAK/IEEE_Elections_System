@@ -102,7 +102,7 @@ class CandidateController extends Controller
     public function store(CandidateRequest $request)
     {
         $data = $request->all();
-
+        
         $user = User::create([
             'ieee_membership_id' => $data['ieee_membership_id'],
             'role' => 'Candidate',
@@ -116,6 +116,16 @@ class CandidateController extends Controller
         $candidate->user_id = $user->id;
         $candidate->votes = 0;
         $candidate->status = 0;
+
+        if(strcmp($candidate->image_url, "") == 0){
+           if(strcmp($candidate->gender, "Male") == 0){
+            $candidate->image_url = url('/img/male.png');
+           }
+           else{
+            $candidate->image_url = url('/img/female.jpg');
+           }
+        }
+
         $candidate->save();
 
         //flash message
@@ -160,6 +170,15 @@ class CandidateController extends Controller
 
             $candidate->votes = 0;
             $candidate->status = 0;
+
+            if(strcmp($candidate->image_url, "") == 0){
+             if(strcmp($candidate->gender, "Male") == 0){
+                $candidate->image_url = url('/img/male.png');
+                }
+            else{
+                $candidate->image_url = url('/img/female.jpg');
+            }
+        }
             $candidate->save();
 
             //flash message
