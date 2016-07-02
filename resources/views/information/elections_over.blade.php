@@ -2,7 +2,6 @@
 
 @section('content')
   <div class="container">
-    <h3>Elections are over</h3>
-    <h3>The results will be available soon.</h3>
+    <h2 class = "one-liner">Elections are over.<br>The results will be available soon.</h2>
   </div>
 @endsection
