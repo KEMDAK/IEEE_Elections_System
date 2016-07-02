@@ -44,6 +44,15 @@ class User extends Authenticatable
     }
 
     /**
+     * Returns true if this user is a candidate.
+     * @return bool
+     */
+    public function isVoter()
+    {
+        return strcmp($this->role,"Candidate") == 0;
+    }
+
+    /**
      * Returns true if this user is active and can sign in.
      * @return bool
      */
