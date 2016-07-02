@@ -9,7 +9,7 @@
 
       @if(Auth::user()->id === $candidate->user_id)
       <div class="col-md-2" id = "profile-pic">
-        <a href="{{ url('/')}}">
+        <a href="{{ url('/candidate/'.$candidate->id.'/edit')}}">
           <button type="button" name="edit" class = "btn btn-primary">Edit</button>
         </a>
       </div>
