@@ -25,7 +25,7 @@
                       <td>{{$candidate->first_name}} {{$candidate->last_name}}</td>
                       <td>{{$candidate->position}}</td>
                       <td>
-                          <form class="form-inline" action="{{ url('candidate/'.$candidate->id) }}" method="POST">
+                          <form class="form-inline" action="{{ url('candidate/'.$candidate->user_id) }}" method="POST">
                               <a href = {{ url('candidate', $candidate->id)}}>
                                   <button type="button" class="btn btn-primary">
                                       View
@@ -62,7 +62,7 @@
                       <td>{{$candidate->first_name}} {{$candidate->last_name}}</td>
                       <td>{{$candidate->position}}</td>
                       <td>
-                          <form action="{{ url('candidate/'.$candidate->id) }}" method="POST">
+                          <form action="{{ url('candidate/'.$candidate->user_id) }}" method="POST">
                               <a href = {{ url('candidate', $candidate->id)}}>
                                   <button type="button" class="btn btn-primary">
                                       View

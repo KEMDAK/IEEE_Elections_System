@@ -7,11 +7,20 @@
           <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
       </div>
 
-      @if(Auth::user()->id === $candidate->user_id)
-      <div class="col-md-2" id = "profile-pic">
+      @if(Auth::user()->id == $candidate->user_id)
+      <div class="col-md-8" id = "profile-pic">
         <a href="{{ url('/candidate/'.$candidate->id.'/edit')}}">
-          <button type="button" name="edit" class = "btn btn-primary">Edit</button>
+          <button type="button" name="edit" class = "btn btn-warning">
+              <i class="fa fa-pencil-square-o"></i> Edit profile</button>
         </a>
+        <div class="row">
+           <div class="col-sm-6" >
+             <p class = "warning" >
+             <span style="color: red">Warning:</span>
+             If you edit your profile your registration status will be changed to pending until the changes are accepted by the elections committee.
+             </p>
+           </div>
+       </div>
       </div>
       @endif
 

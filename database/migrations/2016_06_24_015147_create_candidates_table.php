@@ -23,7 +23,7 @@ class CreateCandidatesTable extends Migration
             $table->string('last_name');
             $table->string('mobile_number');
             $table->string('major');
-            $table->string('image_url');  
+            $table->string('image_url');
             $table->string('plan_url');
             $table->string('video_url');
 
@@ -31,6 +31,7 @@ class CreateCandidatesTable extends Migration
             $table->boolean('status');
 
             $table->timestamps();
+            $table->integer('user_id')->unsigned()->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

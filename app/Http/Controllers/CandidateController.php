@@ -14,6 +14,8 @@ use App\Http\Requests\CandidateRequest;
 
 use Illuminate\Support\Facades\Auth;
 
+use Flash;
+
 class CandidateController extends Controller
 {
     /**
@@ -27,7 +29,7 @@ class CandidateController extends Controller
 
         $this->middleware('auth', ['except' => ['create', 'store']]);
 
-        $this->middleware('role:Admin', ['except' => ['index', 'show', 'create', 'store']]);
+        $this->middleware('role:Admin', ['except' => ['index', 'show', 'create', 'store', 'edit', 'update']]);
 
         $this->middleware('role:Candidate', ['only' => ['edit', 'update']]);
     }
@@ -109,10 +111,12 @@ class CandidateController extends Controller
             'status' => '1'
         ]);
 
-        $data['user_id'] = $user->id;
-        $data['votes'] = 0;
-        $data['status'] = 0;
         $candidate = Candidate::create($data);
+
+        $candidate->user_id = $user->id;
+        $candidate->votes = 0;
+        $candidate->status = 0;
+        $candidate->save();
 
         //flash message
         flash()->success('Application has been received successfully!! You have to activate your account before you can use it.');
@@ -132,7 +136,7 @@ class CandidateController extends Controller
 
         // if editing is not available
         Flash::overlay('You cannot edit your information at the moment!', 'Unavailable Service');
-        
+
         return view('candidate.edit', compact('candidate'));
     }
 
@@ -144,20 +148,24 @@ class CandidateController extends Controller
     **/
     public function update($id, CandidateRequest $request)
     {
-        if($id === Auth::user()->id){
+        $candidate = Candidate::findOrFail($id);
+
+        if($candidate->user_id == Auth::user()->id){
             $data = $request->all();
 
             unset($data['votes']);
             unset($data['status']);
 
-            $candidate = Candidate::findOrFail($id);
-
             $candidate->update($data);
 
-            //flash message
-            flash()->success('Your profile has been edited successfully!');
+            $candidate->votes = 0;
+            $candidate->status = 0;
+            $candidate->save();
 
-            return redirect('candidate');
+            //flash message
+            flash()->success('Your profile has been edited successfully!!');
+
+            return redirect('/candidate/'.$id);
         }
         else{
             return redirect('/');
