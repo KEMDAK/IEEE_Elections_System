@@ -105,13 +105,13 @@ class CandidateController extends Controller
             'ieee_membership_id' => $data['ieee_membership_id'],
             'role' => 'Candidate',
             'email' => $data['personal_email'],
-            'active' => '1',
+            'active' => '0',
             'status' => '1'
         ]);
 
-        $data->user_id = $user->id;
-        $data->votes = 0;
-        $data->status = 0;
+        $data['user_id'] = $user->id;
+        $data['votes'] = 0;
+        $data['status'] = 0;
         $candidate = Candidate::create($data);
 
         //flash message

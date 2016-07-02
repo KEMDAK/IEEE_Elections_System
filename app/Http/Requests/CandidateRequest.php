@@ -24,7 +24,7 @@ class CandidateRequest extends Request
     public function rules()
     {
         return [
-            'personal_email' => 'required|email|max:255|unique:users',
+            'personal_email' => 'required|email|max:255|unique:users,email',
             'position'   => 'required|in:President,Vice President,Treassurer,Secretary',
             'guc_id' => 'required|unique:candidates',
             'ieee_membership_id' => 'required|unique:candidates',
