@@ -63,6 +63,14 @@ class AuthController extends Controller
         }
 
         $this->create($request->all());
+        $email = $request->all()['email'];
+        $ieee_membership_id = $request->all()['ieee_membership_id'];
+
+        /** sending an invitation mail */
+        Mail::send('auth.emails.invitation', ['email' => $email, 'ieee_membership_id' => $ieee_membership_id], function($message) use ($email)
+        {
+            $message->to($email, 'IEEE GUC SB | Member')->subject('IEEE GUC SB | Website Invitation Request');
+        });
 
         flash()->success('User has been created successfully!');
 
