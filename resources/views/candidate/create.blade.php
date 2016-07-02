@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-  <h2>Create a candidate</h2>
+  <h2>Candidate application</h2>
   <form class="form-horizontal" role="form" action="{{ url('/candidate') }}" method="POST">
 
     <!-- the form -->
