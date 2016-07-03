@@ -74,8 +74,6 @@ class CandidateController extends Controller
         $treasurers = Candidate::where('position', 'Treassurer')->where('status', '1')->get();
         $secretaries = Candidate::where('position', 'Secretary')->where('status', '1')->get();
 
-
-
         return view('candidate.index', compact('presidents','vice_presidents','treasurers','secretaries'));
     }
 

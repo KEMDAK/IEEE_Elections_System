@@ -122,9 +122,40 @@
     }
 
     /*welcome*/
-    #welcome {
-        text-align: center;
-        vertical-align: middle;
+
+    #welcome-img {
+      z-index: -1;
+      position: absolute;
+      opacity: 0.8;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto;
+      overflow: auto;
+    }
+
+    #welcome-comp {
+      position: absolute;
+      left: 31%;
+      top: 50%;
+      text-align: center;
+    }
+
+    #welcome-logo {
+      position: absolute;
+      /*height: 300px;*/
+      /*width: 350px;*/
+      left: 29%;
+      top: 10%;
+    }
+    #welcome-text {
+      font-size: 22px;
+      color: white;
+      /*color: rgb(217, 230, 242);*/
+      font-weight: bold;
     }
 
     /*candidate.show*/
@@ -253,7 +284,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    IEEE GUC
+                  <img src="img/logo_light.png" alt="logo">
                 </a>
             </div>
 
