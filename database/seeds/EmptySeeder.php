@@ -34,7 +34,11 @@ class EmptySeeder extends Seeder
             'last_name' => 'Position',
             'votes' => 0,
             'status' => '1',
-            'user_id' => '1'
+            'user_id' => '1',
+            'image_url'=>'/img/female.jpg',
+            'plan_url'=>'/pdf/test1.pdf',
+            'video_url'=>'/videos/test.mp4'
+
         ]);
 
         Candidate::create([

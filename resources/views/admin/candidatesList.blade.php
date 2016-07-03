@@ -2,7 +2,7 @@
 
 @section('content')
 <div class = "container">
-    @if (count($candidates) === 4)
+    @if (count($candidates) === 5)
       <center>
           <h1>No Candidates in the database currently</h1>
       </center>
@@ -19,7 +19,7 @@
           </thead>
           <tbody>
               @foreach($candidates as $candidate)
-                @if($candidate->status === '1' && !(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0))
+                @if($candidate->status === '1' && (strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0))
                   <tr>
                       <td>{{$candidate->ieee_membership_id}}</td>
                       <td>{{$candidate->first_name}} {{$candidate->last_name}}</td>
