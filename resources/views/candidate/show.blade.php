@@ -4,7 +4,7 @@
 <div class = "container">
   <div class="row">
       <div class="col-md-3" id = "profile-pic">
-          <img src= {{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="160">
+          <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="250">
       </div>
       @if(Auth::user()->id == $candidate->user_id)
       <div class="col-md-8" id = "profile-pic">

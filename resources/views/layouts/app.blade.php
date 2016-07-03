@@ -91,15 +91,11 @@
     /*candidate picture*/
     .candidate-pic {
         margin: 5px;
-        /*border: 1px solid #ccc;*/
         float: left;
-        width: 300px;
-        padding: 30px;
+        width: 250px;
+        height:250px;
+        padding: 10px;
         text-align: center;
-    }
-
-    .candidate-pic:hover {
-        /*border: 1px solid #777;*/
     }
 
     .candidate-pic img {

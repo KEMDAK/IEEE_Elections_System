@@ -8,7 +8,7 @@
     @unless(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0)
     <div class="candidate-pic">
         <a href = {{ url('candidate', $candidate->id)}}>
-        <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="300" height="280">
+        <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="250">
         <div class="candidate-name"><b>{{$candidate->first_name}} {{$candidate->last_name}}</b></div>
         </a>
     </div>

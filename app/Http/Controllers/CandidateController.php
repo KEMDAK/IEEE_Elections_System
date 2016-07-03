@@ -126,12 +126,12 @@ class CandidateController extends Controller
         $candidate->status = 0;
 
         if(strcmp($candidate->image_url, "") == 0){
-           if(strcmp($candidate->gender, "Male") == 0){
-            $candidate->image_url = url('/img/male.png');
-           }
-           else{
-            $candidate->image_url = url('/img/female.jpg');
-           }
+            if(strcmp($candidate->gender, "Male") == 0){
+                $candidate->image_url = url('/img/male.png');
+            }
+            else{
+                $candidate->image_url = url('/img/female.jpg');
+            }
         }
 
         $candidate->save();
@@ -180,13 +180,13 @@ class CandidateController extends Controller
             $candidate->status = 0;
 
             if(strcmp($candidate->image_url, "") == 0){
-             if(strcmp($candidate->gender, "Male") == 0){
-                $candidate->image_url = url('/img/male.png');
+                if(strcmp($candidate->gender, "Male") == 0){
+                    $candidate->image_url = url('/img/male.png');
                 }
-            else{
-                $candidate->image_url = url('/img/female.jpg');
+                else{
+                    $candidate->image_url = url('/img/female.jpg');
+                }
             }
-        }
             $candidate->save();
 
             //flash message
