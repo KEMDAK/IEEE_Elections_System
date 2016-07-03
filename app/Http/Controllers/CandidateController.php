@@ -74,8 +74,6 @@ class CandidateController extends Controller
         $treasurers = Candidate::where('position', 'Treassurer')->where('status', '1')->get();
         $secretaries = Candidate::where('position', 'Secretary')->where('status', '1')->get();
 
-
-
         return view('candidate.index', compact('presidents','vice_presidents','treasurers','secretaries'));
     }
 
@@ -112,7 +110,7 @@ class CandidateController extends Controller
     public function store(CandidateRequest $request)
     {
         $data = $request->all();
-        
+
         $user = User::create([
             'ieee_membership_id' => $data['ieee_membership_id'],
             'role' => 'Candidate',

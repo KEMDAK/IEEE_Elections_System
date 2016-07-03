@@ -1,7 +1,7 @@
 <div class="all-pics">
     @if(count($input) === 1)
     <center>
-        <h1>Empty Position</h1>
+        <h5>Empty Position</h5>
     </center>
     @else
     @foreach ($input as $candidate)
