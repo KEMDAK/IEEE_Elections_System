@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'ieeegucelections@gmail.com', 'name' => 'IEEE GUC Elections Committee'],
+    'from' => ['address' => 'ieeegucelections@gmail.com', 'name' => 'IEEE GUC SB Elections Committee \'17'],
 
     /*
     |--------------------------------------------------------------------------

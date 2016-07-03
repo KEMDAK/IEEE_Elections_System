@@ -10,6 +10,10 @@ use App\User;
 
 use App\Candidate;
 
+use App\Configuration;
+
+use App\Http\Requests\ConfigurationRequest;
+
 class AdminController extends Controller
 {
     /**
@@ -58,5 +62,43 @@ class AdminController extends Controller
     {
         $candidates = Candidate::all();
         return view('admin.candidatesList',compact('candidates'));
+    }
+
+    /**
+    * This function returns a view of the
+    *
+    * configuration.
+    *
+    **/
+    public function showConfigurationsForm()
+    {
+        $applicationsFrom = Configuration::where('name', 'applicationsFrom')->first()->value;
+        $applicationsTo = Configuration::where('name', 'applicationsTo')->first()->value;
+        $deliverablesFrom  = Configuration::where('name', 'deliverablesFrom')->first()->value;
+        $deliverablesTo  = Configuration::where('name', 'deliverablesTo')->first()->value;
+        $electionsFrom  = Configuration::where('name', 'electionsFrom')->first()->value;
+        $electionsTo  = Configuration::where('name', 'electionsTo')->first()->value;
+        $results  = Configuration::where('name', 'results')->first()->value;
+
+        return view('admin.configurations', compact('applicationsFrom', 'applicationsTo', 'deliverablesFrom', 'deliverablesTo', 'electionsFrom', 'electionsTo', 'results'));
+    }
+
+    /**
+    * This function stores the new configurations.
+    *
+    **/
+    public function saveConfigurations(ConfigurationRequest $request)
+    {
+        $data = $request->all();
+
+        Configuration::updateOrCreate(['name' => 'applicationsFrom'], $data['applicationsFrom']);
+        Configuration::updateOrCreate(['name' => 'applicationsTo'], $data['applicationsTo']);
+        Configuration::updateOrCreate(['name' => 'deliverablesFrom'], $data['applicationsFrom']); // this value is set to the applications from as we don't need a separate value.
+        Configuration::updateOrCreate(['name' => 'deliverablesTo'], $data['deliverablesTo']);
+        Configuration::updateOrCreate(['name' => 'electionsFrom'], $data['electionsFrom']);
+        Configuration::updateOrCreate(['name' => 'electionsTo'], $data['electionsTo']);
+        Configuration::updateOrCreate(['name' => 'results'], $data['results']);
+
+        return redirect('/admin/config');
     }
 }

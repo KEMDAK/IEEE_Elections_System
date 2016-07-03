@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 
 use Flash;
 
+use Mail;
+
 class CandidateController extends Controller
 {
     /**
@@ -41,6 +43,14 @@ class CandidateController extends Controller
     public function accept($id)
     {
         $candidate = Candidate::findOrFail($id);
+        $user = User::findOrFail($candidate->user_id);
+        $email = $user->email;
+
+        /** sending an acceptance mail */
+        Mail::send('candidate.emails.acceptance', ['name' => ($candidate->first_name . ' ' . $candidate->last_name), 'position' => $candidate->position], function($message) use ($email)
+        {
+            $message->to($email, 'IEEE GUC SB | Member')->subject('IEEE GUC SB | Elections \'17 Eligibility Checking Results');
+        });
 
         $candidate->status = 1;
         $candidate->save();
@@ -102,13 +112,13 @@ class CandidateController extends Controller
     public function store(CandidateRequest $request)
     {
         $data = $request->all();
-        
+
         $user = User::create([
             'ieee_membership_id' => $data['ieee_membership_id'],
             'role' => 'Candidate',
             'email' => $data['personal_email'],
             'active' => '0',
-            'status' => '1'
+            'status' => '0'
         ]);
 
         $candidate = Candidate::create($data);
@@ -118,12 +128,12 @@ class CandidateController extends Controller
         $candidate->status = 0;
 
         if(strcmp($candidate->image_url, "") == 0){
-           if(strcmp($candidate->gender, "Male") == 0){
-            $candidate->image_url = url('/img/male.png');
-           }
-           else{
-            $candidate->image_url = url('/img/female.jpg');
-           }
+            if(strcmp($candidate->gender, "Male") == 0){
+                $candidate->image_url = url('/img/male.png');
+            }
+            else{
+                $candidate->image_url = url('/img/female.jpg');
+            }
         }
 
         $candidate->save();
@@ -172,13 +182,13 @@ class CandidateController extends Controller
             $candidate->status = 0;
 
             if(strcmp($candidate->image_url, "") == 0){
-             if(strcmp($candidate->gender, "Male") == 0){
-                $candidate->image_url = url('/img/male.png');
+                if(strcmp($candidate->gender, "Male") == 0){
+                    $candidate->image_url = url('/img/male.png');
                 }
-            else{
-                $candidate->image_url = url('/img/female.jpg');
+                else{
+                    $candidate->image_url = url('/img/female.jpg');
+                }
             }
-        }
             $candidate->save();
 
             //flash message

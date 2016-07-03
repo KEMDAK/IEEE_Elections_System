@@ -24,6 +24,16 @@ class RoleMiddleware
 
         $user = Auth::user();
 
+        if(strcmp('Voter', $role) == 0 && strcmp('Candidate', $user->role) == 0){
+            if(! strcmp($user->status, '0') == 0){
+                // voted before
+                return redirect('/vote/thanks');
+            }
+            else{
+                return $next($request);
+            }
+        }
+
         if (! strcmp($user->role, $role) == 0) {
             // authenticate failed
             return redirect('/');

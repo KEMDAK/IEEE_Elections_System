@@ -15,6 +15,7 @@ class VerifyCsrfToken extends BaseVerifier
         'candidate/*',
         'candidate',
         'vote',
-        'voter/*'
+        'voter/*',
+        'admin/*'
     ];
 }

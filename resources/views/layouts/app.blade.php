@@ -80,15 +80,17 @@
     /*candidate picture*/
     .candidate-pic {
         margin: 5px;
-        /*border: 1px solid #ccc;*/
         float: left;
-        width: 300px;
-        padding: 30px;
+        width: 250px;
+        height:250px;
+        padding: 10px;
         text-align: center;
     }
+
     .candidate-pic:hover {
         /*border: 1px solid #777;*/
     }
+
     .candidate-pic img {
         width: 100%;
         height: auto;
@@ -253,7 +255,7 @@
                     <li><a href="{{ url('/activate') }}"><i class="fa fa-btn fa-envelope"></i>Activate my account</a></li>
                     <li><a href="{{ url('/candidate/create') }}"><i class="fa fa-btn fa-user-plus"></i>Apply as a candidate</a></li>
                     @else
-                    @if (Auth::user()->isVoter())
+                    @if (Auth::user()->isVoter() || Auth::user()->isCandidate())
                     <li><a href="{{ url('/vote') }}"><i class="fa fa-btn fa-rss"></i>Vote</a></li>
                     @endif
                     <li><a href="{{ url('/candidate') }}"><i class="fa fa-btn fa-users"></i>View Candidates</a></li>

@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="container">
- 
+
    <div class="row">
       <div class="col-sm-6 col-sm-offset-1" >
          <h2  class = "title">
-          ELIGIBILITY CONDITIONS 
-        </h2>  
+          ELIGIBILITY CONDITIONS
+        </h2>
       </div>
   </div>
 
@@ -22,8 +22,9 @@
           <li class = "marg">Treating all members in an outstanding manner regardless of race, color, national origin, religion, sexual orientation, age and disability.</li>
           <li class = "marg"> Having no violations indicated on his or her branch record during last year according to branch policies and regulations.</li>
           <li class = "marg">Joined the branch before or during last recruitment.</li>
-          
-        </ol>   
+          <li class = "marg">Candidates must have previously been members of the branch within one (1) academic year prior to the election except for the first year of the branch launch.</li>
+
+        </ol>
 
         </div>
    </div>
@@ -32,7 +33,7 @@
       <div class="col-sm-6 col-sm-offset-2" >
         <p class = "note" >
         <span style="color: red">Note :</span>
-        In Case of breaking the rule during the next year, serious actions will be taken by Election Committee and Academic Supervisor. 
+        In Case of breaking the rule during the next year, serious actions will be taken by Election Committee and Academic Supervisor.
         </p>
       </div>
   </div>

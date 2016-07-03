@@ -38,6 +38,16 @@
   </div>
 </div>
 
+<!-- gender -->
+<div class="form-group">
+  <label class="control-label col-sm-2" for="gender">Gender*</label>
+  <div class="col-sm-10">
+    <select class="form-control" name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
+  </div>
+</div>
 
 <!-- major -->
 <div class="form-group">

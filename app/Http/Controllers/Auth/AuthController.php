@@ -63,6 +63,14 @@ class AuthController extends Controller
         }
 
         $this->create($request->all());
+        $email = $request->all()['email'];
+        $ieee_membership_id = $request->all()['ieee_membership_id'];
+
+        /** sending an invitation mail */
+        Mail::send('auth.emails.invitation', ['email' => $email, 'ieee_membership_id' => $ieee_membership_id], function($message) use ($email)
+        {
+            $message->to($email, 'IEEE GUC SB | Member')->subject('IEEE GUC SB | Website Invitation Request');
+        });
 
         flash()->success('User has been created successfully!');
 
@@ -165,9 +173,9 @@ class AuthController extends Controller
         $email = $user->email;
 
         /** sending an email with the password */
-        Mail::send('auth.emails.welcome', ['password' => $password], function($message) use ($email)
+        Mail::send('auth.emails.'.$user->role, ['email' => $email, 'password' => $password], function($message) use ($email)
         {
-            $message->to($email, 'IEEE GUC SB member')->subject('Welcome to IEEE GUC SB 2016 Elections!');
+            $message->to($email, 'IEEE GUC SB | Member')->subject('IEEE GUC SB | Elections \'17 Registration');
         });
 
         /** saving the user in the database */
