@@ -14,18 +14,17 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+
     <style>
     body {
         font-family: 'Lato';
         background-color: rgb(198, 217, 236);
     }
-
         .marg {
            margin: 12px 3cm ;
            font-size: 20px;
            font-weight:bold;
            color:#008B8B;
-
          }
         .note {
            font-size:18px;
@@ -33,44 +32,34 @@
            font-weight:bold;
            font-style:italic;
         }
-
         .title{
            font-weight:bold;
            font-style:italic;
            color :#00008B;
-
         }
-
         .fa-btn {
             margin-right: 6px;
         }
-
-
         ul.nav-pills {
              top: 150px;
              position: fixed;
          }
-
     .btn {
         margin: 6px 6px 6px 6px;
     }
-
     /*job description*/
     #job-desc {
         position: relative;
     }
-
     .job-el {
         margin-top: 6px;
         margin-left: 6px;
         margin-right: 6px;
         margin-bottom: 30px;
     }
-
     a:hover {
         text-decoration: none;
     }
-
     ul.nav-pills {
         top: 100px;
         position: fixed;
@@ -79,14 +68,11 @@
         height: 800px;
         font-size: 16px;
     }
-
     @media screen and (max-width: 810px) {
         #chairman, #vice_chairman, #secretary, #treasurer {
             margin-left: 150px;
         }
     }
-
-
     /*candidate.index, vote.index*/
     /*candidate picture*/
     .candidate-pic {
@@ -98,16 +84,18 @@
         text-align: center;
     }
 
+    .candidate-pic:hover {
+        /*border: 1px solid #777;*/
+    }
+
     .candidate-pic img {
         width: 100%;
         height: auto;
     }
-
     /*all candidates pics in a certain panel*/
     .all-pics {
         padding-left: 40px;
     }
-
     /*vote.thanks, elections_started, elections_over*/
     .one-liner {
         text-align: center;
@@ -120,7 +108,6 @@
         font-weight: 100;
         font-family: 'Lato';
     }
-
     /*welcome*/
 
     #welcome-img {
@@ -157,7 +144,6 @@
       /*color: rgb(217, 230, 242);*/
       font-weight: bold;
     }
-
     /*candidate.show*/
     #profile-pic {
         padding-top: 20px;
@@ -165,7 +151,6 @@
         padding-bottom: 20px;
         padding-left: 30px;
     }
-
     /*candidate information in the table*/
     .table-candidate-information > tbody > tr {
         font-size: 14px;
@@ -173,17 +158,14 @@
         color: rgb(217, 230, 242);
         background-color: rgb(102, 153, 204);
     }
-
     /*all panels*/
     .panel-default > .panel-heading {
         color: rgb(236, 242, 248);
         background-color: rgb(125, 166, 207);
     }
-
     .panel-default > .panel-body {
         background-color: rgb(217, 229, 242);
     }
-
     /*vote.index*/
     /*dropdowns, labels for each position*/
     .position {
@@ -195,7 +177,6 @@
         margin-right: 20px:
         margin-down: 20px;
     }
-
     /*nav bar*/
     .navbar-default {
         background-color: #467ec9;
@@ -250,7 +231,6 @@
     .navbar-default .navbar-link:hover {
         color: #b2c9e8;
     }
-
     @media (max-width: 767px) {
         .navbar-default .navbar-nav .open .dropdown-menu > li > a {
             color: #ecf0f1;
@@ -266,6 +246,7 @@
             background-color: #174590;
         }
     }
+     
 
     </style>
 </head>
@@ -327,9 +308,9 @@
 
     <script>
       $('div.alert').not('.alert-important').delay(3000).slideUp(300);
-
       $('#flash-overlay-modal').modal();
     </script>
+
 
 </body>
 </html>

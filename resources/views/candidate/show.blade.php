@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
+     
+
 @section('content')
+     
+
 <div class = "container">
   <div class="row">
       <div class="col-md-3" id = "profile-pic">
-          <img src={{$candidate->image_url}} class="img-rounded" alt={{$candidate->first_name}} width="250" height="250">
+       
+          <img src="{{ $candidate->image_url }}"  width="230" height="250"></img>
       </div>
       @if(Auth::user()->id == $candidate->user_id)
       <div class="col-md-8" id = "profile-pic">
@@ -70,16 +75,43 @@
     <div class="panel panel-default">
       <div class="panel-heading">More to know</div>
       <div class="panel-body">
-          <h5>Plan:</h5>
-          <div>
-            {{ $candidate->plan_url }}
+
+          <h3>Plan:</h3>
+          <div> 
+            <center>    
+             <iframe src="{{ $candidate->plan_url }}" width="640" height="900"></iframe>
+             </center>
           </div>
-          <h5>Video:</h5>
-          <div>
-            {{ $candidate->video_url }}
+
+
+          <h3>Video:</h3>
+          <div> 
+           <center>      
+            <iframe src="{{ $candidate->video_url }}" width="640" height="480"></iframe>
+            </center>
           </div>
+
       </div>
     </div>
   </div>
 </div>
+   
+    
+
+
+
+                                       
+
+
+ 
+   
+
+  
+
+
+
+
+
+   
 @endsection
+

@@ -39,13 +39,11 @@
 </div>
 
 <!-- gender -->
-<div class="form-group">
+  <div class="form-group">
   <label class="control-label col-sm-2" for="gender">Gender*</label>
   <div class="col-sm-10">
-    <select class="form-control" name="gender">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-    </select>
+   
+    {!! Form::select('gender', array('Male' => 'Male', 'Female' => 'Female'),null,['class' => 'form-control']) !!}
   </div>
 </div>
 
@@ -77,14 +75,12 @@
 <div class="form-group">
   <label class="control-label col-sm-2" for="position">Position*</label>
   <div class="col-sm-10">
-    <select class="form-control" name="position">
-        <option value="President">President</option>
-        <option value="Vice President">Vice President</option>
-        <option value="Treassurer">Treassurer</option>
-        <option value="Secretary">Secretary</option>
-    </select>
+       
+        {!! Form::select('position', array('President' => 'President', 'Vice President' => 'Vice President' ,'Treassurer' => 'Treassurer','Secretary'=>'Secretary'),null,['class' => 'form-control']) !!}
+
   </div>
 </div>
+   
 
 <!-- image url -->
 <div class="form-group">
