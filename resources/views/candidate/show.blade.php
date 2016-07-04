@@ -11,7 +11,6 @@
        
           <iframe src="{{ $candidate->image_url }}"  width="230" height="250"></iframe>
       </div>
-
       @if(Auth::user()->id == $candidate->user_id)
       <div class="col-md-8" id = "profile-pic">
         <a href="{{ url('/candidate/'.$candidate->id.'/edit')}}">
