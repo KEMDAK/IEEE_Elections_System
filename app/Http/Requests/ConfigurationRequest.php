@@ -30,7 +30,6 @@ class ConfigurationRequest extends Request
             'deliverablesTo' => 'date|after:deliverablesFrom',
             'electionsFrom' => 'date|after:yesterday',
             'electionsTo' => 'date|after:electionsFrom',
-            'results'  => 'date|after:electionsTo',
         ];
     }
 }

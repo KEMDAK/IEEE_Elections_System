@@ -10,6 +10,8 @@ use App\Candidate;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\Configuration;
+
 class VoteController extends Controller
 {
     /**
@@ -19,9 +21,18 @@ class VoteController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['results']]);
 
-        $this->middleware('role:Voter', ['except' => ['thanks']]);
+        $this->middleware('role:Voter', ['except' => ['thanks', 'results']]);
+
+        $start = Configuration::where('name', 'electionsFrom')->first()->value;
+        $end = Configuration::where('name', 'electionsTo')->first()->value;
+
+        $this->middleware('deadline:' . $start . ',' . $end . ',vote', ['only' => ['index', 'store']]);
+
+        $end = Configuration::where('name', 'results')->first()->value;
+
+        $this->middleware('deadline:,' . $end . ',result', ['only' => ['results']]);
     }
 
     /**
@@ -74,5 +85,15 @@ class VoteController extends Controller
     public function thanks()
     {
         return view('vote.thanks');
+    }
+
+    /**
+    * Display the results page.
+    * @return \Illuminate\Http\Response
+    */
+    public function results()
+    {
+        // getting the results from the database and sending it to the view
+        return view('vote.results');
     }
 }

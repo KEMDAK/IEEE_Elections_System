@@ -14,6 +14,8 @@ use App\Configuration;
 
 use App\Http\Requests\ConfigurationRequest;
 
+use Carbon\Carbon;
+
 class AdminController extends Controller
 {
     /**
@@ -79,6 +81,12 @@ class AdminController extends Controller
         $electionsFrom  = Configuration::where('name', 'electionsFrom')->first()->value;
         $electionsTo  = Configuration::where('name', 'electionsTo')->first()->value;
         $results  = Configuration::where('name', 'results')->first()->value;
+        if(strcmp($results, "") == 0){
+            $results = true;
+        }
+        else{
+            $results = false;
+        }
 
         return view('admin.configurations', compact('applicationsFrom', 'applicationsTo', 'deliverablesFrom', 'deliverablesTo', 'electionsFrom', 'electionsTo', 'results'));
     }
@@ -97,6 +105,14 @@ class AdminController extends Controller
         Configuration::updateOrCreate(['name' => 'deliverablesTo'], $data['deliverablesTo']);
         Configuration::updateOrCreate(['name' => 'electionsFrom'], $data['electionsFrom']);
         Configuration::updateOrCreate(['name' => 'electionsTo'], $data['electionsTo']);
+
+        if(!array_key_exists('results', $data)){
+            $data['results'] = Carbon::yesterday('Africa/Cairo')->toDateString();
+        }
+        else if(strcmp($data['results'], "true") == 0){
+            $data['results'] = "";
+        }
+
         Configuration::updateOrCreate(['name' => 'results'], $data['results']);
 
         return redirect('/admin/config');

@@ -277,6 +277,7 @@
                     @if (Auth::guest())
                     <li><a href="{{ url('/login') }}"><i class="fa fa-btn fa-sign-in"></i>Login</a></li>
                     <li><a href="{{ url('/activate') }}"><i class="fa fa-btn fa-envelope"></i>Activate my account</a></li>
+                    <li><a href="{{ url('/candidate') }}"><i class="fa fa-btn fa-users"></i>View Candidates</a></li>
                     <li><a href="{{ url('/candidate/create') }}"><i class="fa fa-btn fa-user-plus"></i>Apply as a candidate</a></li>
                     @else
                     @if (Auth::user()->isVoter() || (Auth::user()->isCandidate() && (Auth::user()->candidates[0]->status == '1')))

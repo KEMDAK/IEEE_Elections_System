@@ -10,11 +10,11 @@ use App\Candidate;
 
 use App\User;
 
+use App\Configuration;
+
 use App\Http\Requests\CandidateRequest;
 
 use Illuminate\Support\Facades\Auth;
-
-use Flash;
 
 use Mail;
 
@@ -29,11 +29,21 @@ class CandidateController extends Controller
     {
         $this->middleware('guest', ['only' => ['create', 'store']]);
 
-        $this->middleware('auth', ['except' => ['create', 'store']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'create', 'store']]);
 
         $this->middleware('role:Admin', ['except' => ['index', 'show', 'create', 'store', 'edit', 'update']]);
 
         $this->middleware('role:Candidate', ['only' => ['edit', 'update']]);
+
+        $start = Configuration::where('name', 'applicationsFrom')->first()->value;
+        $end = Configuration::where('name', 'applicationsTo')->first()->value;
+
+        $this->middleware('deadline:' . $start . ',' . $end . ',application', ['only' => ['create', 'store']]);
+
+        $start = Configuration::where('name', 'deliverablesFrom')->first()->value;
+        $end = Configuration::where('name', 'deliverablesTo')->first()->value;
+
+        $this->middleware('deadline:' . $start . ',' . $end . ',profile', ['only' => ['edit', 'update']]);
     }
 
     /**
@@ -156,9 +166,6 @@ class CandidateController extends Controller
     {
         $candidate = Candidate::findOrFail($id);
 
-        // if editing is not available
-        // Flash::overlay('You cannot edit your information at the moment!', 'Unavailable Service');
-
         return view('candidate.edit', compact('candidate'));
     }
 
@@ -175,6 +182,7 @@ class CandidateController extends Controller
         if($candidate->user_id == Auth::user()->id){
             $data = $request->all();
 
+            unset($data['personal_email']);
             unset($data['votes']);
             unset($data['status']);
 
