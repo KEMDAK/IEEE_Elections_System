@@ -117,7 +117,7 @@ class CandidateController extends Controller
             'email' => $data['personal_email'],
             'active' => '0',
             'status' => '0'
-            ]);
+        ]);
 
         $candidate = Candidate::create($data);
 
@@ -126,7 +126,6 @@ class CandidateController extends Controller
         $candidate->status = 0;
 
         $candidate->plan_url = $this->extractUrl($data['plan_url']);
-
 
         if(strcmp($candidate->image_url, "") == 0){
             if(strcmp($candidate->gender, "Male") == 0){
@@ -137,11 +136,7 @@ class CandidateController extends Controller
             }
         }
 
-
-
         $candidate->video_url = $this->extractUrl($data['video_url']);
-
-
 
         $candidate->save();
 
@@ -179,9 +174,6 @@ class CandidateController extends Controller
 
         if($candidate->user_id == Auth::user()->id){
             $data = $request->all();
-            
-            
-
 
             unset($data['votes']);
             unset($data['status']);
@@ -191,10 +183,7 @@ class CandidateController extends Controller
             $candidate->votes = 0;
             $candidate->status = 0;
 
-
             $candidate->plan_url = $this->extractUrl($data['plan_url']);
-
-
 
             if(strcmp($candidate->image_url, "") == 0){
                 if(strcmp($candidate->gender, "Male") == 0){
@@ -205,22 +194,19 @@ class CandidateController extends Controller
                 }
             }
 
-
             $candidate->video_url = $this->extractUrl($data['video_url']);
-        
 
-
-        $candidate->save();
+            $candidate->save();
 
             //flash message
-        flash()->success('Your profile has been edited successfully!!');
+            flash()->success('Your profile has been edited successfully!!');
 
-        return redirect('/candidate/'.$id);
-      }
-    else{
-        return redirect('/');
+            return redirect('/candidate/'.$id);
+        }
+        else{
+            return redirect('/');
+        }
     }
-}
 
     /**
     * This function deletes a specified candidate
@@ -237,17 +223,17 @@ class CandidateController extends Controller
 
     public function extractUrl ($url){
         $match = array();
-         var_dump(parse_url($url, PHP_URL_HOST));
-        if(( (strcmp(parse_url($url, PHP_URL_HOST),"docs.google.com")==0)||(strcmp(parse_url($url, PHP_URL_HOST),"drive.google.com")==0)) &&preg_match("/[-\w]{25,}/", $url, $match) ){
-            
-           return  "https://drive.google.com/viewer?srcid=" . $match[0] .
-           "&pid=explorer&efh=false&a=v&chrome=false&embedded=true";
+        var_dump(parse_url($url, PHP_URL_HOST));
+        if(((strcmp(parse_url($url, PHP_URL_HOST),"docs.google.com") == 0) ||
+        (strcmp(parse_url($url, PHP_URL_HOST),"drive.google.com") == 0)) &&
+        preg_match("/[-\w]{25,}/", $url, $match)){
 
-       }
-       else{
-        return $url ;
+            return  "https://drive.google.com/viewer?srcid=" . $match[0] .
+            "&pid=explorer&efh=false&a=v&chrome=false&embedded=true";
+
+        }
+        else{
+            return $url ;
+        }
     }
 }
-}
-
-

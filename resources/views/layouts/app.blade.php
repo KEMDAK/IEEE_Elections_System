@@ -20,30 +20,30 @@
         font-family: 'Lato';
         background-color: rgb(198, 217, 236);
     }
-        .marg {
-           margin: 12px 3cm ;
-           font-size: 20px;
-           font-weight:bold;
-           color:#008B8B;
-         }
-        .note {
-           font-size:18px;
-           color:#538b01;
-           font-weight:bold;
-           font-style:italic;
-        }
-        .title{
-           font-weight:bold;
-           font-style:italic;
-           color :#00008B;
-        }
-        .fa-btn {
-            margin-right: 6px;
-        }
-        ul.nav-pills {
-             top: 150px;
-             position: fixed;
-         }
+    .marg {
+        margin: 12px 3cm ;
+        font-size: 20px;
+        font-weight:bold;
+        color:#008B8B;
+    }
+    .note {
+        font-size:18px;
+        color:#538b01;
+        font-weight:bold;
+        font-style:italic;
+    }
+    .title{
+        font-weight:bold;
+        font-style:italic;
+        color :#00008B;
+    }
+    .fa-btn {
+        margin-right: 6px;
+    }
+    ul.nav-pills {
+        top: 150px;
+        position: fixed;
+    }
     .btn {
         margin: 6px 6px 6px 6px;
     }
@@ -111,38 +111,38 @@
     /*welcome*/
 
     #welcome-img {
-      z-index: -1;
-      position: absolute;
-      opacity: 0.8;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      max-width: 100%;
-      max-height: 100%;
-      margin: auto;
-      overflow: auto;
+        z-index: -1;
+        position: absolute;
+        opacity: 0.8;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto;
+        overflow: auto;
     }
 
     #welcome-comp {
-      position: absolute;
-      left: 31%;
-      top: 50%;
-      text-align: center;
+        position: absolute;
+        left: 31%;
+        top: 50%;
+        text-align: center;
     }
 
     #welcome-logo {
-      position: absolute;
-      /*height: 300px;*/
-      /*width: 350px;*/
-      left: 29%;
-      top: 10%;
+        position: absolute;
+        /*height: 300px;*/
+        /*width: 350px;*/
+        left: 29%;
+        top: 10%;
     }
     #welcome-text {
-      font-size: 22px;
-      color: white;
-      /*color: rgb(217, 230, 242);*/
-      font-weight: bold;
+        font-size: 22px;
+        color: white;
+        /*color: rgb(217, 230, 242);*/
+        font-weight: bold;
     }
     /*candidate.show*/
     #profile-pic {
@@ -246,7 +246,7 @@
             background-color: #174590;
         }
     }
-     
+
 
     </style>
 </head>
@@ -265,7 +265,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                  <img src="/img/logo_light.png" alt="logo">
+                    <img src="/img/logo_light.png" alt="logo">
                 </a>
             </div>
 
@@ -307,8 +307,8 @@
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
     <script>
-      $('div.alert').not('.alert-important').delay(3000).slideUp(300);
-      $('#flash-overlay-modal').modal();
+    $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+    $('#flash-overlay-modal').modal();
     </script>
 
 
