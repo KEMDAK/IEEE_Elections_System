@@ -125,6 +125,8 @@ class CandidateController extends Controller
         $candidate->votes = 0;
         $candidate->status = 0;
 
+        $candidate->plan_url = $this->extractUrl($data['plan_url']);
+
         if(strcmp($candidate->image_url, "") == 0){
             if(strcmp($candidate->gender, "Male") == 0){
                 $candidate->image_url = url('/img/male.png');
@@ -133,6 +135,8 @@ class CandidateController extends Controller
                 $candidate->image_url = url('/img/female.jpg');
             }
         }
+
+        $candidate->video_url = $this->extractUrl($data['video_url']);
 
         $candidate->save();
 
@@ -179,6 +183,8 @@ class CandidateController extends Controller
             $candidate->votes = 0;
             $candidate->status = 0;
 
+            $candidate->plan_url = $this->extractUrl($data['plan_url']);
+
             if(strcmp($candidate->image_url, "") == 0){
                 if(strcmp($candidate->gender, "Male") == 0){
                     $candidate->image_url = url('/img/male.png');
@@ -187,6 +193,9 @@ class CandidateController extends Controller
                     $candidate->image_url = url('/img/female.jpg');
                 }
             }
+
+            $candidate->video_url = $this->extractUrl($data['video_url']);
+
             $candidate->save();
 
             //flash message
@@ -210,5 +219,21 @@ class CandidateController extends Controller
         User::destroy($id);
 
         return redirect('/admin/candidates');
+    }
+
+    public function extractUrl ($url){
+        $match = array();
+        var_dump(parse_url($url, PHP_URL_HOST));
+        if(((strcmp(parse_url($url, PHP_URL_HOST),"docs.google.com") == 0) ||
+        (strcmp(parse_url($url, PHP_URL_HOST),"drive.google.com") == 0)) &&
+        preg_match("/[-\w]{25,}/", $url, $match)){
+
+            return  "https://drive.google.com/viewer?srcid=" . $match[0] .
+            "&pid=explorer&efh=false&a=v&chrome=false&embedded=true";
+
+        }
+        else{
+            return $url ;
+        }
     }
 }
