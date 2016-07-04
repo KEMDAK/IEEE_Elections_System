@@ -75,25 +75,22 @@
     <div class="panel panel-default">
       <div class="panel-heading">More to know</div>
       <div class="panel-body">
-          <h5>Plan:</h5>
 
-
-          <div>
-
-           <div  > 
-            
-             <iframe src="{{ $candidate->plan_url }}" width="640px" height="480px"></iframe>
- 
-            </div>
-
+          <h3>Plan:</h3>
+          <div> 
+            <center>    
+             <iframe src="{{ $candidate->plan_url }}" width="640" height="900"></iframe>
+             </center>
           </div>
-          <h5>Video:</h5>
-          <div>
-            
+
+
+          <h3>Video:</h3>
+          <div> 
+           <center>      
             <iframe src="{{ $candidate->video_url }}" width="640" height="480"></iframe>
-
-
+            </center>
           </div>
+
       </div>
     </div>
   </div>

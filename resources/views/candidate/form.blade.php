@@ -43,7 +43,7 @@
   <label class="control-label col-sm-2" for="gender">Gender*</label>
   <div class="col-sm-10">
    
-    {!! Form::select('gender', array('Male' => 'Male', 'Female' => 'Female')) !!}
+    {!! Form::select('gender', array('Male' => 'Male', 'Female' => 'Female'),null,['class' => 'form-control']) !!}
   </div>
 </div>
 
@@ -76,7 +76,7 @@
   <label class="control-label col-sm-2" for="position">Position*</label>
   <div class="col-sm-10">
        
-        {!! Form::select('position', array('President' => 'President', 'Vice President' => 'Vice President' ,'Treassurer' => 'Treassurer','Secretary'=>'Secretary')) !!}
+        {!! Form::select('position', array('President' => 'President', 'Vice President' => 'Vice President' ,'Treassurer' => 'Treassurer','Secretary'=>'Secretary'),null,['class' => 'form-control']) !!}
 
   </div>
 </div>

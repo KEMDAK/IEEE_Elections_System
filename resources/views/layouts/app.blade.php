@@ -246,10 +246,6 @@
             background-color: #174590;
         }
     }
-
-
-       .pdfobject-container { height: 500px;}
-       .pdfobject { border: 1px solid #666; }
      
 
     </style>

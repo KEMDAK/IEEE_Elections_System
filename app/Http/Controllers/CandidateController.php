@@ -117,7 +117,7 @@ class CandidateController extends Controller
             'email' => $data['personal_email'],
             'active' => '0',
             'status' => '0'
-        ]);
+            ]);
 
         $candidate = Candidate::create($data);
 
@@ -125,13 +125,8 @@ class CandidateController extends Controller
         $candidate->votes = 0;
         $candidate->status = 0;
 
-        $plan_url = $data['plan_url'];
-            $match = array();
-            if(preg_match("/[-\w]{25,}/", $plan_url, $match)){
-                $plan_url = "https://docs.google.com/viewer?srcid=" . $match[0] .
-             "&pid=explorer&efh=false&a=v&chrome=false&embedded=true";
-                $candidate->plan_url = $plan_url;
-            }
+        $candidate->plan_url = $this->extractUrl($data['plan_url']);
+
 
         if(strcmp($candidate->image_url, "") == 0){
             if(strcmp($candidate->gender, "Male") == 0){
@@ -141,26 +136,12 @@ class CandidateController extends Controller
                 $candidate->image_url = url('/img/female.jpg');
             }
         }
-        else{
-               $image_url = $data['image_url'];
-               $match = array();
-               if(preg_match("/[-\w]{25,}/", $image_url, $match)){
-                $image_url = "https://docs.google.com/viewer?srcid=" . $match[0] .
-                "&pid=explorer&efh=false&a=v&chrome=false&embedded=true";
-                $candidate->image_url = $image_url;
-              }
-            }
 
 
 
-            $video_url = $data['video_url'];
-            $match = array();
-            if(preg_match("/[-\w]{25,}/", $video_url, $match)){
-                $video_url = "https://docs.google.com/viewer?srcid=" . $match[0] .
-             "&pid=explorer&efh=false&a=v&chrome=false&embedded=true";
-                $candidate->video_url = $video_url;
-            }
-            
+        $candidate->video_url = $this->extractUrl($data['video_url']);
+
+
 
         $candidate->save();
 
@@ -195,13 +176,13 @@ class CandidateController extends Controller
     public function update($id, CandidateRequest $request)
     {
         $candidate = Candidate::findOrFail($id);
-         
+
         if($candidate->user_id == Auth::user()->id){
             $data = $request->all();
             
             
-           
-         
+
+
             unset($data['votes']);
             unset($data['status']);
 
@@ -211,14 +192,9 @@ class CandidateController extends Controller
             $candidate->status = 0;
 
 
-            $plan_url = $data['plan_url'];
-            $match = array();
-            if(preg_match("/[-\w]{25,}/", $plan_url, $match)){
-                $plan_url = "https://docs.google.com/viewer?srcid=" . $match[0] .
-             "&pid=explorer&efh=false&a=v&chrome=false&embedded=true";
-                $candidate->plan_url = $plan_url;
-            }
-             
+            $candidate->plan_url = $this->extractUrl($data['plan_url']);
+
+
 
             if(strcmp($candidate->image_url, "") == 0){
                 if(strcmp($candidate->gender, "Male") == 0){
@@ -228,38 +204,23 @@ class CandidateController extends Controller
                     $candidate->image_url = url('/img/female.jpg');
                 }
             }
-            else{
-               $image_url = $data['image_url'];
-               $match = array();
-               if(preg_match("/[-\w]{25,}/", $image_url, $match)){
-                $image_url = "https://docs.google.com/viewer?srcid=" . $match[0] .
-                "&pid=explorer&efh=false&a=v&chrome=false&embedded=true";
-                $candidate->image_url = $image_url;
-              }
-            }
 
 
+            $candidate->video_url = $this->extractUrl($data['video_url']);
+        
 
-             $video_url = $data['video_url'];
-            $match = array();
-            if(preg_match("/[-\w]{25,}/", $video_url, $match)){
-                $video_url = "https://docs.google.com/viewer?srcid=" . $match[0] .
-             "&pid=explorer&efh=false&a=v&chrome=false&embedded=true";
-                $candidate->video_url = $video_url;
-            }
-             
 
-            $candidate->save();
+        $candidate->save();
 
             //flash message
-            flash()->success('Your profile has been edited successfully!!');
+        flash()->success('Your profile has been edited successfully!!');
 
-            return redirect('/candidate/'.$id);
-        }
-        else{
-            return redirect('/');
-        }
+        return redirect('/candidate/'.$id);
+      }
+    else{
+        return redirect('/');
     }
+}
 
     /**
     * This function deletes a specified candidate
@@ -273,4 +234,18 @@ class CandidateController extends Controller
 
         return redirect('/admin/candidates');
     }
+
+    public function extractUrl ($url){
+        $match = array();
+        if(preg_match("/[-\w]{25,}/", $url, $match)){
+           return  "https://docs.google.com/viewer?srcid=" . $match[0] .
+           "&pid=explorer&efh=false&a=v&chrome=false&embedded=true";
+
+       }
+       else{
+        return $url ;
+    }
 }
+}
+
+
