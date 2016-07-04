@@ -7,6 +7,15 @@
   <form class="form-horizontal" role="form" action="{{ url('/candidate') }}" method="POST">
 
     <!-- the form -->
+
+    <!-- personal email -->
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="personal_email">Email*</label>
+        <div class="col-sm-10">
+            {!! Form::text('personal_email', null, ['class' => 'form-control', 'placeholder'=>'This will be used for login (gmail is prefered)']) !!}
+        </div>
+    </div>
+
     @include('candidate.form')
 
     <!-- create -->

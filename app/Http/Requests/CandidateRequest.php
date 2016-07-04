@@ -57,7 +57,6 @@ class CandidateRequest extends Request
                 $candidate = $user->candidates[0];
 
                 return [
-                    'personal_email' => 'required|email|max:255|unique:users,email,'.$user->id,
                     'position'   => 'required|in:President,Vice President,Treassurer,Secretary',
                     'guc_id' => 'required|unique:candidates,guc_id,'.$candidate->id,
                     'ieee_membership_id' => 'required|unique:candidates,ieee_membership_id,'.$candidate->id,

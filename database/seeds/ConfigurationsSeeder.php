@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 
 use App\Configuration;
 
+use Carbon\Carbon;
+
 class ConfigurationsSeeder extends Seeder
 {
     /**
@@ -45,7 +47,7 @@ class ConfigurationsSeeder extends Seeder
 
         Configuration::create([
             'name' => 'results',
-            'value' => ''
+            'value' => Carbon::yesterday('Africa/Cairo')->toDateString()
         ]);
     }
 }

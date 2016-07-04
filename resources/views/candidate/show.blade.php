@@ -10,7 +10,7 @@
         <div class="col-md-3" id = "profile-pic">
             <img src="{{ $candidate->image_url }}"  width="230" height="250"></img>
         </div>
-        @if(Auth::user()->id == $candidate->user_id)
+        @if(!Auth::guest() && Auth::user()->id == $candidate->user_id)
         <div class="col-md-8" id = "profile-pic">
             <a href="{{ url('/candidate/'.$candidate->id.'/edit')}}">
                 <button type="button" name="edit" class = "btn btn-warning">
@@ -44,7 +44,7 @@
                         <td><b>Applying to</b></td>
                         <td>{{$candidate->position}}'s position</td>
                     </tr>
-                    @if(Auth::user()->id == $candidate->user_id || Auth::user()->isAdmin())
+                    @if(!Auth::guest() && (Auth::user()->id == $candidate->user_id || Auth::user()->isAdmin()))
                     <tr>
                         <td><b>GUC ID</b></td>
                         <td>{{$candidate->guc_id}}</td>

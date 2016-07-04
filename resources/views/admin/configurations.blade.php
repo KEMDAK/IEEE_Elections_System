@@ -19,7 +19,7 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label(null,'Deliverables:', ['class' => 'control-label col-sm-2']) !!}
+            {!! Form::label(null,'Profile Editing:', ['class' => 'control-label col-sm-2']) !!}
 
             {!! Form::label('deliverablesFrom','From:', ['class' => 'control-label col-sm-2']) !!}
             <div class = "col-sm-3">
@@ -49,9 +49,9 @@
         <div class="form-group">
             {!! Form::label(null,'Results:', ['class' => 'control-label col-sm-2']) !!}
 
-            {!! Form::label('results','On:', ['class' => 'control-label col-sm-2']) !!}
+            {!! Form::label('results','Enabled:', ['class' => 'control-label col-sm-2']) !!}
             <div class = "col-sm-3">
-                {!! Form::date('results', $results, ['class' => 'form-control col-md-3']) !!}
+                {!! Form::checkbox('results', 'true', $results, ['class' => 'form-control col-md-3']); !!}
             </div>
         </div>
 
