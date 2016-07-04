@@ -237,8 +237,10 @@ class CandidateController extends Controller
 
     public function extractUrl ($url){
         $match = array();
-        if(preg_match("/[-\w]{25,}/", $url, $match)){
-           return  "https://docs.google.com/viewer?srcid=" . $match[0] .
+         var_dump(parse_url($url, PHP_URL_HOST));
+        if(( (strcmp(parse_url($url, PHP_URL_HOST),"docs.google.com")==0)||(strcmp(parse_url($url, PHP_URL_HOST),"drive.google.com")==0)) &&preg_match("/[-\w]{25,}/", $url, $match) ){
+            
+           return  "https://drive.google.com/viewer?srcid=" . $match[0] .
            "&pid=explorer&efh=false&a=v&chrome=false&embedded=true";
 
        }

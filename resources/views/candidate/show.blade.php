@@ -9,7 +9,7 @@
   <div class="row">
       <div class="col-md-3" id = "profile-pic">
        
-          <iframe src="{{ $candidate->image_url }}"  width="230" height="250"></iframe>
+          <img src="{{ $candidate->image_url }}"  width="230" height="250"></img>
       </div>
       @if(Auth::user()->id == $candidate->user_id)
       <div class="col-md-8" id = "profile-pic">
