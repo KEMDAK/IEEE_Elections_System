@@ -2,22 +2,12 @@
 
 @section('content')
 
-<body data-spy="scroll" data-target="#scroll_body" >
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20"id = "job-desc">
 
 <div class="container">
 
-
-<div class="row">
-      <div class="col-sm-6 col-sm-offset-2" >
-         <h2  class = "title">
-           ELECTION PHASES
-        </h2>
-      </div>
-  </div>
-
-
   <div class="row">
-    <nav class="col-sm-3" id="scroll_body">
+    <nav class="col-sm-3" id="myScrollspy">
       <ul class="nav nav-pills nav-stacked">
 
         <li class="dropdown">
@@ -33,9 +23,12 @@
     </nav>
 
     <div class="col-sm-9">
-      <div id="phase11" style ="height:500px;padding-top:50px;">
+      <div id="phase11" style ="padding-top:10px;">
+        <h2 class = "title">
+          ELECTION PHASES
+       </h2>
        <h3 class= "title"> Phase 1: Submissions</h3>
-       <h3 class ="title" style = "margin-left:40px">a. The Plan :</h3>
+       <h3 class ="title" style = "margin-left:20px">a. The Plan:</h3>
         <ol type="i">
           <li class = "marg">Basic information about the candidate.</li>
           <li class = "marg">The candidate’s intentions and plans for the upcoming year in the position they are applying for.</li>
@@ -43,20 +36,20 @@
 
         </ol>
       </div>
-      <div id="phase12" style ="height:500px;padding-top:50px;">
-        <h3 class ="title" style = "margin-left:55px" >b. The video :</h3>
+      <div id="phase12" style ="padding-top:50px;">
+        <h3 class ="title" style = "margin-left:25px" >b. The video:</h3>
         <ol type = "i">
            <li class = "marg">A brief video explaining the candidate’s plan and intentions for the upcoming year to the voters and Elections Team.</li>
 
           <li class = "marg">Positions duration :
               <ol  >
-                 <li class = "marg"><span style="color: red">Chairman:</span>
+                 <li><span style="color: red">Chairman:</span>
         10-15 minutes.</li>
-                 <li class = "marg"><span style="color: red">Vice Chairman:</span>
+                 <li><span style="color: red">Vice Chairman:</span>
         5-10 minutes.</li>
-                 <li class = "marg"><span style="color: red">Secretary:</span>
+                 <li><span style="color: red">Secretary:</span>
         3-10 minutes.</li>
-                 <li class = "marg"><span style="color: red">Treasurer:</span>
+                 <li><span style="color: red">Treasurer:</span>
         3-10 minutes.</li>
 
                </ol>
@@ -66,14 +59,14 @@
       </div>
 
 
-      <div id="phase2" style ="height:300px;padding-top:50px;">
+      <div id="phase2" style ="padding-top:50px;">
         <h3 class ="title">Phase 2: Plan Discussions</h3>
         <ul>
           <li class = "marg">After the completion of Phase 1, a meeting with each candidate will be held to discuss the candidate's plan with the Advisory Board.</li>
         </ul>
       </div>
 
-      <div id="phase3" style ="height:300px;padding-top:50px;">
+      <div id="phase3" style ="padding-top:50px;">
         <h3 class = "title">Phase 3: Eligibility Checking</h3>
         <ul>
           <li class = "marg">After the completion of Phase 2, a filtration process will be done to announce the final candidates for the elections after applying the eligibility conditions on each candidate.</li>

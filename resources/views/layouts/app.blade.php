@@ -21,8 +21,8 @@
         background-color: rgb(198, 217, 236);
     }
     .marg {
-        margin: 12px 3cm ;
-        font-size: 20px;
+        margin-left: 10px;
+        font-size: 18px;
         font-weight:bold;
         color:#008B8B;
     }
@@ -65,12 +65,11 @@
         position: fixed;
     }
     div.col-sm-9 div {
-        height: 800px;
         font-size: 16px;
     }
     @media screen and (max-width: 810px) {
-        #chairman, #vice_chairman, #secretary, #treasurer {
-            margin-left: 150px;
+        #chairman, #vice_chairman, #secretary, #treasurer, #phase11, #phase12, #phase2, #phase3 {
+            margin-left: 130px;
         }
     }
     /*candidate.index, vote.index*/
