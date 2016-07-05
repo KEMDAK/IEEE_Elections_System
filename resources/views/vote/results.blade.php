@@ -31,7 +31,7 @@
      ?>
     @include('vote.results_partial', compact('winner','position', 'id'))
 
-    <!-- chairman -->
+    <!-- treasurer -->
     <?php
       $winner = $treasurer;
       $id = "treasurer-votes";
