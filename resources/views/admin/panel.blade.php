@@ -10,19 +10,19 @@
 
     <div class="row">
         <span class "col-md-12">
-          <a href="{{ url('/admin/voters') }}"><button type="button" class="btn btn-info">Voters List</button></a>
+          <a href="{{ url('/admin/voters') }}"><button type="button" class="btn btn-primary">Voters List</button></a>
         </span>
     </div>
 
     <div class="row">
         <span class "col-md-12">
-          <a href="{{ url('/admin/candidates') }}"><button type="button" class="btn btn-info">Candidates List</button></a>
+          <a href="{{ url('/admin/candidates') }}"><button type="button" class="btn btn-primary">Candidates List</button></a>
         </span>
     </div>
 
     <div class="row">
         <span class "col-md-12">
-          <a href="{{ url('/admin/config') }}"><button type="button" class="btn btn-info">Elections config</button></a>
+          <a href="{{ url('/admin/config') }}"><button type="button" class="btn btn-primary">Elections config</button></a>
         </span>
     </div>
 
