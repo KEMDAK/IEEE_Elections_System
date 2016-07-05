@@ -307,8 +307,34 @@
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
     <script>
-    $('div.alert').not('.alert-important').delay(3000).slideUp(300);
-    $('#flash-overlay-modal').modal();
+    function progress(percent, $element) {
+      $element.animate({ width: percent }, 700);
+    }
+
+    function results_text() {
+      $('.results-text').animate({marginLeft: "30px"},1000)
+    }
+
+    $(document).ready( function() {
+      $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+
+      $('#flash-overlay-modal').modal();
+
+      var chairman_votes = "60%";
+      progress(chairman_votes, $('#chairman-votes'));
+
+      var vice_chairman_votes = "60%";
+      progress(vice_chairman_votes, $('#vice_chairman-votes'));
+
+      var secretary_votes = "60%";
+      progress(secretary_votes, $('#secretary-votes'));
+
+      var treasurer_votes = "60%";
+      progress(treasurer_votes, $('#treasurer-votes'));
+
+      results_text();
+
+    });
     </script>
 
 
