@@ -264,7 +264,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="/img/logo_light.png" alt="logo">
+                    <img src= {{ url("/img/logo_light.png")}} alt="logo">
                 </a>
             </div>
 
