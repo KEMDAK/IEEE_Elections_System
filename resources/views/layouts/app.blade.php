@@ -281,8 +281,11 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
+                    @if(strcmp(App\Configuration::where('name', 'results')->first()->value, "") == 0)
+                    <li><a href="{{ url('/vote/results') }}"><i class="fa fa-btn fa fa-bar-chart"></i>Results</a></li>
+                    @endif
                     @if (Auth::guest())
+                    <!-- Authentication Links -->
                     <li><a href="{{ url('/login') }}"><i class="fa fa-btn fa-sign-in"></i>Login</a></li>
                     <li><a href="{{ url('/activate') }}"><i class="fa fa-btn fa-envelope"></i>Activate my account</a></li>
                     <li><a href="{{ url('/candidate') }}"><i class="fa fa-btn fa-users"></i>View Candidates</a></li>
