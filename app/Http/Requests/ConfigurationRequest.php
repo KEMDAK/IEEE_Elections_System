@@ -25,11 +25,11 @@ class ConfigurationRequest extends Request
     {
         return [
             'applicationsFrom' => 'date|after:yesterday',
-            'applicationsTo'   => 'date|after:applicationsFrom',
+            'applicationsTo'   => 'date|after:yesterday',
             // 'deliverablesFrom' => 'date|after:yesterday', // skippting this rule as it is not used
-            'deliverablesTo' => 'date|after:deliverablesFrom',
+            'deliverablesTo' => 'date|after:yesterday',
             'electionsFrom' => 'date|after:yesterday',
-            'electionsTo' => 'date|after:electionsFrom',
+            'electionsTo' => 'date|after:yesterday',
         ];
     }
 }
