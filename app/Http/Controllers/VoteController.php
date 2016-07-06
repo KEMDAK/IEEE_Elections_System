@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Http\Requests\VoteRequest;
+
 use App\Candidate;
 
 use Illuminate\Support\Facades\Auth;
@@ -59,7 +61,7 @@ class VoteController extends Controller
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
-    public function store(Request $request)
+    public function store(VoteRequest $request)
     {
         $positions = ['president','vice_president','treasurer','secretary'];
         $candidates = $request->all();
