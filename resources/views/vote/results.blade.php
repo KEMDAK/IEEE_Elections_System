@@ -9,35 +9,39 @@
 
     <!-- chairman -->
     <?php
-      $winner = $president;
+      $candidates = $presidents;
       $id = "chairman-votes";
       $position = "Chairman";
+      $max = $max_president;
      ?>
-    @include('vote.results_partial', compact('winner','position', 'id'))
+    @include('vote.results_partial', compact('max', 'candidates','position', 'id'))
 
     <!-- vice chairman -->
     <?php
-      $winner = $vice_chairman;
+      $candidates = $vice_presidents;
       $id = "vice_chairman-votes";
       $position = "Vice Chairman";
+      $max = $max_vice_president;
      ?>
-    @include('vote.results_partial', compact('winner','position', 'id'))
+    @include('vote.results_partial', compact('max','candidates','position', 'id'))
 
     <!-- secretary -->
     <?php
-      $winner = $secretary;
+      $candidates = $secretaries;
       $id = "secretary-votes";
       $position = "Secretary";
+      $max = $max_secretary;
      ?>
-    @include('vote.results_partial', compact('winner','position', 'id'))
+    @include('vote.results_partial', compact('max','candidates','position', 'id'))
 
     <!-- treasurer -->
     <?php
-      $winner = $treasurer;
+      $candidates = $treasurers;
       $id = "treasurer-votes";
       $position = "Treasurer";
+      $max = $max_treasurer;
      ?>
-    @include('vote.results_partial', compact('winner','position', 'id'))
+    @include('vote.results_partial', compact('max','candidates','position', 'id'))
 
   </div>
 
@@ -48,26 +52,23 @@
   <script>
   function progress(percent, $element) {
     $element.animate({ width: percent }, 700);
-  }
+  };
 
   $(document).ready( function() {
-    $('div.alert').not('.alert-important').delay(3000).slideUp(300);
-
-    $('#flash-overlay-modal').modal();
 
     var chairman_votes = "60%";
     progress(chairman_votes, $('#chairman-votes'));
 
-    var vice_chairman_votes = "60%";
+    var vice_chairman_votes = "40%";
     progress(vice_chairman_votes, $('#vice_chairman-votes'));
 
-    var secretary_votes = "60%";
+    var secretary_votes = "30%";
     progress(secretary_votes, $('#secretary-votes'));
 
-    var treasurer_votes = "60%";
+    var treasurer_votes = "70%";
     progress(treasurer_votes, $('#treasurer-votes'));
-
   });
+
   </script>
 
 @endsection

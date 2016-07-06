@@ -76,3 +76,23 @@ Route::get('eligibility_conditions', function() {
 Route::get('election_phases', function() {
   return view('information.election_phases');
  });
+
+ // testing front
+
+Route::get('res', function() {
+  $presidents = App\Candidate::where('position', 'President')->get();
+  $vice_presidents = App\Candidate::where('position', 'Vice President')->get();
+  $treasurers = App\Candidate::where('position', 'Treassurer')->get();
+  $secretaries = App\Candidate::where('position', 'Secretary')->get();
+
+  $max_president = App\Candidate::where('position', 'President')->max('votes');
+
+  $max_vice_president = App\Candidate::where('position', 'Vice President')->max('votes');
+
+  $max_treasurer = App\Candidate::where('position', 'Treassurer')->max('votes');
+
+  $max_secretary = App\Candidate::where('position', 'Secretary')->max('votes');
+
+  return view('vote.results', compact('presidents', 'max_president', 'vice_presidents', 'max_vice_president', 'treasurers', 'max_treasurer', 'secretaries', 'max_secretary'));
+
+});
