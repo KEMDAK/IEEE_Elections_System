@@ -102,7 +102,7 @@ class VoteController extends Controller
 
         $treasurers = Candidate::where('position', 'Treassurer')->where('status', '1')->get();
         $max_treasurer = Candidate::where('position', 'Treassurer')->where('status', '1')->max('votes');
-        
+
         $secretaries = Candidate::where('position', 'Secretary')->where('status', '1')->get();
         $max_secretary = Candidate::where('position', 'Secretary')->where('status', '1')->max('votes');
 

@@ -56,7 +56,12 @@
 
   $(document).ready( function() {
 
+    // var candidates = <?php echo json_encode($candidates); ?>;
+    // var candidate = candidates[0];
+    // var p = candidate.votes;
+    // var chairman_votes = p + "%";
     var chairman_votes = "60%";
+
     progress(chairman_votes, $('#chairman-votes'));
 
     var vice_chairman_votes = "40%";

@@ -48,7 +48,7 @@ class EmptySeeder extends Seeder
             'last_name' => 'Position',
             'votes' => 0,
             'status' => '1',
-            'user_id' => '1'
+            'user_id' => '1',
             'image_url' => 'http://photos.gograph.com/thumbs/CSP/CSP993/k15333509.jpg'
         ]);
 
@@ -62,7 +62,7 @@ class EmptySeeder extends Seeder
             'last_name' => 'Position',
             'votes' => 0,
             'status' => '1',
-            'user_id' => '1'
+            'user_id' => '1',
             'image_url' => 'http://photos.gograph.com/thumbs/CSP/CSP993/k15333509.jpg'
         ]);
 
@@ -76,7 +76,7 @@ class EmptySeeder extends Seeder
             'last_name' => 'Position',
             'votes' => 0,
             'status' => '1',
-            'user_id' => '1'
+            'user_id' => '1',
             'image_url' => 'http://photos.gograph.com/thumbs/CSP/CSP993/k15333509.jpg'
         ]);
     }

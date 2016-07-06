@@ -4,10 +4,8 @@
     </h3>
 </div>
 
-<div class="candidates_results">
   @foreach($candidates as $candidate)
-    @unless(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name, 'Position') == 0)
-    <div class = "row">
+    <div class = "row candidate-progress">
 
         <div class = "col-md-3 col-xs-1">
             <img class = "results-pic" src = {{url( $candidate->image_url) }} alt = "candidate" width="50px" height="50px">
@@ -25,7 +23,7 @@
             $c = "warning";
           }
         ?>
-        
+
         <div class = "col-md-6">
           <div class="progress">
             <div class="progress-bar progress-bar-striped progress-bar-{{$c}} active" role="progressbar"
@@ -34,7 +32,4 @@
         </div>
 
       </div>
-      @endunless
     @endforeach
-
-</div>
