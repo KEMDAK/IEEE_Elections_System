@@ -15,7 +15,7 @@
     </div>
 
     <?php
-    if($i < count($votes) && $votes[$i] === $max){
+    if(($i < count($votes) && $votes[$i] === $max && ($max != 0 || ($max == 0 && (strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0))))){
         $c = "success";
     } else {
         $c = "warning";
