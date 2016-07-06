@@ -248,12 +248,11 @@
     /*vote.results*/
     /*progress bar*/
     .candidate-progress {
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     .progress{
-        /*height: 50px;*/
-        /*box-shadow: none;*/
+        height: 50px;
+        box-shadow: none;
         background-color: transparent;
     }
 

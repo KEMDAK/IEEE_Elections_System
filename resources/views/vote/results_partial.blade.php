@@ -4,32 +4,35 @@
     </h3>
 </div>
 
-  @foreach($candidates as $candidate)
-    <div class = "row candidate-progress">
+<?php $i = 0;?>
+@foreach($candidates as $candidate)
+<div class = "row candidate-progress" style="border: 4px; border-color: green">
 
-        <div class = "col-md-3 col-xs-1">
-            <img class = "results-pic" src = {{url( $candidate->image_url) }} alt = "candidate" width="50px" height="50px">
-        </div>
+    <div class = "col-md-1 col-xs-1">
+        <?php if(!(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0)) {?> <a href = {{ url('candidate', $candidate->id)}}> <?php } ?>
+            <img class = "results-pic" src = {{url( $candidate->image_url) }} alt = "{{ $candidate->first_name }} {{ $candidate->last_name }}" width="50px" height="50px">
+        <?php if(!(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0)) {?> </a> <?php } ?>
+    </div>
 
-        <div class = "col-md-3 col-md-offset-0 col-xs-offset-1 col-xs-3" style="font-size: 15px; padding-top: 4px">
+    <?php
+    if($i < count($votes) && $votes[$i] === $max){
+        $c = "success";
+    } else {
+        $c = "warning";
+    }
+    ?>
+
+    <?php if(!(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0)) {?> <a href = {{ url('candidate', $candidate->id)}}> <?php } ?>
+        <div class = "col-md-2 col-md-offset-0 col-xs-offset-1 col-xs-4" style="font-size: 13px; padding-top: 15px; font-weight: bold; color: black;<?php if(strcmp($c, 'success') == 0) { ?> color: green; <?php } ?>" >
             {{ $candidate->first_name }} {{ $candidate->last_name }}
         </div>
+        <?php if(!(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0)) {?> </a> <?php } ?>
 
-        <?php
-          if($candidate->votes === $max){
-            $c = "success";
-
-          } else {
-            $c = "warning";
-          }
-        ?>
-
-        <div class = "col-md-6">
-          <div class="progress">
-            <div class="progress-bar progress-bar-striped progress-bar-{{$c}} active" role="progressbar"
-            aria-valuemin="0" aria-valuemax="100" id = {{ $id }}></div>
-          </div>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-{{$c}} active" role="progressbar" style="font-size: 25px; padding-top: 14px"
+            aria-valuemin="0" aria-valuemax="100" id = {{ $id . '-' . $i }}><?php if(strcmp($votes[$i], '0') != 0){ ?>{{ $votes[$i] }} <?php } ?></div>
         </div>
 
-      </div>
-    @endforeach
+    </div>
+<?php $i++; ?>
+@endforeach
