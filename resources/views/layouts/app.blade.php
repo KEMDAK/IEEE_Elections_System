@@ -14,7 +14,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-
+    <link rel="shortcut icon" href="{{ asset('ieeeIcon.png') }}">
     <style>
     body {
         font-family: 'Lato';
@@ -246,6 +246,16 @@
         }
     }
 
+    /*vote.results*/
+    /*progress bar*/
+    .candidate-progress {
+      margin-bottom: 10px;
+    }
+    .progress{
+        height: 50px;
+        box-shadow: none;
+        background-color: transparent;
+    }
 
     </style>
 </head>
@@ -272,8 +282,11 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
+                    @if(strcmp(App\Configuration::where('name', 'results')->first()->value, "") == 0)
+                    <li><a href="{{ url('/vote/results') }}"><i class="fa fa-btn fa fa-bar-chart"></i>Results</a></li>
+                    @endif
                     @if (Auth::guest())
+                    <!-- Authentication Links -->
                     <li><a href="{{ url('/login') }}"><i class="fa fa-btn fa-sign-in"></i>Login</a></li>
                     <li><a href="{{ url('/activate') }}"><i class="fa fa-btn fa-envelope"></i>Activate my account</a></li>
                     <li><a href="{{ url('/candidate') }}"><i class="fa fa-btn fa-users"></i>View Candidates</a></li>
@@ -304,13 +317,16 @@
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
     <script>
-    $('div.alert').not('.alert-important').delay(3000).slideUp(300);
-    $('#flash-overlay-modal').modal();
-    </script>
 
+      $(document).ready( function() {
+        $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+
+        $('#flash-overlay-modal').modal();
+      });
+
+    </script>
 
 </body>
 </html>

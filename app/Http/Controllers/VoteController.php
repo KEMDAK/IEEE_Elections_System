@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Configuration;
 
+use DB;
+
 class VoteController extends Controller
 {
     /**
@@ -94,6 +96,22 @@ class VoteController extends Controller
     public function results()
     {
         // getting the results from the database and sending it to the view
-        return view('vote.results');
+        $presidents = Candidate::where('position', 'President')->where('status', '1')->get();
+        $max_president = Candidate::where('position', 'President')->where('status', '1')->max('votes');
+        $votes_presidents = DB::table('candidates')->where('position', 'President')->where('status', '1')->pluck('votes');
+
+        $vice_presidents = Candidate::where('position', 'Vice President')->where('status', '1')->get();
+        $max_vice_president = Candidate::where('position', 'Vice President')->where('status', '1')->max('votes');
+        $votes_vice_presidents = DB::table('candidates')->where('position', 'Vice President')->where('status', '1')->pluck('votes');
+
+        $treasurers = Candidate::where('position', 'Treassurer')->where('status', '1')->get();
+        $max_treasurer = Candidate::where('position', 'Treassurer')->where('status', '1')->max('votes');
+        $votes_treasurers = DB::table('candidates')->where('position', 'Treassurer')->where('status', '1')->pluck('votes');
+
+        $secretaries = Candidate::where('position', 'Secretary')->where('status', '1')->get();
+        $max_secretary = Candidate::where('position', 'Secretary')->where('status', '1')->max('votes');
+        $votes_secretaries = DB::table('candidates')->where('position', 'Secretary')->where('status', '1')->pluck('votes');
+
+        return view('vote.results', compact('presidents', 'votes_presidents', 'max_president', 'vice_presidents', 'votes_vice_presidents', 'max_vice_president', 'treasurers', 'votes_treasurers', 'max_treasurer', 'secretaries', 'votes_secretaries', 'max_secretary'));
     }
 }
