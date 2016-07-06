@@ -94,6 +94,18 @@ class VoteController extends Controller
     public function results()
     {
         // getting the results from the database and sending it to the view
-        return view('vote.results');
+        $presidents = Candidate::where('position', 'President')->where('status', '1')->get();
+        $max_president = Candidate::where('position', 'President')->where('status', '1')->max('votes');
+
+        $vice_presidents = Candidate::where('position', 'Vice President')->where('status', '1')->get();
+        $max_vice_president = Candidate::where('position', 'Vice President')->where('status', '1')->max('votes');
+
+        $treasurers = Candidate::where('position', 'Treassurer')->where('status', '1')->get();
+        $max_treasurer = Candidate::where('position', 'Treassurer')->where('status', '1')->max('votes');
+        
+        $secretaries = Candidate::where('position', 'Secretary')->where('status', '1')->get();
+        $max_secretary = Candidate::where('position', 'Secretary')->where('status', '1')->max('votes');
+
+        return view('vote.results', compact('presidents', 'max_president', 'vice_presidents', 'max_vice_president', 'treasurers', 'max_treasurer', 'secretaries', 'max_secretary'));
     }
 }
