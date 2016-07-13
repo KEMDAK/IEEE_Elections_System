@@ -29,7 +29,7 @@
                             <label for="ieee_membership_id" class="col-md-4 control-label">IEEE Membership ID</label>
 
                             <div class="col-md-6">
-                                <input id="ieee_membership_id" type="text" class="form-control" name="ieee_membership_id" value="{{ old('ieee_membership_id') }}">
+                                <input id="ieee_membership_id" type="text" class="form-control" name="ieee_membership_id" value="{{ old('ieee_membership_id') }}" placeholder="(optional)">
 
                                 @if ($errors->has('ieee_membership_id'))
                                     <span class="help-block">

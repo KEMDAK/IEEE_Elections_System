@@ -116,7 +116,7 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'email' => 'required|email|max:255|unique:users',
-            'ieee_membership_id' => 'required|unique:users',
+            'ieee_membership_id' => 'unique:users',
         ]);
     }
 
@@ -128,6 +128,10 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        if(strcmp($data['ieee_membership_id'], "") == 0){
+            $data['ieee_membership_id'] = null;
+        }
+
         return User::create([
             'ieee_membership_id' => $data['ieee_membership_id'],
             'role' => 'Voter',
@@ -159,8 +163,8 @@ class AuthController extends Controller
         $data = $request->all();
 
         $this->validate($request, [
-            'email' => 'required|email|max:255|exists:users,email,ieee_membership_id,' . $data['ieee_membership_id'] . ',active,0',
-            'ieee_membership_id' => 'required',
+            'email' => 'required|email|max:255|exists:users,email,ieee_membership_id,' . ((strcmp($data['ieee_membership_id'], "") == 0) ? "NULL" : $data['ieee_membership_id']) . ',active,0',
+            'ieee_membership_id' => '',
         ]);
 
 

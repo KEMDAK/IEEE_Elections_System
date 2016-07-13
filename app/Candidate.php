@@ -26,10 +26,10 @@ class Candidate extends Model
      * @var array
      */
     protected $hidden = [
-        'votes'
+        'votes', 'u_votes'
     ];
 
-      
+
 
     /**
      * Returns true if this candidate applying for the president position.
