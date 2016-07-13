@@ -13,7 +13,9 @@
 <br>Kindly use the following information to activate your account:
 <br>
 <br><strong>Email:</strong> {{ $email }}
+@if(! (strcmp($ieee_membership_id, "") == 0)))
 <br><strong>Membership Number:</strong> {{ $ieee_membership_id }}
+@endif
 <br>
 <br>You are kindly requested to login to<strong> <a href="http://ieeeguc.org/activate">http://ieeeguc.org/activate</a></strong> to activate your account.
 <br>
