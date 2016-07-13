@@ -26,5 +26,13 @@
         </span>
     </div>
 
+    @if(strcmp(App\Configuration::where('name', 'results')->first()->value, "") == 0)
+    <div class="row">
+        <span class "col-md-12">
+          <a href="{{ url('/vote/results_O') }}"><button type="button" class="btn btn-primary">Official Results</button></a>
+        </span>
+    </div>
+    @endif
+
 </div>
 @endsection

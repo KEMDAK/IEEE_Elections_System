@@ -283,7 +283,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     @if(strcmp(App\Configuration::where('name', 'results')->first()->value, "") == 0)
-                    <li><a href="{{ url('/vote/results') }}"><i class="fa fa-btn fa fa-bar-chart"></i>Results</a></li>
+                    <li><a href="{{ url('/vote/results_U') }}"><i class="fa fa-btn fa fa-bar-chart"></i>Results</a></li>
                     @endif
                     @if (Auth::guest())
                     <!-- Authentication Links -->
