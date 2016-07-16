@@ -78,7 +78,7 @@
                     <h3>Plan:</h3>
                     <div>
                         <center>
-                            <iframe src="{{ $candidate->plan_url }}" width="640" height="900"></iframe>
+                            <iframe class="col-xs-12" src="{{ $candidate->plan_url }}" width="640" height="900"></iframe>
                         </center>
                     </div>
 
@@ -86,7 +86,7 @@
                     <h3>Video:</h3>
                     <div>
                         <center>
-                            <iframe src="{{ $candidate->video_url }}" width="640" height="480"></iframe>
+                            <iframe class="col-xs-12" src="{{ $candidate->video_url }}" width="640" height="480"></iframe>
                         </center>
                     </div>
 
