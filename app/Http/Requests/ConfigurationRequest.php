@@ -24,12 +24,12 @@ class ConfigurationRequest extends Request
     public function rules()
     {
         return [
-            'applicationsFrom' => 'date|after:yesterday',
-            'applicationsTo'   => 'date|after:yesterday',
-            // 'deliverablesFrom' => 'date|after:yesterday', // skippting this rule as it is not used
-            'deliverablesTo' => 'date|after:yesterday',
-            'electionsFrom' => 'date|after:yesterday',
-            'electionsTo' => 'date|after:yesterday',
+            'applicationsFrom' => 'date',
+            'applicationsTo'   => 'date',
+            // 'deliverablesFrom' => 'date', // skippting this rule as it is not used
+            'deliverablesTo' => 'date',
+            'electionsFrom' => 'date',
+            'electionsTo' => 'date',
         ];
     }
 }
