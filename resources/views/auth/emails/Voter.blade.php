@@ -16,7 +16,7 @@
 <br><strong>Password:</strong> {{ $password }}
 <br>
 <br>You are kindly requested to login to<strong> <a href="http://www.ieeeguc.org ">www.ieeeguc.org </a></strong>using the above information.
-<br>The voting process will start on <strong>18/7/2016 from 12:00 AM till 11:59 PM.</strong>
+<br>The voting process will start on <strong>20/11/2016 from 12:00 AM till 11:59 PM.</strong>
 <br>
 <br>Have a sunny day. :)</p>
 <h4 class = "indented"><strong>Best Regards,</strong>

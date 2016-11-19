@@ -20,7 +20,7 @@
 <br>
 <strong>Upcoming Deadlines:</strong>
 <br>
-<br><strong>Application Form:</strong> 8/7/2016 (11:59 PM)
+<!-- <br><strong>Application Form:</strong> 8/7/2016 (11:59 PM)
 <br><strong>Plan Submission:</strong> 10/7/2016 (11:59 PM)
 <br><strong>Video Submission:</strong> 11/7/2016 (11:59 PM)
 <br><strong>Plan Disucssions:</strong> 13/7/2016 or 14/7/2016
@@ -28,7 +28,7 @@
 <br><strong>Promotional Campaigns:</strong> 15/7/2016 (6:00 PM) till 17/7/2016 (5:59 PM)
 <br><strong>Electorial Silence:</strong> 17/7/2016 (6:00 PM) and 18/7/2016
 <br><strong>Elections Phase:</strong> 18/7/2016
-<br><strong>Elections Results:</strong> 19/7/2016
+<br><strong>Elections Results:</strong> 19/7/2016 -->
 
 <br>
 <br>Have a sunny day. :)</p>
