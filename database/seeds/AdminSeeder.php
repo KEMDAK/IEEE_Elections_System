@@ -23,17 +23,17 @@ class AdminSeeder extends Seeder
         ]);
 
         User::create([
-            'ieee_membership_id' => '92849112',
+            'ieee_membership_id' => null,
             'role' => 'Admin',
-            'email' => 'sherifmagdyabdelhalim@gmail.com',
+            'email' => 'kareem-mokhtar@outlook.com',
             'active' => '0',
             'status' => '1'
         ]);
 
         User::create([
-            'ieee_membership_id' => '93390793',
+            'ieee_membership_id' => '93868979',
             'role' => 'Admin',
-            'email' => 'walidtarekelhefny@gmail.com',
+            'email' => 'abdelrahman.o.a@ieee.org',
             'active' => '0',
             'status' => '1'
         ]);
