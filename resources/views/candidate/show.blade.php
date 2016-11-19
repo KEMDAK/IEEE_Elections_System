@@ -82,7 +82,7 @@
                         </center>
                     </div>
 
-                    @if($candidate->video_url !== null)
+                    @if(!$candidate->video_url === null)
                     <h3>Video:</h3>
                     <div>
                         <center>
