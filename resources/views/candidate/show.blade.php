@@ -82,14 +82,14 @@
                         </center>
                     </div>
 
-
+                    @if($candidate->video_url !== null)
                     <h3>Video:</h3>
                     <div>
                         <center>
                             <iframe class="col-xs-12" src="{{ $candidate->video_url }}" width="640" height="480"></iframe>
                         </center>
                     </div>
-
+                    @endif
                 </div>
             </div>
         </div>
