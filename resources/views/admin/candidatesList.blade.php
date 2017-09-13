@@ -19,7 +19,7 @@
           </thead>
           <tbody>
               @foreach($candidates as $candidate)
-                @if($candidate->status === '1' && !(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0))
+                @if($candidate->status == 1 && !(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0))
                   <tr>
                       <td>{{$candidate->ieee_membership_id}}</td>
                       <td>{{$candidate->first_name}} {{$candidate->last_name}}</td>
@@ -56,7 +56,7 @@
           </thead>
           <tbody>
               @foreach($candidates as $candidate)
-                @if($candidate->status === '0' && !(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0))
+                @if($candidate->status == 0 && !(strcmp($candidate->first_name,'Empty') == 0 && strcmp($candidate->last_name,'Position') == 0))
                   <tr>
                       <td>{{$candidate->ieee_membership_id}}</td>
                       <td>{{$candidate->first_name}} {{$candidate->last_name}}</td>
